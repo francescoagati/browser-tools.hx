@@ -1,4 +1,4 @@
-package lib;
+package browser_tools;
 
 import js.Boot;
 import js.Browser;
@@ -96,7 +96,7 @@ class HtmlTools {
 		return untyped node.querySelectorAll(selector);
 	}
 
-  
+
 	public inline static function queryTagNameBody(tagName:String):Array<AElement> {
 		return untyped HtmlTools.queryTagName(tagName, Browser.document.body);
 	}

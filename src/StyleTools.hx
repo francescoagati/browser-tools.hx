@@ -1,3 +1,4 @@
+package browser_tools;
 class StyleTools {
 
 	@:extern
