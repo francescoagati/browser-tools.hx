@@ -1,4 +1,7 @@
 package browser_tools;
+import js.html.*;
+
+
 class StyleTools {
 
 	@:extern

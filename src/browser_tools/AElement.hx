@@ -1,4 +1,7 @@
 package browser_tools;
+import js.html.*;
+import js.JQuery;
+import js.Browser;
 
 @:forward abstract AElement(Element) from Element to Element {
 
