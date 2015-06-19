@@ -1,0 +1,3 @@
+-cp src
+-main browser_tools.Main
+-js build/js/build.js
