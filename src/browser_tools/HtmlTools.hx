@@ -118,6 +118,13 @@ class HtmlTools {
 		return div;
 	}
 
+  public static inline function AsyncinjectCss(css:String) {
+    var style = js.Browser.document.createStyleElement();
+    style.innerText = css;
+    Browser.window.requestAnimationFrame(function(i) {
+      js.Browser.document.body.appendChild(style);
+    });
+  }
 
 	public static inline function injectCss(css:String) {
 			var style = js.Browser.document.createStyleElement();

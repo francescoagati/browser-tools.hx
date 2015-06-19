@@ -119,6 +119,15 @@ browser_$tools_HtmlTools.queryClassBody = function(className) {
 browser_$tools_HtmlTools.queryBody = function(selector) {
 	return browser_$tools_HtmlTools.query(selector,window.document.body);
 };
+browser_$tools_HtmlTools.AsyncinjectCss = function(css) {
+	var style;
+	var _this = window.document;
+	style = _this.createElement("style");
+	style.innerText = css;
+	window.requestAnimationFrame(function(i) {
+		window.document.body.appendChild(style);
+	});
+};
 browser_$tools_HtmlTools.injectCss = function(css) {
 	var style;
 	var _this = window.document;
