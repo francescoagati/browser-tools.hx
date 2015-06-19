@@ -1,0 +1,14 @@
+{
+  "name": "browser_tools",
+  "license": "MIT",
+  "classPath": "src",
+  "tags": ["async"],
+  "description": "browser tools",
+  "contributors": ["francescoagati"],
+  "releasenote": "first release",
+  "version": "0.1.1",
+  "url": "https://github.com/francescoagati/browser_tools.hx",
+  "dependencies": {
+    "continuation": ""
+  }  
+}
