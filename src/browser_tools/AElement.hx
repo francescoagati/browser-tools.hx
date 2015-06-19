@@ -1,3 +1,5 @@
+package browser_tools;
+
 @:forward abstract AElement(Element) from Element to Element {
 
     public inline function new(el:Element) {
@@ -88,7 +90,7 @@
 
 		@:extern @:op(A / B)
 		public inline function search(selector:String) {
-			return lib.HtmlTools.query(selector,this);
+			return browser_tools.HtmlTools.query(selector,this);
 		}
 
 }
