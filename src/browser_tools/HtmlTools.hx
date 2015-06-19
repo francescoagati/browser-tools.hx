@@ -152,4 +152,23 @@ class HtmlTools {
 		return element;
   }
 
+  @:extern public static inline function addClass(element:Element,cls:String) {
+    element.classList.add(cls);
+		return element;
+  }
+
+  @:extern public static inline function removeClass(element:Element,cls:String) {
+    element.classList.remove(cls);
+		return element;
+  }
+
+  @:extern public static inline function setContent(element:Element,html:String) {
+    element.innerHTML = html;
+		return element;
+  }
+
+  @:extern public static inline function hasClass(element:Element,cls:String):Bool {
+    return element.classList.contains(cls);
+  }
+
 }
