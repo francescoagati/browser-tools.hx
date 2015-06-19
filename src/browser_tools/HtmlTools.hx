@@ -5,7 +5,7 @@ import js.Browser;
 import js.html.*;
 import js.JQuery;
 using Lambda;
-using browser_tools.HtmlTools.StyleTools;
+using browser_tools.StyleTools;
 
 enum Select {
   id(id_element:String);
