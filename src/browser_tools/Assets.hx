@@ -5,14 +5,23 @@ import js.Browser;
 typedef Group = Array<String>;
 typedef Manifest = Array<Group>;
 
+@:forward abstract AGroup(Group) from Group to Group {
+  public inline function new(group:Group) this = group;
+  @:op(A<<B) public inline function push_to_group(s:String) {
+    this.push(s);
+    return new AGroup(group);
+  }
+}
+
+
 class AssetsTools {
-  public inline static function createGroup(manifest:Manifest):Group {
-    var group:Group = [];
+  public inline static function createGroup(manifest:Manifest):AGroup {
+    var group:AGroup = [];
     manifest.push(group);
     return group;
   }
 
-  public inline static function add(group:Group,path:String) {
+  public inline static function add(group:AGroup,path:String):AGroup {
     group.push(path);
     return group;
   }
