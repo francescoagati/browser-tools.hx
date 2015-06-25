@@ -1,6 +1,6 @@
 package browser_tools;
 import js.Browser;
-
+using browser_tools.Assets.AssetsTools;
 
 typedef Group = Array<String>;
 typedef Manifest = Array<Group>;
@@ -8,8 +8,8 @@ typedef Manifest = Array<Group>;
 
 @:forward abstract AManifest(Manifest) from Manifest to Manifest {
   public inline function new(manifest:Manifest) this = manifest;
-  @:op(A++) public inline function add_group(s:String):AGroup {
-    return this.createGroup();
+  @:op(A++) public inline function add_group():AGroup {
+    return AssetsTools.createGroup(this);
   }
 }
 
