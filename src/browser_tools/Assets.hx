@@ -2,6 +2,26 @@ package browser_tools;
 import js.Browser;
 
 
+typedef Group = Array<String>;
+typedef Assets = Array<Group>;
+
+class AssetsTools {
+  public inline static function createGroup(assets:Assets):Group {
+    var group:Group = [];
+    assets.push(group);
+    return group;
+  }
+
+  public inline static function add(group:Group,path:String) {
+    group.push(path);
+    return group;
+  }
+
+}
+
+
+
+
 @:build(com.dongxiguo.continuation.Continuation.cpsByMeta(":async"))
 class Assets {
 
