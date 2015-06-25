@@ -7,7 +7,7 @@ typedef Manifest = Array<Group>;
 
 
 @:forward abstract AManifest(Manifest) from Manifest to Manifest {
-  public inline function new(manifest:MAnifest) this = manifest;
+  public inline function new(manifest:Manifest) this = manifest;
   @:op(A++) public inline function add_group(s:String):AGroup {
     return this.createGroup();
   }
