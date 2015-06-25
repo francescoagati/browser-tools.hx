@@ -5,6 +5,15 @@ import js.Browser;
 typedef Group = Array<String>;
 typedef Manifest = Array<Group>;
 
+
+@:forward abstract AManifest(Manifest) from Manifest to Manifest {
+  public inline function new(manifest:MAnifest) this = manifest;
+  @:op(A++) public inline function add_group(s:String):AGroup {
+    return this.createGroup();
+  }
+}
+
+
 @:forward abstract AGroup(Group) from Group to Group {
   public inline function new(group:Group) this = group;
   @:op(A<<B) public inline function push_to_group(s:String) {
