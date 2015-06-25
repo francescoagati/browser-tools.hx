@@ -5,7 +5,7 @@ import js.Browser;
 @:build(com.dongxiguo.continuation.Continuation.cpsByMeta(":async"))
 class Assets {
 
-		public static function load_css(url,callback) {
+		public static inline  function load_css(url,callback) {
 			var link = Browser.document.createLinkElement();
 			link.rel = "stylesheet";
 			link.href = url;
@@ -20,7 +20,7 @@ class Assets {
 
     }
 
-		public static function load_script(url,callback) {
+		public static inline  function load_script(url,callback) {
 			var script = Browser.document.createScriptElement();
 			script.async = true;
 			script.src = url;
@@ -32,7 +32,7 @@ class Assets {
 		}
 
 
-		@:async static function load_file(file:String) {
+		@:async static inline  function load_file(file:String) {
 			 if (file.indexOf('.css') > 0) {
 					 @await load_css(file);
          	 @await wait(0);
@@ -48,7 +48,7 @@ class Assets {
 
 
 
-		@:async static function load_group(group:Array<String>) {
+		@:async static inline function load_group(group:Array<String>) {
 				var assets = [
 				  @fork(asset in group) {
 					  @await load_file(asset);
@@ -59,7 +59,7 @@ class Assets {
 		}
 
 
-		@:async public static function process(assets:Array<Array<String>>) {
+		@:async public inline  static function process(assets:Array<Array<String>>) {
 
 			 for (group in assets) {
 					 var grr = @await load_group(group);
