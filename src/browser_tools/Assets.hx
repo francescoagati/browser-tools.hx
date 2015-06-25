@@ -9,7 +9,7 @@ typedef Manifest = Array<Group>;
   public inline function new(group:Group) this = group;
   @:op(A<<B) public inline function push_to_group(s:String) {
     this.push(s);
-    return new AGroup(group);
+    return new AGroup(this);
   }
 }
 
