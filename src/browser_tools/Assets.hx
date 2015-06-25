@@ -3,12 +3,12 @@ import js.Browser;
 
 
 typedef Group = Array<String>;
-typedef Assets = Array<Group>;
+typedef Manifest = Array<Group>;
 
 class AssetsTools {
-  public inline static function createGroup(assets:Assets):Group {
+  public inline static function createGroup(manifest:Manifest):Group {
     var group:Group = [];
-    assets.push(group);
+    manifest.push(group);
     return group;
   }
 
