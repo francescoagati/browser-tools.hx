@@ -8,9 +8,8 @@ typedef Manifest = Array<Group>;
 
 @:forward abstract AManifest(Manifest) from Manifest to Manifest {
   public inline function new(manifest:Manifest) this = manifest;
-  @:op(A++) public inline function add_group():AGroup {
-    return AssetsTools.createGroup(this);
-  }
+  @:op(A++) public inline function add_group():AGroup return AssetsTools.createGroup(this);
+  @:op(++A) public inline function add_group2():AGroup return AssetsTools.createGroup(this);
 }
 
 

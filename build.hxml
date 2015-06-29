@@ -2,3 +2,5 @@
 -main browser_tools.Main
 -js build/js/build.js
 -lib async_tools
+-dce full
+-D analyzer
