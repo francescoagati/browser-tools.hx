@@ -7,24 +7,24 @@ class Debug {
 
 
   public inline static function weblog_tic(obj:Dynamic,?msg:String = '') {
-    Weblog.tic(obj);
+    Weblog.tic(untyped obj);
   }
 
   public inline static function weblog_toc(obj:Dynamic,?msg:String = '') {
-    Weblog.toc(obj);
+    Weblog.toc(untyped obj);
   }
 
   public inline static function weblog_log(obj:Dynamic,?msg:String = '') {
-    Weblog.log(obj);
+    Weblog.log(untyped obj);
   }
 
 
   public inline static function weblog_debug(obj:Dynamic,?msg:String = '') {
-    Weblog.debug(obj);
+    Weblog.debug(untyped obj);
   }
 
   public inline static function weblog_inspect(obj:Dynamic,?msg:String = '') {
-    Weblog.inspect(obj);
+    Weblog.inspect(untyped obj);
   }
 
 
