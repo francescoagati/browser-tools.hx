@@ -1,6 +1,6 @@
 -cp src
 -main browser_tools.Main
 -js build/js/build.js
--lib async_tools
+-lib async_tools weblog
 -dce full
 -D analyzer
