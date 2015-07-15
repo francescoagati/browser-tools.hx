@@ -20,7 +20,7 @@ class Debug {
 
 
   public inline static function weblog_debug(obj:Dynamic,?msg:String = '') {
-    Weblog.debug(untyped obj);
+    Weblog.debug(untyped haxe.Json.stringify(obj));
   }
 
   public inline static function weblog_inspect(obj:Dynamic,?msg:String = '') {
