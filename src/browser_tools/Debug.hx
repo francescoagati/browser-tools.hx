@@ -48,7 +48,7 @@ class Debug {
 
   public inline static function alert_log(obj:Dynamic) {
     #if browser_tools_log
-    js.Browser.alert(haxe.Json.stringify(obj));
+    js.Browser.alert(haxe.Json.stringify(obj,null," "));
     #end
   }
 
