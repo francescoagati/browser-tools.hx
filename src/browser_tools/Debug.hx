@@ -8,40 +8,48 @@ class Debug {
   }
 
 
+  inline function wrap_msg(obj:Dynamic,?msg:String) {
+    return if (msg != '') {
+      [msg,obj];
+    } else {
+      obj;
+    }
+  }
+
   public inline static function weblog_tic(obj:Dynamic,?msg:String = '') {
     #if browser_tools_log
-    Weblog.tic(untyped obj);
+    Weblog.tic(wrap_msg(obj,msg));
     #end
   }
 
   public inline static function weblog_toc(obj:Dynamic,?msg:String = '') {
     #if browser_tools_log
-    Weblog.toc(untyped obj);
+    Weblog.toc(wrap_msg(obj,msg));
     #end
   }
 
   public inline static function weblog_log(obj:Dynamic,?msg:String = '') {
     #if browser_tools_log
-    Weblog.log(untyped obj);
+    Weblog.log(wrap_msg(obj,msg));
     #end
   }
 
 
   public inline static function weblog_debug(obj:Dynamic,?msg:String = '') {
     #if browser_tools_log
-    Weblog.debug(obj);
+    Weblog.debug(wrap_msg(obj,msg));
     #end
   }
 
   public inline static function weblog_debug_json(obj:Dynamic,?msg:String = '') {
     #if browser_tools_log
-    Weblog.debug(untyped haxe.Json.stringify(obj));
+    Weblog.debug(untyped haxe.Json.stringify(wrap_msg(obj,msg)));
     #end
   }
 
-  public inline static function weblog_inspect(obj:Dynamic,?msg:String = '') {
+  public inline static function weblog_inspect(obj:Dynamic) {
     #if browser_tools_log
-    Weblog.inspect(untyped obj);
+    Weblog.inspect(obj);
     #end
   }
 
