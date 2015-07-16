@@ -9,7 +9,7 @@ class Debug {
 
 
   static inline function wrap_msg(obj:Dynamic,?msg:String) {
-    return if (msg != '') {
+    return untyped if (msg != '') {
       [msg,obj];
     } else {
       obj;
