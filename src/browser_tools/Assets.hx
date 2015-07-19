@@ -42,6 +42,20 @@ class AssetsTools {
 @:build(com.dongxiguo.continuation.Continuation.cpsByMeta(":async"))
 class Assets {
 
+
+
+    @:async public static inline function load_json(url) {
+        var text = @await load_text(url);
+        return haxe.Json.parse(text);
+    }
+
+
+    public static inline function load_text(url,callback) {
+      var r = new haxe.Http(url);
+      r.onData = callback;
+      r.request(false);
+    }
+
 		public static inline  function load_css(url,callback) {
 			var link = Browser.document.createLinkElement();
 			link.rel = "stylesheet";

@@ -8,9 +8,6 @@ using browser_tools.Debug;
 
 class Main {
   static function main() {
-
-
-
     var assets:AManifest = [];
     assets++
       << 'http://cdnjs.cloudflare.com/ajax/libs/vue/0.12.1/vue.min.js'
@@ -23,5 +20,10 @@ class Main {
     'ss'.weblog_log();
     'ss'.weblog_debug();
     'ss'.weblog_debug_json('sss');
+
+    browser_tools.Assets.load_json('sssss',function(json) {
+      trace(json);
+    });
+
   }
 }

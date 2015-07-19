@@ -1,6 +1,7 @@
 -cp src
 -main browser_tools.Main
 -js build/js/build.js
--lib async_tools weblog
+-lib async_tools weblog compiletime
 -dce full
 -D analyzer
+-D assets_load_compiletime=true
