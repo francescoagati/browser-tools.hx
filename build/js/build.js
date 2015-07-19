@@ -84,6 +84,8 @@ browser_$tools_Main.main = function() {
 		__afterVar_0(__parameter_1);
 	};
 	r.request(false);
+	var lib = { dependencies : { }, url : "https://github.com/as3boyan/node-webkit-haxelib", version : "1.0.7", releasenote : "Use downloaded page instead of accessing node-webkit github page(to avoid hxssl issues, seems like it need to be rebuild)", contributors : ["as3boyan"], description : "Haxelib which downloads node-webkit binary for your platform and keeps it updated", tags : ["html5","node-webkit","chrome","node.js"], license : "MIT", name : "node-webkit"};
+	console.log(lib);
 };
 var haxe_Http = function(url) {
 	this.url = url;
