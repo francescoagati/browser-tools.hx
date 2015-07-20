@@ -5,7 +5,7 @@ using browser_tools.JQueryTools;
 class Console {
 
 
-  static function inject_console(cb:Void->Void) {
+  public inline static function inject_console(cb:Void->Void) {
 
     var assets:AManifest = [];
 
