@@ -3,6 +3,7 @@ import browser_tools.AElement;
 import browser_tools.HtmlTools;
 import browser_tools.Assets;
 import browser_tools.Debug;
+import browser_tools.Console;
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
