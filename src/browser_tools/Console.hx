@@ -1,7 +1,7 @@
 package browser_tools;
 
-class Console
-{
+@:keep
+class Console {
 
 
   public static function __init__() {
