@@ -48,7 +48,6 @@ _$List_ListIterator.prototype = {
 		return this.val;
 	}
 };
-var browser_$tools_Console = function() { };
 var browser_$tools_Main = function() { };
 browser_$tools_Main.main = function() {
 	var assets = [];
@@ -209,16 +208,6 @@ js_Browser.createXMLHttpRequest = function() {
 	if(typeof ActiveXObject != "undefined") return new ActiveXObject("Microsoft.XMLHTTP");
 	throw new js__$Boot_HaxeError("Unable to create XMLHttpRequest object.");
 };
-var html = "\n\n    <div id=\"console\"></div>\n\n    <script src=\"http://code.jquery.com/jquery-2.1.1.min.js\" ></script>\n    <script src=\"https://cdn.rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal-0.8.8.min.js\"></script>\n    <script>\n        terminal = jQuery(\"#console\").terminal(function(command, term) {\n            if (command !== \"\") {\n                pgr.dconsole.DC.eval(command);\n            } else {\n                term.echo(\"\");\n            }\n        }, {\n            greetings: false,\n            name: \"dconsole\",\n            width: \"100%\",\n            height: \"200\",\n            prompt: \"> \",\n        });\n\n        document.addEventListener(\"console_log\", function(evt) {\n            terminal.echo(evt.detail.data, {\n                finalize: function(div) {\n                    div.css(\"color\", \"#\" + evt.detail.color);\n                }\n            });\n        });\n    </script>\n\n    ";
-var body = window.document.body;
-var node = (function($this) {
-	var $r;
-	var _this = window.document;
-	$r = _this.createElement("div");
-	return $r;
-}(this));
-node.innerHTML = html;
-body.appendChild(node);
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;

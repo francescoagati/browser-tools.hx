@@ -1,10 +1,10 @@
 package browser_tools;
 
-@:keep
+
 class Console {
 
 
-  public static function __init__() {
+  public inline static function inject() {
 
     var html = '
 
