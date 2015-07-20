@@ -1,23 +1,25 @@
 package browser_tools;
-
+import browser_tools.Assets.AManifest;
+using browser_tools.JQueryTools;
 
 class Console {
 
 
-  public inline static function inject() {
+  static function inject_console(cb:Void->Void) {
 
-    var html = '
+    var assets:AManifest = [];
 
-    <link rel="stylesheet" href="https://cdn.rawgit.com/jcubic/jquery.terminal/master/css/jquery.terminal.css">
+    assets++
+      << 'https://cdn.rawgit.com/jcubic/jquery.terminal/master/css/jquery.terminal.css';
+    assets++
+      << 'https://cdn.rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal-0.8.8.min.js';
 
-    <div id="console"></div>
+    browser_tools.Assets.process(assets,function() {
 
+      'body'.toJq().append('<div id="console"></div>');
+      untyped __js__('
 
-
-    <!--<script src="http://code.jquery.com/jquery-2.1.1.min.js" ></script>-->
-    <script src="https://cdn.rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal-0.8.8.min.js"></script>
-    <script>
-        terminal = jQuery("#console").terminal(function(command, term) {
+        var terminal = jQuery("#console").terminal(function(command, term) {
             if (command !== "") {
                 pgr.dconsole.DC.eval(command);
             } else {
@@ -38,12 +40,12 @@ class Console {
                 }
             });
         });
-    </script>
 
-    ';
+      ');
 
-    var body:AElement = js.Browser.document.body;
-    body << html;
+      cb();
+
+    });
 
   }
 }
