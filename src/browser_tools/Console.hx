@@ -14,7 +14,7 @@ class Console {
 
 
 
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js" ></script>
+    <!--<script src="http://code.jquery.com/jquery-2.1.1.min.js" ></script>-->
     <script src="https://cdn.rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal-0.8.8.min.js"></script>
     <script>
         terminal = jQuery("#console").terminal(function(command, term) {
