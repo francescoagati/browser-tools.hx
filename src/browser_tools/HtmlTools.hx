@@ -133,6 +133,37 @@ class HtmlTools {
 	}
 
 
+  @:extern
+	public inline static function moveTo(element:Element,top:Dynamic,left:Dynamic) {
+		element.style.top = top;
+    element.style.left = left;
+		return element;
+	}
+
+  @:extern
+	public inline static function setDimension(element:Element,width:Dynamic,height:Dynamic) {
+		element.style.width = width;
+    element.style.height = height;
+		return element;
+	}
+
+  @:extern
+	public inline static function setBackgroundColor(element:Element,background:Dynamic) {
+		element.style.backgroundColor = background;
+		return element;
+	}
+
+  @:extern
+	public inline static function setZIndex(element:Element,zIndex:Dynamic) {
+		element.style.zIndex = zIndex;
+		return element;
+	}
+
+  @:extern
+	public inline static function setPosition(element:Element,position:Dynamic) {
+		element.style.position = position;
+		return element;
+	}
 
 	@:extern
 	public inline static function setClip(element:Element,top:Int,left:Int,width:Int,height:Int) {
