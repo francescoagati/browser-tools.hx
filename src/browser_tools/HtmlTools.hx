@@ -212,6 +212,14 @@ class HtmlTools {
 		return element;
   }
 
+  @:extern public static inline function remove_node(element:Element) {
+    if (element.remove == null) {
+      element.parentNode.removeChild(element);
+    } else {
+      element.remove();
+    }
+    return element;
+  }
 
 
 
