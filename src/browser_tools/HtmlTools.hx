@@ -6,6 +6,7 @@ import js.html.*;
 import js.JQuery;
 using Lambda;
 using browser_tools.StyleTools;
+using browser_tools.HtmlTools;
 
 enum Select {
   id(id_element:String);
@@ -171,11 +172,6 @@ class HtmlTools {
 		return element;
 	}
 
-	@:extern
-  public static inline function setColor(element:Element,background:String,foreground:String) {
-    element.style.setColor(background, foreground);
-		return element;
-  }
 
   @:extern
   public static inline function setBackgroundImage(element:Element,url:String) {
@@ -201,5 +197,16 @@ class HtmlTools {
   @:extern public static inline function hasClass(element:Element,cls:String):Bool {
     return element.classList.contains(cls);
   }
+
+  @:extern
+  public static inline function setClass(element:Element,cls:String,check:Bool) {
+    if (check == true) element.removeClass('disabled');
+    if (check == false) element.addClass('disabled');
+		return element;
+  }
+
+
+
+
 
 }
