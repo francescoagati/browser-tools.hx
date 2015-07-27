@@ -8,4 +8,7 @@ abstract AStorageJson(js.html.Storage) from js.html.Storage to js.html.Storage {
 
   @:arrayAccess public inline function get(key:String) return haxe.Json.parse(this.getItem(key));
   @:arrayAccess public inline function set(key:String,value:Dynamic) this.setItem(key,haxe.Json.stringify(value));
+
+  public inline function exists(key:String) return this.getItem(key) != null;  
+
 }
