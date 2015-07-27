@@ -207,8 +207,8 @@ class HtmlTools {
 
 
   @:extern public static inline function setClass(element:Element,cls:String,check:Bool) {
-    if (check == true) element.removeClass('disabled');
-    if (check == false) element.addClass('disabled');
+    if (check == true) element.removeClass(cls);
+    if (check == false) element.addClass(cls);
 		return element;
   }
 
