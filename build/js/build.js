@@ -48,6 +48,7 @@ _$List_ListIterator.prototype = {
 		return this.val;
 	}
 };
+var browser_$tools_Http = function() { };
 var browser_$tools_Main = function() { };
 browser_$tools_Main.main = function() {
 	var assets = [];
@@ -61,22 +62,26 @@ browser_$tools_Main.main = function() {
 	tmp = this2;
 	var this1 = tmp;
 	this1.push("http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js");
+	this1;
 	var tmp2;
 	var group1 = [];
 	assets.push(group1);
 	tmp2 = group1;
 	var this3 = tmp2;
 	this3.push("http://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.11/crossfilter.min.js");
+	this3;
 	var tmp3;
 	var group2 = [];
 	assets.push(group2);
 	tmp3 = group2;
 	var this4 = tmp3;
 	this4.push("http://cdnjs.cloudflare.com/ajax/libs/dc/1.7.3/dc.min.js");
+	this4;
 	var __return = function(json) {
 		console.log(json);
 	};
 	var __afterVar_0 = function(text) {
+		text;
 		__return(JSON.parse(text));
 	};
 	var r = new haxe_Http("sssss");
@@ -86,6 +91,25 @@ browser_$tools_Main.main = function() {
 	r.request(false);
 	var lib = { dependencies : { }, url : "https://github.com/as3boyan/node-webkit-haxelib", version : "1.0.7", releasenote : "Use downloaded page instead of accessing node-webkit github page(to avoid hxssl issues, seems like it need to be rebuild)", contributors : ["as3boyan"], description : "Haxelib which downloads node-webkit binary for your platform and keeps it updated", tags : ["html5","node-webkit","chrome","node.js"], license : "MIT", name : "node-webkit"};
 	console.log(lib);
+	var url = "http://test";
+	var cb = function(data) {
+		console.log(data);
+	};
+	var fn_name = "_jsonp_" + browser_$tools_Http.counter_jsonp++;
+	if(new EReg("\\?","").match(url)) url += "&callback=" + fn_name; else url += "?callback=" + fn_name;
+	var tmp4;
+	var _this = window.document;
+	tmp4 = _this.createElement("script");
+	var script = tmp4;
+	script.type = "text/javascript";
+	script.src = url;
+	window[fn_name] = function(data1) {
+		cb(data1);
+		window.document.body.getElementsByTagName("head")[0].removeChild(script);
+		script = null;
+		delete window[fn_name];
+	};
+	window.document.getElementsByTagName("head")[0].appendChild(script);
 };
 var haxe_Http = function(url) {
 	this.url = url;
@@ -211,5 +235,6 @@ js_Browser.createXMLHttpRequest = function() {
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;
+browser_$tools_Http.counter_jsonp = 0;
 browser_$tools_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});

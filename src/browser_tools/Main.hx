@@ -4,9 +4,11 @@ import browser_tools.HtmlTools;
 import browser_tools.Assets;
 import browser_tools.Debug;
 import browser_tools.Console;
+import browser_tools.Http;
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
+using browser_tools.HttpTools;
 
 class Main {
   static function main() {
@@ -29,5 +31,10 @@ class Main {
 
     var lib = browser_tools.Assets.load_json_compile_time('haxelib.json');
     trace(lib);
+
+    'http://test'.to_jsonp(function(data) {
+      trace(data);
+    });
+
   }
 }

@@ -173,8 +173,6 @@ class HtmlTools {
 	}
 
 
-
-
 	@:extern
   public static inline function setColor(element:Element,background:String,foreground:String) {
     element.style.setColor(background, foreground);
