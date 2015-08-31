@@ -12,6 +12,7 @@ using browser_tools.HttpTools;
 
 class Main {
   static function main() {
+    /*
     var assets:AManifest = [];
     assets++
       << 'http://cdnjs.cloudflare.com/ajax/libs/vue/0.12.1/vue.min.js'
@@ -35,6 +36,17 @@ class Main {
     'http://test'.to_jsonp(function(data) {
       trace(data);
     });
+
+    */
+
+    js.Browser.document.addEventListener('DOMContentLoaded',function() {
+      'http://ip.jsontest.com'.to_jsonp({a:1,b:2},function(data) {
+        trace(data);
+      });
+      
+    });
+
+
 
   }
 }
