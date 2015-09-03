@@ -5,6 +5,8 @@ import browser_tools.Assets;
 import browser_tools.Debug;
 import browser_tools.Console;
 import browser_tools.Http;
+import browser_tools.Loader;
+
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
@@ -38,13 +40,17 @@ class Main {
     });
 
     */
-
+/*
     js.Browser.document.addEventListener('DOMContentLoaded',function() {
       'http://ip.jsontest.com'.to_jsonp({a:1,b:2},function(data) {
         trace(data);
       });
-      
+
     });
+*/
+
+  Loader.start();
+  haxe.Timer.delay(Loader.end,2000);
 
 
 

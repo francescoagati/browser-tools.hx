@@ -1,7 +1,7 @@
 -cp src
 -main browser_tools.Main
 -js build/js/build.js
--lib async_tools weblog compiletime
+-lib async_tools weblog compiletime thx.core
 -dce full
 -D analyzer
 -D assets_load_compiletime=true
