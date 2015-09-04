@@ -19,12 +19,16 @@ class Http {
 
   static var counter_jsonp = 0;
 
-  public static inline function jsonp(url:String,?params:QueryParams,cb:Dynamic->Void) {
+  public static inline function jsonp(url:String,?params:QueryParams,?options:{callback:String},cb:Dynamic->Void) {
 
       //porting of https://gist.github.com/gf3/132080/110d1b68d7328d7bfe7e36617f7df85679a08968
 
       var search:String = params;
-      var fn_name = "_jsonp_" + counter_jsonp++;
+      var fn_name = if (options != null && options.callback != null)
+        options.callback
+      else
+        "_jsonp_" + counter_jsonp++;
+
       if (~/\?/.match(url)) url += '$search&callback='+fn_name;
       else url += '?$search&callback='+fn_name;
 

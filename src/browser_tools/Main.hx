@@ -40,18 +40,22 @@ class Main {
     });
 
     */
-/*
+
     js.Browser.document.addEventListener('DOMContentLoaded',function() {
+      'http://ip.jsontest.com'.to_jsonp({a:1,b:2},{callback:'pippa'},function(data) {
+        trace(data);
+      });
+
       'http://ip.jsontest.com'.to_jsonp({a:1,b:2},function(data) {
         trace(data);
       });
 
     });
-*/
 
-  Loader.start();
+
+/*  Loader.start();
   haxe.Timer.delay(Loader.end,2000);
-
+*/
 
 
   }

@@ -1,4 +1,16 @@
 (function (console) { "use strict";
+var EReg = function(r,opt) {
+	opt = opt.split("u").join("");
+	this.r = new RegExp(r,opt);
+};
+EReg.prototype = {
+	match: function(s) {
+		if(this.r.global) this.r.lastIndex = 0;
+		this.r.m = this.r.exec(s);
+		this.r.s = s;
+		return this.r.m != null;
+	}
+};
 var HxOverrides = function() { };
 HxOverrides.iter = function(a) {
 	return { cur : 0, arr : a, hasNext : function() {
@@ -7,80 +19,91 @@ HxOverrides.iter = function(a) {
 		return this.arr[this.cur++];
 	}};
 };
-var browser_$tools_Loader = function() { };
-browser_$tools_Loader.end = function() {
-	var element = window.document.getElementById("browser-tools-loading");
-	if($bind(element,element.remove) == null) element.parentNode.removeChild(element); else element.remove();
-	element;
-	var tmp;
-	var node = window.document.body;
-	tmp = node.getElementsByClassName("start-hide");
-	tmp[0].style.display = "block";
+var Reflect = function() { };
+Reflect.fields = function(o) {
+	var a = [];
+	if(o != null) {
+		var hasOwnProperty = Object.prototype.hasOwnProperty;
+		for( var f in o ) {
+		if(f != "__id__" && f != "hx__closures__" && hasOwnProperty.call(o,f)) a.push(f);
+		}
+	}
+	return a;
 };
+var browser_$tools_Http = function() { };
 var browser_$tools_Main = function() { };
 browser_$tools_Main.main = function() {
-	var body = window.document.body;
-	var loader = "\n      <div id=\"browser-tools-loading\" style=\"position:fixed;top:0px;left:0px;width:100%;height:100%;background:white;\"></div>\n    ";
-	if(window.document.getElementById("browser-tools-loading") == null) {
-		var tmp;
-		var _this = window.document;
-		tmp = _this.createElement("div");
-		var node = tmp;
-		node.innerHTML = loader;
-		body.appendChild(node);
-	}
-	var element = window.document.getElementById("browser-tools-loading");
-	thx_Timer.nextFrame(function() {
-		element.innerHTML = "\n\t\t\t  <style>\n\t\t\t    .spinner {\n\t\t\t      margin: 200px auto;\n\t\t\t      width: 50px;\n\t\t\t      height: 30px;\n\t\t\t      text-align: center;\n\t\t\t      font-size: 10px;\n\n\t\t\t    }\n\n\t\t\t    .spinner > div {\n\t\t\t      background-color: #155500;\n\t\t\t      height: 100%;\n\t\t\t      width: 6px;\n\t\t\t      display: inline-block;\n\n\t\t\t      -webkit-animation: stretchdelay 1.2s infinite ease-in-out;\n\t\t\t      animation: stretchdelay 1.2s infinite ease-in-out;\n\t\t\t    }\n\n\t\t\t    .spinner .rect2 {\n\t\t\t      -webkit-animation-delay: -1.1s;\n\t\t\t      animation-delay: -1.1s;\n\t\t\t    }\n\n\t\t\t    .spinner .rect3 {\n\t\t\t      -webkit-animation-delay: -1.0s;\n\t\t\t      animation-delay: -1.0s;\n\t\t\t    }\n\n\t\t\t    .spinner .rect4 {\n\t\t\t      -webkit-animation-delay: -0.9s;\n\t\t\t      animation-delay: -0.9s;\n\t\t\t    }\n\n\t\t\t    .spinner .rect5 {\n\t\t\t      -webkit-animation-delay: -0.8s;\n\t\t\t      animation-delay: -0.8s;\n\t\t\t    }\n\n\t\t\t    @-webkit-keyframes stretchdelay {\n\t\t\t      0%, 40%, 100% { -webkit-transform: scaleY(0.4) }\n\t\t\t      20% { -webkit-transform: scaleY(1.0) }\n\t\t\t    }\n\n\t\t\t    @keyframes stretchdelay {\n\t\t\t      0%, 40%, 100% {\n\t\t\t        transform: scaleY(0.4);\n\t\t\t        -webkit-transform: scaleY(0.4);\n\t\t\t      } 20% {\n\t\t\t        transform: scaleY(1.0);\n\t\t\t        -webkit-transform: scaleY(1.0);\n\t\t\t      }\n\t\t\t    }\n\t\t\t </style>\n\n\t\t\t <div id=\"overlay\">\n\t\t\t   <div class=\"spinner\">\n\t\t\t     LOADING\n\t\t\t    <div class=\"rect1\"></div>\n\t\t\t    <div class=\"rect2\"></div>\n\t\t\t    <div class=\"rect3\"></div>\n\t\t\t    <div class=\"rect4\"></div>\n\t\t\t    <div class=\"rect5\"></div>\n\t\t\t  </div>\n\n\t\t\t </div>\n\t\t\t";
-		thx_Timer.delay(thx_Functions.noop,0);
-	});
-	haxe_Timer.delay(browser_$tools_Loader.end,2000);
-};
-var haxe_Timer = function(time_ms) {
-	var me = this;
-	this.id = setInterval(function() {
-		me.run();
-	},time_ms);
-};
-haxe_Timer.delay = function(f,time_ms) {
-	var t = new haxe_Timer(time_ms);
-	t.run = function() {
-		t.stop();
-		f();
-	};
-	return t;
-};
-haxe_Timer.prototype = {
-	stop: function() {
-		if(this.id == null) return;
-		clearInterval(this.id);
-		this.id = null;
-	}
-	,run: function() {
-	}
-};
-var thx_Functions = function() { };
-thx_Functions.noop = function() {
-};
-var thx_Timer = function() { };
-thx_Timer.delay = function(callback,delayms) {
-	return (function($this) {
-		var $r;
-		var id = setTimeout(callback,delayms);
-		$r = function() {
-			thx_Timer.clear(id);
+	window.document.addEventListener("DOMContentLoaded",function() {
+		var options = { callback : "pippa"};
+		var url = "http://ip.jsontest.com";
+		var params = { a : 1, b : 2};
+		var cb = function(data) {
+			console.log(data);
 		};
-		return $r;
-	}(this));
-};
-thx_Timer.nextFrame = function(callback) {
-	var id = requestAnimationFrame(callback);
-	return function() {
-		cancelAnimationFrame(id);
-	};
-};
-thx_Timer.clear = function(id) {
-	return clearTimeout(id);
+		var tmp;
+		var obj = params;
+		var tmp2;
+		var _g = [];
+		var _g1 = 0;
+		var _g2 = Reflect.fields(obj);
+		while(_g1 < _g2.length) {
+			var key = _g2[_g1];
+			++_g1;
+			_g.push("" + encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]));
+		}
+		tmp2 = _g;
+		tmp = tmp2.join("&");
+		var search = tmp;
+		var fn_name = options != null && options.callback != null?options.callback:"_jsonp_" + browser_$tools_Http.counter_jsonp++;
+		if(new EReg("\\?","").match(url)) url += "" + search + "&callback=" + fn_name; else url += "?" + search + "&callback=" + fn_name;
+		var tmp1;
+		var _this = window.document;
+		tmp1 = _this.createElement("script");
+		var script = tmp1;
+		script.type = "text/javascript";
+		script.src = url;
+		window[fn_name] = function(data1) {
+			cb(data1);
+			window.document.getElementsByTagName("head")[0].removeChild(script);
+			script = null;
+			delete window[fn_name];
+		};
+		window.document.getElementsByTagName("head")[0].appendChild(script);
+		var url1 = "http://ip.jsontest.com";
+		var params1 = { a : 1, b : 2};
+		var cb1 = function(data2) {
+			console.log(data2);
+		};
+		var tmp3;
+		var obj1 = params1;
+		var tmp5;
+		var _g3 = [];
+		var _g11 = 0;
+		var _g21 = Reflect.fields(obj1);
+		while(_g11 < _g21.length) {
+			var key1 = _g21[_g11];
+			++_g11;
+			_g3.push("" + encodeURIComponent(key1) + "=" + encodeURIComponent(obj1[key1]));
+		}
+		tmp5 = _g3;
+		tmp3 = tmp5.join("&");
+		var search1 = tmp3;
+		var fn_name1 = "_jsonp_" + browser_$tools_Http.counter_jsonp++;
+		if(new EReg("\\?","").match(url1)) url1 += "" + search1 + "&callback=" + fn_name1; else url1 += "?" + search1 + "&callback=" + fn_name1;
+		var tmp4;
+		var _this1 = window.document;
+		tmp4 = _this1.createElement("script");
+		var script1 = tmp4;
+		script1.type = "text/javascript";
+		script1.src = url1;
+		window[fn_name1] = function(data3) {
+			cb1(data3);
+			window.document.getElementsByTagName("head")[0].removeChild(script1);
+			script1 = null;
+			delete window[fn_name1];
+		};
+		window.document.getElementsByTagName("head")[0].appendChild(script1);
+	});
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
@@ -88,42 +111,6 @@ function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;
-var scope = ("undefined" !== typeof window && window) || ("undefined" !== typeof global && global) || this;
-if(!scope.setImmediate) scope.setImmediate = function(callback) {
-	scope.setTimeout(callback,0);
-};
-var lastTime = 0;
-var vendors = ["webkit","moz"];
-var x = 0;
-while(x < vendors.length && !scope.requestAnimationFrame) {
-	scope.requestAnimationFrame = scope[vendors[x] + "RequestAnimationFrame"];
-	scope.cancelAnimationFrame = scope[vendors[x] + "CancelAnimationFrame"] || scope[vendors[x] + "CancelRequestAnimationFrame"];
-	x++;
-}
-if(!scope.requestAnimationFrame) scope.requestAnimationFrame = function(callback1) {
-	var currTime = new Date().getTime();
-	var timeToCall = Math.max(0,16 - (currTime - lastTime));
-	var id = scope.setTimeout(function() {
-		callback1(currTime + timeToCall);
-	},timeToCall);
-	lastTime = currTime + timeToCall;
-	return id;
-};
-if(!scope.cancelAnimationFrame) scope.cancelAnimationFrame = function(id1) {
-	scope.clearTimeout(id1);
-};
-if(typeof(scope.performance) == "undefined") scope.performance = { };
-if(typeof(scope.performance.now) == "undefined") {
-	var nowOffset = new Date().getTime();
-	if(scope.performance.timing && scope.performance.timing.navigationStart) nowOffset = scope.performance.timing.navigationStart;
-	scope.performance.now = (function($this) {
-		var $r;
-		var now = function() {
-			return new Date() - nowOffset;
-		};
-		$r = now;
-		return $r;
-	}(this));
-}
+browser_$tools_Http.counter_jsonp = 0;
 browser_$tools_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});
