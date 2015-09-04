@@ -6,7 +6,7 @@ import browser_tools.Debug;
 import browser_tools.Console;
 import browser_tools.Http;
 import browser_tools.Loader;
-
+import browser_tools.angular.Config;
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
@@ -49,6 +49,8 @@ class Main {
       'http://ip.jsontest.com'.to_jsonp({a:1,b:2},function(data) {
         trace(data);
       });
+
+
 
     });
 
