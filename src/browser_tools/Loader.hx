@@ -20,7 +20,8 @@ class Loader {
 
   public static inline function end() {
     'browser-tools-loading'.byId().remove_node();
-    'start-hide'.queryClassBody()[0].style.display = 'block';
+    var elements = 'start-hide'.queryClassBody();
+    for (element in elements) element.style.display = 'block';
   }
 
   public static inline function injectLoading(element:AElement,cb) {
