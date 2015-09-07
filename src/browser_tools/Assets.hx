@@ -1,6 +1,7 @@
 package browser_tools;
 import js.Browser;
 using browser_tools.Assets.AssetsTools;
+using browser_tools.Debug;
 
 typedef Group = Array<String>;
 typedef Manifest = Array<Group>;
@@ -100,12 +101,16 @@ class Assets {
 
 
 		@:async static inline function load_group(group:Array<String>) {
-				var assets = [
+				'start loading assets'.console_log();
+        var assets = [
 				  @fork(asset in group) {
 					  @await load_file(asset);
+            asset.console_log('load asset:');
+            asset;
           }
 				];
         @await wait(1);
+        'end loading assets'.console_log();
 				return assets;
 		}
 
@@ -114,6 +119,7 @@ class Assets {
 
 			 for (group in assets) {
 					 var grr = @await load_group(group);
+           group.console_log('loaded group:');
 			 };
 
 			 return;

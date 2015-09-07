@@ -4,7 +4,7 @@ import angular.Angular;
 import angular.service.*;
 import angular.route.*;
 using Config.RouteTools;
-
+using browser_tools.Debug;
 
 
 @:forward
@@ -87,8 +87,9 @@ class Config implements async_tools.Async {
   @:async public static inline function init(name:String,config:AppConfig) {
     @await browser_tools.Assets.process(config.assets);
     var module = Angular.module(name, config.modules);
+    name.console_log('create angular module');
     process_route(config,module);
-
+    'route processed'.console_log();
     return module;
   }
 
