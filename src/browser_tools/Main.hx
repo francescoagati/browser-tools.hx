@@ -12,6 +12,11 @@ using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
 using browser_tools.HttpTools;
 
+
+class Binder implements browser_tools.angular.Binder.IAngularBinder {
+  var scope:Dynamic;
+}
+
 class Main {
   static function main() {
     /*

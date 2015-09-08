@@ -1,7 +1,7 @@
 -cp src
 -main browser_tools.Main
 -js build/js/build.js
--lib async_tools weblog compiletime thx.core angular.haxe
+-lib async_tools weblog compiletime thx.core angular.haxe tink_macro
 -dce full
 -D analyzer
 -D assets_load_compiletime=true
