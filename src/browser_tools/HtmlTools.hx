@@ -219,6 +219,17 @@ class HtmlTools {
     return element;
   }
 
+  public static inline function grow(textarea:browser_tools.AElement) {
+
+      var textarea_line = 10;
+      var newHeight = textarea.scrollHeight;
+      var currentHeight = textarea.clientHeight;
+
+      if (newHeight > currentHeight) {
+         textarea.style.height = newHeight + 5 * textarea_line + 'px';
+      }
+  }
+
 
 
 }

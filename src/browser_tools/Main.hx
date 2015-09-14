@@ -11,7 +11,7 @@ using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
 using browser_tools.HttpTools;
-
+using browser_tools.HtmlTools;
 
 class Binder implements browser_tools.angular.Binder.IAngularBinder {
   var scope:Dynamic;
@@ -59,6 +59,8 @@ class Main {
 
     });
 
+    'txt'.byId().grow();
+   
 
 /*  Loader.start();
   haxe.Timer.delay(Loader.end,2000);
