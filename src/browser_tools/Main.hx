@@ -59,8 +59,12 @@ class Main {
 
     });
 
-    'txt'.byId().grow();
-   
+    var x = 'txt'.byId();
+    x.height = 3333;
+    trace(x.height);
+
+    x.width = 3333;
+    trace(x.width);
 
 /*  Loader.start();
   haxe.Timer.delay(Loader.end,2000);

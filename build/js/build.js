@@ -104,11 +104,11 @@ browser_$tools_Main.main = function() {
 		};
 		window.document.getElementsByTagName("head")[0].appendChild(script1);
 	});
-	var textarea = window.document.getElementById("txt");
-	var textarea_line = 10;
-	var newHeight = textarea.scrollHeight;
-	var currentHeight = textarea.clientHeight;
-	if(newHeight > currentHeight) textarea.style.height = newHeight + 5 * textarea_line + "px";
+	var x = window.document.getElementById("txt");
+	x.style.height = 3333;
+	console.log(x.style.height);
+	x.style.width = 3333;
+	console.log(x.style.width);
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;

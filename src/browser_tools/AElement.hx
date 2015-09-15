@@ -96,4 +96,25 @@ import js.Browser;
 			return browser_tools.HtmlTools.query(selector,this);
 		}
 
+
+    public var height(get, set):Dynamic;
+
+    inline function get_height():Dynamic {
+        return this.style.height;
+    }
+
+    inline function set_height(value:Dynamic) {
+        return this.style.height = value;
+    }
+
+    public var width(get, set):Dynamic;
+
+    inline function get_width():Dynamic {
+        return this.style.width;
+    }
+
+    inline function set_width(value:Dynamic) {
+        return this.style.width = value;
+    }
+
 }
