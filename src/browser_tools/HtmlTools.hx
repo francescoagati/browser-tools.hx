@@ -231,5 +231,17 @@ class HtmlTools {
   }
 
 
+  @:extern
+	public inline static function setWidth(element:Element,width:Dynamic) {
+		element.style.width = width;
+		return element;
+	}
+
+  @:extern
+	public inline static function setHeight(element:Element,height:Dynamic) {
+		element.style.height = height;
+		return element;
+	}
+
 
 }
