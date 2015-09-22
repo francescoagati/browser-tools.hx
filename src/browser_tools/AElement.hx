@@ -3,11 +3,109 @@ import js.html.*;
 import js.JQuery;
 import js.Browser;
 
+typedef ELM = Element;
+typedef EL = Event -> Void;
+
+abstract EventClick(Element) {
+   public inline function new(el:ELM) this = el;
+
+   @:op(A+B) public inline function addEL(el:EL) {
+       this.addEventListener('click',el);
+       return new EventClick(this);
+   }
+
+   @:op(A-B) public inline function removeEl(el:EL) {
+       this.removeEventListener('click',el);
+       return new EventClick(this);
+   }
+
+}
+
+
+abstract EventMouseOver(Element) {
+   public inline function new(el:ELM) this = el;
+
+   @:op(A+B) public inline function addEL(el:EL) {
+       this.addEventListener('mouseover',el);
+       return new EventMouseOver(this);
+   }
+
+   @:op(A-B) public inline function removeEl(el:EL) {
+       this.removeEventListener('mouseover',el);
+       return new EventMouseOver(this);
+   }
+
+}
+
+
+abstract EventMouseOut(Element) {
+   public inline function new(el:ELM) this = el;
+
+   @:op(A+B) public inline function addEL(el:EL) {
+       this.addEventListener('mouseout',el);
+       return new EventMouseOut(this);
+   }
+
+   @:op(A-B) public inline function removeEl(el:EL) {
+       this.removeEventListener('mouseout',el);
+       return new EventMouseOut(this);
+   }
+
+}
+
+
+abstract AttrAccessor(Element) {
+    public inline function new(el:ELM) this = el;
+
+    @:arrayAccess
+    public inline function set(name:String,value:String) {
+        this.setAttribute(name,value);
+    }
+
+     @:arrayAccess
+    public inline function get(name:String) {
+        this.getAttribute(name);
+    }
+
+}
+
+abstract EventAccessor(Element) {
+    public inline function new(el:ELM) this = el;
+
+    @:arrayAccess
+    public inline function set(event:String,el:EL) {
+        this.addEventListener(event,el);
+    }
+
+    public inline function remove(event:String,el:EL) {
+        this.removeEventListener(event,el);
+    }
+
+    public var click(get, never):EventClick;
+    inline function get_click() return new EventClick(this);
+
+    public var mouseover(get, never):EventMouseOver;
+    inline function get_mouseover() return new EventMouseOver(this);
+
+    public var mouseout(get, never):EventMouseOut;
+    inline function get_mouseout() return new EventMouseOut(this);
+
+
+}
+
+
 @:forward abstract AElement(Element) from Element to Element {
 
     public inline function new(el:Element) {
         this = el;
     }
+
+
+    public var on(get, never):EventAccessor;
+    inline function get_on() return new EventAccessor(this);
+
+    public var attr(get, never):AttrAccessor;
+    inline function get_attr() return new AttrAccessor(this);
 
 
 

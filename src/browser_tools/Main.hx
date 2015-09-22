@@ -7,6 +7,7 @@ import browser_tools.Console;
 import browser_tools.Http;
 import browser_tools.Loader;
 import browser_tools.angular.Config;
+import js.html.*;
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
@@ -65,6 +66,14 @@ class Main {
 
     x.width = 3333;
     trace(x.width);
+
+    x.attr['p'] = "a";
+    x.attr['d'];
+    x.on['click'] = function(e:Event) { trace("hello"); };
+    x.on.click + function(e:Event) {} - function(e:Event) { trace("hello2"); };
+
+    x.on.mouseout + function(e:Event) {};
+    x.on.mouseover + function(e:Event) {}  
 
 /*  Loader.start();
   haxe.Timer.delay(Loader.end,2000);

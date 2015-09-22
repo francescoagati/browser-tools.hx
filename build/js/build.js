@@ -109,6 +109,29 @@ browser_$tools_Main.main = function() {
 	console.log(x.style.height);
 	x.style.width = 3333;
 	console.log(x.style.width);
+	x.setAttribute("p","a");
+	x.getAttribute("d");
+	x.addEventListener("click",function(e) {
+		console.log("hello");
+	});
+	var tmp6;
+	var this2 = x;
+	this2.addEventListener("click",function(e1) {
+	});
+	tmp6 = this2;
+	var this1 = tmp6;
+	this1.removeEventListener("click",function(e2) {
+		console.log("hello2");
+	});
+	this1;
+	var this3 = x;
+	this3.addEventListener("mouseout",function(e3) {
+	});
+	this3;
+	var this4 = x;
+	this4.addEventListener("mouseover",function(e4) {
+	});
+	this4;
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
