@@ -1,0 +1,4 @@
+-neko bin/processor.n
+-main browser_tools.CodeGenerator
+-cp src
+-cmd neko bin/processor.n
