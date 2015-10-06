@@ -3121,7 +3121,626 @@ abstract EventAccessor(Element) {
         this.removeEventListener(event,el);
     }
 
-    --
+    
+        public var mouseCompositionend(get, never):EventCompositionend;
+        inline function get_Compositionend() return new EventCompositionend(this);
+      
+
+        public var mouseWheel(get, never):EventWheel;
+        inline function get_Wheel() return new EventWheel(this);
+      
+
+        public var mouseEnded(get, never):EventEnded;
+        inline function get_Ended() return new EventEnded(this);
+      
+
+        public var mouseTimeout(get, never):EventTimeout;
+        inline function get_Timeout() return new EventTimeout(this);
+      
+
+        public var mouseBlocked(get, never):EventBlocked;
+        inline function get_Blocked() return new EventBlocked(this);
+      
+
+        public var mouseDOMAttrModified(get, never):EventDOMAttrModified;
+        inline function get_DOMAttrModified() return new EventDOMAttrModified(this);
+      
+
+        public var mouseDragenter(get, never):EventDragenter;
+        inline function get_Dragenter() return new EventDragenter(this);
+      
+
+        public var mouseTouchmove(get, never):EventTouchmove;
+        inline function get_Touchmove() return new EventTouchmove(this);
+      
+
+        public var mouseComplete(get, never):EventComplete;
+        inline function get_Complete() return new EventComplete(this);
+      
+
+        public var mouseDOMElementNameChanged(get, never):EventDOMElementNameChanged;
+        inline function get_DOMElementNameChanged() return new EventDOMElementNameChanged(this);
+      
+
+        public var mouseObsolete(get, never):EventObsolete;
+        inline function get_Obsolete() return new EventObsolete(this);
+      
+
+        public var mouseMouseover(get, never):EventMouseover;
+        inline function get_Mouseover() return new EventMouseover(this);
+      
+
+        public var mouseGamepaddisconnected(get, never):EventGamepaddisconnected;
+        inline function get_Gamepaddisconnected() return new EventGamepaddisconnected(this);
+      
+
+        public var mouseDOMAttributeNameChanged(get, never):EventDOMAttributeNameChanged;
+        inline function get_DOMAttributeNameChanged() return new EventDOMAttributeNameChanged(this);
+      
+
+        public var mousePagehide(get, never):EventPagehide;
+        inline function get_Pagehide() return new EventPagehide(this);
+      
+
+        public var mouseSuccess(get, never):EventSuccess;
+        inline function get_Success() return new EventSuccess(this);
+      
+
+        public var mouseChange(get, never):EventChange;
+        inline function get_Change() return new EventChange(this);
+      
+
+        public var mouseSelect(get, never):EventSelect;
+        inline function get_Select() return new EventSelect(this);
+      
+
+        public var mouseDOMSubtreeModified(get, never):EventDOMSubtreeModified;
+        inline function get_DOMSubtreeModified() return new EventDOMSubtreeModified(this);
+      
+
+        public var mouseSVGZoom(get, never):EventSVGZoom;
+        inline function get_SVGZoom() return new EventSVGZoom(this);
+      
+
+        public var mousePlaying(get, never):EventPlaying;
+        inline function get_Playing() return new EventPlaying(this);
+      
+
+        public var mouseMouseenter(get, never):EventMouseenter;
+        inline function get_Mouseenter() return new EventMouseenter(this);
+      
+
+        public var mouseTouchcancel(get, never):EventTouchcancel;
+        inline function get_Touchcancel() return new EventTouchcancel(this);
+      
+
+        public var mouseDevicelight(get, never):EventDevicelight;
+        inline function get_Devicelight() return new EventDevicelight(this);
+      
+
+        public var mousePlay(get, never):EventPlay;
+        inline function get_Play() return new EventPlay(this);
+      
+
+        public var mouseShow(get, never):EventShow;
+        inline function get_Show() return new EventShow(this);
+      
+
+        public var mouseStorage(get, never):EventStorage;
+        inline function get_Storage() return new EventStorage(this);
+      
+
+        public var mouseInput(get, never):EventInput;
+        inline function get_Input() return new EventInput(this);
+      
+
+        public var mouseUpdateready(get, never):EventUpdateready;
+        inline function get_Updateready() return new EventUpdateready(this);
+      
+
+        public var mouseVisibilitychange(get, never):EventVisibilitychange;
+        inline function get_Visibilitychange() return new EventVisibilitychange(this);
+      
+
+        public var mouseFullscreenchange(get, never):EventFullscreenchange;
+        inline function get_Fullscreenchange() return new EventFullscreenchange(this);
+      
+
+        public var mouseCanplaythrough(get, never):EventCanplaythrough;
+        inline function get_Canplaythrough() return new EventCanplaythrough(this);
+      
+
+        public var mouseDragleave(get, never):EventDragleave;
+        inline function get_Dragleave() return new EventDragleave(this);
+      
+
+        public var mouseOffline(get, never):EventOffline;
+        inline function get_Offline() return new EventOffline(this);
+      
+
+        public var mouseTouchenter(get, never):EventTouchenter;
+        inline function get_Touchenter() return new EventTouchenter(this);
+      
+
+        public var mouseBeforeprint(get, never):EventBeforeprint;
+        inline function get_Beforeprint() return new EventBeforeprint(this);
+      
+
+        public var mouseDownloading(get, never):EventDownloading;
+        inline function get_Downloading() return new EventDownloading(this);
+      
+
+        public var mouseAbort(get, never):EventAbort;
+        inline function get_Abort() return new EventAbort(this);
+      
+
+        public var mousePageshow(get, never):EventPageshow;
+        inline function get_Pageshow() return new EventPageshow(this);
+      
+
+        public var mouseSubmit(get, never):EventSubmit;
+        inline function get_Submit() return new EventSubmit(this);
+      
+
+        public var mouseVersionchange(get, never):EventVersionchange;
+        inline function get_Versionchange() return new EventVersionchange(this);
+      
+
+        public var mouseContextmenu(get, never):EventContextmenu;
+        inline function get_Contextmenu() return new EventContextmenu(this);
+      
+
+        public var mouseOpen(get, never):EventOpen;
+        inline function get_Open() return new EventOpen(this);
+      
+
+        public var mouseRatechange(get, never):EventRatechange;
+        inline function get_Ratechange() return new EventRatechange(this);
+      
+
+        public var mousePointerout(get, never):EventPointerout;
+        inline function get_Pointerout() return new EventPointerout(this);
+      
+
+        public var mouseBeforeunload(get, never):EventBeforeunload;
+        inline function get_Beforeunload() return new EventBeforeunload(this);
+      
+
+        public var mouseDOMCharacterDataModified(get, never):EventDOMCharacterDataModified;
+        inline function get_DOMCharacterDataModified() return new EventDOMCharacterDataModified(this);
+      
+
+        public var mouseDragstart(get, never):EventDragstart;
+        inline function get_Dragstart() return new EventDragstart(this);
+      
+
+        public var mouseDrop(get, never):EventDrop;
+        inline function get_Drop() return new EventDrop(this);
+      
+
+        public var mouseGotpointercapture(get, never):EventGotpointercapture;
+        inline function get_Gotpointercapture() return new EventGotpointercapture(this);
+      
+
+        public var mouseUpgradeneeded(get, never):EventUpgradeneeded;
+        inline function get_Upgradeneeded() return new EventUpgradeneeded(this);
+      
+
+        public var mouseSVGError(get, never):EventSVGError;
+        inline function get_SVGError() return new EventSVGError(this);
+      
+
+        public var mouseAfterprint(get, never):EventAfterprint;
+        inline function get_Afterprint() return new EventAfterprint(this);
+      
+
+        public var mouseReadystatechange(get, never):EventReadystatechange;
+        inline function get_Readystatechange() return new EventReadystatechange(this);
+      
+
+        public var mouseLanguagechange(get, never):EventLanguagechange;
+        inline function get_Languagechange() return new EventLanguagechange(this);
+      
+
+        public var mouseSVGAbort(get, never):EventSVGAbort;
+        inline function get_SVGAbort() return new EventSVGAbort(this);
+      
+
+        public var mouseSVGResize(get, never):EventSVGResize;
+        inline function get_SVGResize() return new EventSVGResize(this);
+      
+
+        public var mouseFocusoutUnimplemented(get, never):EventFocusoutUnimplemented;
+        inline function get_FocusoutUnimplemented() return new EventFocusoutUnimplemented(this);
+      
+
+        public var mouseMousedown(get, never):EventMousedown;
+        inline function get_Mousedown() return new EventMousedown(this);
+      
+
+        public var mouseKeydown(get, never):EventKeydown;
+        inline function get_Keydown() return new EventKeydown(this);
+      
+
+        public var mousePointerover(get, never):EventPointerover;
+        inline function get_Pointerover() return new EventPointerover(this);
+      
+
+        public var mouseWaiting(get, never):EventWaiting;
+        inline function get_Waiting() return new EventWaiting(this);
+      
+
+        public var mousePause(get, never):EventPause;
+        inline function get_Pause() return new EventPause(this);
+      
+
+        public var mouseSelectstart(get, never):EventSelectstart;
+        inline function get_Selectstart() return new EventSelectstart(this);
+      
+
+        public var mouseTransitionend(get, never):EventTransitionend;
+        inline function get_Transitionend() return new EventTransitionend(this);
+      
+
+        public var mouseCanplay(get, never):EventCanplay;
+        inline function get_Canplay() return new EventCanplay(this);
+      
+
+        public var mouseDurationchange(get, never):EventDurationchange;
+        inline function get_Durationchange() return new EventDurationchange(this);
+      
+
+        public var mouseSelectionchange(get, never):EventSelectionchange;
+        inline function get_Selectionchange() return new EventSelectionchange(this);
+      
+
+        public var mouseCopy(get, never):EventCopy;
+        inline function get_Copy() return new EventCopy(this);
+      
+
+        public var mouseDragend(get, never):EventDragend;
+        inline function get_Dragend() return new EventDragend(this);
+      
+
+        public var mouseSVGUnload(get, never):EventSVGUnload;
+        inline function get_SVGUnload() return new EventSVGUnload(this);
+      
+
+        public var mouseDblclick(get, never):EventDblclick;
+        inline function get_Dblclick() return new EventDblclick(this);
+      
+
+        public var mouseDOMFocusIn(get, never):EventDOMFocusIn;
+        inline function get_DOMFocusIn() return new EventDOMFocusIn(this);
+      
+
+        public var mouseLoadstart(get, never):EventLoadstart;
+        inline function get_Loadstart() return new EventLoadstart(this);
+      
+
+        public var mouseDOMActivate(get, never):EventDOMActivate;
+        inline function get_DOMActivate() return new EventDOMActivate(this);
+      
+
+        public var mouseDOMNodeInserted(get, never):EventDOMNodeInserted;
+        inline function get_DOMNodeInserted() return new EventDOMNodeInserted(this);
+      
+
+        public var mouseCached(get, never):EventCached;
+        inline function get_Cached() return new EventCached(this);
+      
+
+        public var mouseBlur(get, never):EventBlur;
+        inline function get_Blur() return new EventBlur(this);
+      
+
+        public var mouseSeeked(get, never):EventSeeked;
+        inline function get_Seeked() return new EventSeeked(this);
+      
+
+        public var mouseFocus(get, never):EventFocus;
+        inline function get_Focus() return new EventFocus(this);
+      
+
+        public var mouseKeypress(get, never):EventKeypress;
+        inline function get_Keypress() return new EventKeypress(this);
+      
+
+        public var mousePointerlockerror(get, never):EventPointerlockerror;
+        inline function get_Pointerlockerror() return new EventPointerlockerror(this);
+      
+
+        public var mouseChargingtimechange(get, never):EventChargingtimechange;
+        inline function get_Chargingtimechange() return new EventChargingtimechange(this);
+      
+
+        public var mouseVolumechange(get, never):EventVolumechange;
+        inline function get_Volumechange() return new EventVolumechange(this);
+      
+
+        public var mouseCompositionstart(get, never):EventCompositionstart;
+        inline function get_Compositionstart() return new EventCompositionstart(this);
+      
+
+        public var mouseMouseout(get, never):EventMouseout;
+        inline function get_Mouseout() return new EventMouseout(this);
+      
+
+        public var mouseAnimationstart(get, never):EventAnimationstart;
+        inline function get_Animationstart() return new EventAnimationstart(this);
+      
+
+        public var mouseDeviceproximity(get, never):EventDeviceproximity;
+        inline function get_Deviceproximity() return new EventDeviceproximity(this);
+      
+
+        public var mouseLoadend(get, never):EventLoadend;
+        inline function get_Loadend() return new EventLoadend(this);
+      
+
+        public var mousePointerenter(get, never):EventPointerenter;
+        inline function get_Pointerenter() return new EventPointerenter(this);
+      
+
+        public var mouseDOMFocusOut(get, never):EventDOMFocusOut;
+        inline function get_DOMFocusOut() return new EventDOMFocusOut(this);
+      
+
+        public var mouseDrag(get, never):EventDrag;
+        inline function get_Drag() return new EventDrag(this);
+      
+
+        public var mouseSuspend(get, never):EventSuspend;
+        inline function get_Suspend() return new EventSuspend(this);
+      
+
+        public var mousePaste(get, never):EventPaste;
+        inline function get_Paste() return new EventPaste(this);
+      
+
+        public var mouseDeviceorientation(get, never):EventDeviceorientation;
+        inline function get_Deviceorientation() return new EventDeviceorientation(this);
+      
+
+        public var mouseMouseleave(get, never):EventMouseleave;
+        inline function get_Mouseleave() return new EventMouseleave(this);
+      
+
+        public var mouseFullscreenerror(get, never):EventFullscreenerror;
+        inline function get_Fullscreenerror() return new EventFullscreenerror(this);
+      
+
+        public var mouseTouchstart(get, never):EventTouchstart;
+        inline function get_Touchstart() return new EventTouchstart(this);
+      
+
+        public var mouseDischargingtimechange(get, never):EventDischargingtimechange;
+        inline function get_Dischargingtimechange() return new EventDischargingtimechange(this);
+      
+
+        public var mouseChargingchange(get, never):EventChargingchange;
+        inline function get_Chargingchange() return new EventChargingchange(this);
+      
+
+        public var mouseMessage(get, never):EventMessage;
+        inline function get_Message() return new EventMessage(this);
+      
+
+        public var mousePointerdown(get, never):EventPointerdown;
+        inline function get_Pointerdown() return new EventPointerdown(this);
+      
+
+        public var mouseEndEvent(get, never):EventEndEvent;
+        inline function get_EndEvent() return new EventEndEvent(this);
+      
+
+        public var mouseDevicemotion(get, never):EventDevicemotion;
+        inline function get_Devicemotion() return new EventDevicemotion(this);
+      
+
+        public var mousePointerlockchange(get, never):EventPointerlockchange;
+        inline function get_Pointerlockchange() return new EventPointerlockchange(this);
+      
+
+        public var mouseResize(get, never):EventResize;
+        inline function get_Resize() return new EventResize(this);
+      
+
+        public var mouseTouchleave(get, never):EventTouchleave;
+        inline function get_Touchleave() return new EventTouchleave(this);
+      
+
+        public var mousePointercancel(get, never):EventPointercancel;
+        inline function get_Pointercancel() return new EventPointercancel(this);
+      
+
+        public var mouseProgress(get, never):EventProgress;
+        inline function get_Progress() return new EventProgress(this);
+      
+
+        public var mouseCut(get, never):EventCut;
+        inline function get_Cut() return new EventCut(this);
+      
+
+        public var mousePointerleave(get, never):EventPointerleave;
+        inline function get_Pointerleave() return new EventPointerleave(this);
+      
+
+        public var mouseAnimationend(get, never):EventAnimationend;
+        inline function get_Animationend() return new EventAnimationend(this);
+      
+
+        public var mouseLoadeddata(get, never):EventLoadeddata;
+        inline function get_Loadeddata() return new EventLoadeddata(this);
+      
+
+        public var mouseOnline(get, never):EventOnline;
+        inline function get_Online() return new EventOnline(this);
+      
+
+        public var mouseSVGScroll(get, never):EventSVGScroll;
+        inline function get_SVGScroll() return new EventSVGScroll(this);
+      
+
+        public var mouseClick(get, never):EventClick;
+        inline function get_Click() return new EventClick(this);
+      
+
+        public var mouseDOMNodeRemoved(get, never):EventDOMNodeRemoved;
+        inline function get_DOMNodeRemoved() return new EventDOMNodeRemoved(this);
+      
+
+        public var mouseEmptied(get, never):EventEmptied;
+        inline function get_Emptied() return new EventEmptied(this);
+      
+
+        public var mouseError(get, never):EventError;
+        inline function get_Error() return new EventError(this);
+      
+
+        public var mouseDOMNodeInsertedIntoDocument(get, never):EventDOMNodeInsertedIntoDocument;
+        inline function get_DOMNodeInsertedIntoDocument() return new EventDOMNodeInsertedIntoDocument(this);
+      
+
+        public var mouseScroll(get, never):EventScroll;
+        inline function get_Scroll() return new EventScroll(this);
+      
+
+        public var mouseFocusinUnimplemented(get, never):EventFocusinUnimplemented;
+        inline function get_FocusinUnimplemented() return new EventFocusinUnimplemented(this);
+      
+
+        public var mouseLevelchange(get, never):EventLevelchange;
+        inline function get_Levelchange() return new EventLevelchange(this);
+      
+
+        public var mouseTouchend(get, never):EventTouchend;
+        inline function get_Touchend() return new EventTouchend(this);
+      
+
+        public var mouseLoad(get, never):EventLoad;
+        inline function get_Load() return new EventLoad(this);
+      
+
+        public var mouseUnload(get, never):EventUnload;
+        inline function get_Unload() return new EventUnload(this);
+      
+
+        public var mouseDOMContentLoaded(get, never):EventDOMContentLoaded;
+        inline function get_DOMContentLoaded() return new EventDOMContentLoaded(this);
+      
+
+        public var mouseMouseup(get, never):EventMouseup;
+        inline function get_Mouseup() return new EventMouseup(this);
+      
+
+        public var mouseOrientationchange(get, never):EventOrientationchange;
+        inline function get_Orientationchange() return new EventOrientationchange(this);
+      
+
+        public var mouseUserproximity(get, never):EventUserproximity;
+        inline function get_Userproximity() return new EventUserproximity(this);
+      
+
+        public var mouseAudioprocess(get, never):EventAudioprocess;
+        inline function get_Audioprocess() return new EventAudioprocess(this);
+      
+
+        public var mouseLostpointercapture(get, never):EventLostpointercapture;
+        inline function get_Lostpointercapture() return new EventLostpointercapture(this);
+      
+
+        public var mouseSeeking(get, never):EventSeeking;
+        inline function get_Seeking() return new EventSeeking(this);
+      
+
+        public var mouseAnimationiteration(get, never):EventAnimationiteration;
+        inline function get_Animationiteration() return new EventAnimationiteration(this);
+      
+
+        public var mouseBeginEvent(get, never):EventBeginEvent;
+        inline function get_BeginEvent() return new EventBeginEvent(this);
+      
+
+        public var mouseReset(get, never):EventReset;
+        inline function get_Reset() return new EventReset(this);
+      
+
+        public var mouseDragover(get, never):EventDragover;
+        inline function get_Dragover() return new EventDragover(this);
+      
+
+        public var mouseHashchange(get, never):EventHashchange;
+        inline function get_Hashchange() return new EventHashchange(this);
+      
+
+        public var mouseInvalid(get, never):EventInvalid;
+        inline function get_Invalid() return new EventInvalid(this);
+      
+
+        public var mouseSVGLoad(get, never):EventSVGLoad;
+        inline function get_SVGLoad() return new EventSVGLoad(this);
+      
+
+        public var mouseCompositionupdate(get, never):EventCompositionupdate;
+        inline function get_Compositionupdate() return new EventCompositionupdate(this);
+      
+
+        public var mouseStalled(get, never):EventStalled;
+        inline function get_Stalled() return new EventStalled(this);
+      
+
+        public var mouseChecking(get, never):EventChecking;
+        inline function get_Checking() return new EventChecking(this);
+      
+
+        public var mouseNoupdate(get, never):EventNoupdate;
+        inline function get_Noupdate() return new EventNoupdate(this);
+      
+
+        public var mousePointermove(get, never):EventPointermove;
+        inline function get_Pointermove() return new EventPointermove(this);
+      
+
+        public var mouseLoadedmetadata(get, never):EventLoadedmetadata;
+        inline function get_Loadedmetadata() return new EventLoadedmetadata(this);
+      
+
+        public var mouseDOMNodeRemovedFromDocument(get, never):EventDOMNodeRemovedFromDocument;
+        inline function get_DOMNodeRemovedFromDocument() return new EventDOMNodeRemovedFromDocument(this);
+      
+
+        public var mouseRepeatEvent(get, never):EventRepeatEvent;
+        inline function get_RepeatEvent() return new EventRepeatEvent(this);
+      
+
+        public var mouseClose(get, never):EventClose;
+        inline function get_Close() return new EventClose(this);
+      
+
+        public var mouseGamepadconnected(get, never):EventGamepadconnected;
+        inline function get_Gamepadconnected() return new EventGamepadconnected(this);
+      
+
+        public var mousePointerup(get, never):EventPointerup;
+        inline function get_Pointerup() return new EventPointerup(this);
+      
+
+        public var mouseKeyup(get, never):EventKeyup;
+        inline function get_Keyup() return new EventKeyup(this);
+      
+
+        public var mouseMousemove(get, never):EventMousemove;
+        inline function get_Mousemove() return new EventMousemove(this);
+      
+
+        public var mouseTimeupdate(get, never):EventTimeupdate;
+        inline function get_Timeupdate() return new EventTimeupdate(this);
+      
+
+        public var mousePopstate(get, never):EventPopstate;
+        inline function get_Popstate() return new EventPopstate(this);
+      
 }
 
 

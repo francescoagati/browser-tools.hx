@@ -46,7 +46,7 @@ class CodeGenerator {
 
     for (event in list) keys.set(event,'');
 
-    var events = keys.keys();
+    var events = [for (key in keys.keys()) key];
 
 
 
@@ -59,6 +59,9 @@ class CodeGenerator {
         inline function get_${event}() return new Event${capitalize(event)}(this);
       '
     ].join("\n");
+
+
+    trace(events);
 
     var code = '
 
@@ -92,7 +95,7 @@ class Events {}
 
 
     ';
-    trace(code);
+
 
     sys.io.File.saveContent('src/browser_tools/Events.hx',code);
 
