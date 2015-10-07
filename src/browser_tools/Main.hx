@@ -13,6 +13,7 @@ using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
 using browser_tools.HttpTools;
 using browser_tools.HtmlTools;
+using browser_tools.LayoutTools;
 
 class Binder implements browser_tools.angular.Binder.IAngularBinder {
   var scope:Dynamic;
@@ -73,7 +74,7 @@ class Main {
     x.on.click + function(e:Event) {} - function(e:Event) { trace("hello2"); };
 
     x.on.mouseout + function(e:Event) {};
-    x.on.mouseover + function(e:Event) {}  
+    x.on.mouseover + function(e:Event) {}
 
 /*  Loader.start();
   haxe.Timer.delay(Loader.end,2000);
