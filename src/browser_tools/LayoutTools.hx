@@ -5,8 +5,8 @@ using browser_tools.HtmlTools;
 class LayoutTools {
 
   public static inline function center_horizzontal(element:AElement) {
-    element.style.left = '-50%';
-    element.style.transform = 'translateX(50%)';
+    element.style.left = '50%';
+    element.style.transform = 'translateX(-50%)';
   }
 
 }
