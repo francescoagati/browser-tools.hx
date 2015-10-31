@@ -71,6 +71,7 @@ class Main {
     x.attr['p'] = "a";
     x.attr['d'];
     x.on['click'] = function(e:Event) { trace("hello"); };
+
     x.on.click + function(e:Event) {} - function(e:Event) { trace("hello2"); };
 
     x.on.mouseout + function(e:Event) {};

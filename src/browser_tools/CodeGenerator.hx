@@ -11,12 +11,12 @@ class CodeGenerator {
       abstract Event${event}(Element) {
          public inline function new(el:Element) this = el;
 
-         @:op(A+B) public inline function addEL(el:Event -> Void;) {
+         @:op(A+B) public inline function addEventListener(el:Event -> Void) {
              this.addEventListener("${event.toLowerCase()}",el);
              return new Event${event}(this);
          }
 
-         @:op(A-B) public inline function removeEl(el:Event -> Void;) {
+         @:op(A-B) public inline function removeEventListener(el:Event -> Void) {
              this.removeEventListener("${event.toLowerCase()}",el);
              return new Event${event}(this);
          }
@@ -53,15 +53,16 @@ class CodeGenerator {
 
     var output:String = [for (event in events) template(event)].join("\n");
 
-    var events_accessors:String = [for (event in events)
+    var events_accessors:String = [for (event in events) {
+      trace(event);
       '
-        public var mouse${event}(get, never):Event${capitalize(event)};
-        inline function get_${event}() return new Event${capitalize(event)}(this);
-      '
-    ].join("\n");
+        public var ${event.toLowerCase()}(get, never):Event${capitalize(event)};
+        inline function get_${event.toLowerCase()}() return new Event${capitalize(event)}(this);
+      ';
 
 
-    trace(events);
+    }].join("\n");
+
 
     var code = '
 
@@ -148,8 +149,8 @@ static function get_events() {
   DOMCharacterDataModified
   DOMContentLoaded
   DOMElementNameChanged
-  DOMFocusIn   Unimplemented
-  DOMFocusOut   Unimplemented
+  DOMFocusIn
+  DOMFocusOut
   DOMNodeInserted
   DOMNodeInsertedIntoDocument
   DOMNodeRemoved
@@ -166,17 +167,9 @@ static function get_events() {
   durationchange
   emptied
   ended
-  ended
   endEvent
   error
-  error
-  error
-  error
-  error
-  error
   focus
-  focusinUnimplemented (see bug 687787)
-  focusoutUnimplemented (see bug 687787)
   fullscreenchange
   fullscreenerror
   gamepadconnected
@@ -197,9 +190,6 @@ static function get_events() {
   loadedmetadata
   loadend
   loadstart
-  message
-  message
-  message
   message
   mousedown
   mouseenter

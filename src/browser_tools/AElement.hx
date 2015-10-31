@@ -2,10 +2,9 @@ package browser_tools;
 import js.html.*;
 import js.JQuery;
 import js.Browser;
+import browser_tools.Events;
 
-typedef ELM = Element;
-typedef EL = Event -> Void;
-
+/*
 abstract EventClick(Element) {
    public inline function new(el:ELM) this = el;
 
@@ -52,7 +51,7 @@ abstract EventMouseOut(Element) {
    }
 
 }
-
+*/
 
 abstract AttrAccessor(Element) {
     public inline function new(el:ELM) this = el;
@@ -68,7 +67,7 @@ abstract AttrAccessor(Element) {
     }
 
 }
-
+/*
 abstract EventAccessor(Element) {
     public inline function new(el:ELM) this = el;
 
@@ -92,7 +91,7 @@ abstract EventAccessor(Element) {
 
 
 }
-
+*/
 
 @:forward abstract AElement(Element) from Element to Element {
 
@@ -101,8 +100,8 @@ abstract EventAccessor(Element) {
     }
 
 
-    public var on(get, never):EventAccessor;
-    inline function get_on() return new EventAccessor(this);
+    public var on(get, never):Events.EventAccessor;
+    inline function get_on() return new Events.EventAccessor(this);
 
     public var attr(get, never):AttrAccessor;
     inline function get_attr() return new AttrAccessor(this);
