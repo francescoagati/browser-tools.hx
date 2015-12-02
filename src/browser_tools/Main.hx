@@ -8,19 +8,42 @@ import browser_tools.Http;
 import browser_tools.Loader;
 import browser_tools.angular.Config;
 import js.html.*;
+
+import browser_tools.HelperAnimationTools.frame;
+
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
 using browser_tools.HttpTools;
 using browser_tools.HtmlTools;
 using browser_tools.LayoutTools;
+using browser_tools.AnimationTools;
 
 class Binder implements browser_tools.angular.Binder.IAngularBinder {
   var scope:Dynamic;
 }
 
-class Main {
+class Main implements async_tools.Async {
+
+  @:async static function animate() {
+    var el = 'animation'.byId();
+    el.set_transition('all 2s');
+    frame(el.set_transform('translateX(-100px)'));
+    @await el.wait_for_end_animation();
+    frame(el.set_transform('translateX(0px)'));
+    @await el.wait_for_end_animation();
+    frame(el.set_transform('translateY(100px)'));
+    @await el.wait_for_end_animation();
+    var x = untyped '500px', y = untyped __js__("'500px'");
+    frame(el.set_translate(x,y));
+  }
+
+
   static function main() {
+
+    animate(function() {});
+
+
     /*
     var assets:AManifest = [];
     assets++
@@ -48,6 +71,8 @@ class Main {
 
     */
 
+
+/*
     js.Browser.document.addEventListener('DOMContentLoaded',function() {
       'http://ip.jsontest.com'.to_jsonp({a:1,b:2},{callback:'pippa'},function(data) {
         trace(data);
@@ -76,7 +101,7 @@ class Main {
 
     x.on.mouseout + function(e:Event) {};
     x.on.mouseover + function(e:Event) {}
-
+*/
 /*  Loader.start();
   haxe.Timer.delay(Loader.end,2000);
 */

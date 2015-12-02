@@ -1,16 +1,4 @@
 (function (console) { "use strict";
-var EReg = function(r,opt) {
-	opt = opt.split("u").join("");
-	this.r = new RegExp(r,opt);
-};
-EReg.prototype = {
-	match: function(s) {
-		if(this.r.global) this.r.lastIndex = 0;
-		this.r.m = this.r.exec(s);
-		this.r.s = s;
-		return this.r.m != null;
-	}
-};
 var HxOverrides = function() { };
 HxOverrides.iter = function(a) {
 	return { cur : 0, arr : a, hasNext : function() {
@@ -19,119 +7,101 @@ HxOverrides.iter = function(a) {
 		return this.arr[this.cur++];
 	}};
 };
-var Reflect = function() { };
-Reflect.fields = function(o) {
-	var a = [];
-	if(o != null) {
-		var hasOwnProperty = Object.prototype.hasOwnProperty;
-		for( var f in o ) {
-		if(f != "__id__" && f != "hx__closures__" && hasOwnProperty.call(o,f)) a.push(f);
-		}
-	}
-	return a;
-};
-var browser_$tools_Http = function() { };
+var async_$tools_Async = function() { };
 var browser_$tools_Main = function() { };
+browser_$tools_Main.__interfaces__ = [async_$tools_Async];
+browser_$tools_Main.animate = function(__return) {
+	var el = window.document.getElementById("animation");
+	el;
+	el.style.setProperty("-ms-transition","all 2s");
+	el.style.setProperty("-webkit-transition","all 2s");
+	el.style.setProperty("-moz-transition","all 2s");
+	el.style.setProperty("transition","all 2s");
+	window.requestAnimationFrame(function(i) {
+		el.style.setProperty("-ms-transform","translateX(-100px)");
+		el.style.setProperty("-webkit-transform","translateX(-100px)");
+		el.style.setProperty("-moz-transform","translateX(-100px)");
+		el.style.setProperty("transform","translateX(-100px)");
+	});
+	var element = el;
+	var cb2 = function() {
+		window.requestAnimationFrame(function(i1) {
+			el.style.setProperty("-ms-transform","translateX(0px)");
+			el.style.setProperty("-webkit-transform","translateX(0px)");
+			el.style.setProperty("-moz-transform","translateX(0px)");
+			el.style.setProperty("transform","translateX(0px)");
+		});
+		var element1 = el;
+		var cb1 = function() {
+			window.requestAnimationFrame(function(i2) {
+				el.style.setProperty("-ms-transform","translateY(100px)");
+				el.style.setProperty("-webkit-transform","translateY(100px)");
+				el.style.setProperty("-moz-transform","translateY(100px)");
+				el.style.setProperty("transform","translateY(100px)");
+			});
+			var element2 = el;
+			var cb = function() {
+				var y = '500px';
+				y;
+				window.requestAnimationFrame(function(i3) {
+					el.style.setProperty("-ms-transform","translate(" + "500px" + "," + y + ")");
+					el.style.setProperty("-webkit-transform","translate(" + "500px" + "," + y + ")");
+					el.style.setProperty("-moz-transform","translate(" + "500px" + "," + y + ")");
+					el.style.setProperty("transform","translate(" + "500px" + "," + y + ")");
+				});
+				__return();
+			};
+			var handler1 = (function($this) {
+				var $r;
+				var handler = null;
+				handler = function(e) {
+					cb();
+					var this1 = element2;
+					this1.removeEventListener("transitionend",handler);
+					this1;
+				};
+				$r = handler;
+				return $r;
+			}(this));
+			var this2 = element2;
+			this2.addEventListener("transitionend",handler1);
+			this2;
+		};
+		var handler3 = (function($this) {
+			var $r;
+			var handler2 = null;
+			handler2 = function(e1) {
+				cb1();
+				var this3 = element1;
+				this3.removeEventListener("transitionend",handler2);
+				this3;
+			};
+			$r = handler2;
+			return $r;
+		}(this));
+		var this4 = element1;
+		this4.addEventListener("transitionend",handler3);
+		this4;
+	};
+	var handler5 = (function($this) {
+		var $r;
+		var handler4 = null;
+		handler4 = function(e2) {
+			cb2();
+			var this5 = element;
+			this5.removeEventListener("transitionend",handler4);
+			this5;
+		};
+		$r = handler4;
+		return $r;
+	}(this));
+	var this6 = element;
+	this6.addEventListener("transitionend",handler5);
+	this6;
+};
 browser_$tools_Main.main = function() {
-	window.document.addEventListener("DOMContentLoaded",function() {
-		var options = { callback : "pippa"};
-		var url = "http://ip.jsontest.com";
-		var params = { a : 1, b : 2};
-		var cb = function(data) {
-			console.log(data);
-		};
-		var tmp;
-		var obj = params;
-		var tmp2;
-		var _g = [];
-		var _g1 = 0;
-		var _g2 = Reflect.fields(obj);
-		while(_g1 < _g2.length) {
-			var key = _g2[_g1];
-			++_g1;
-			_g.push("" + encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]));
-		}
-		tmp2 = _g;
-		tmp = tmp2.join("&");
-		var search = tmp;
-		var fn_name = options != null && options.callback != null?options.callback:"_jsonp_" + browser_$tools_Http.counter_jsonp++;
-		if(new EReg("\\?","").match(url)) url += "" + search + "&callback=" + fn_name; else url += "?" + search + "&callback=" + fn_name;
-		var tmp1;
-		var _this = window.document;
-		tmp1 = _this.createElement("script");
-		var script = tmp1;
-		script.type = "text/javascript";
-		script.src = url;
-		window[fn_name] = function(data1) {
-			cb(data1);
-			window.document.getElementsByTagName("head")[0].removeChild(script);
-			script = null;
-			delete window[fn_name];
-		};
-		window.document.getElementsByTagName("head")[0].appendChild(script);
-		var url1 = "http://ip.jsontest.com";
-		var params1 = { a : 1, b : 2};
-		var cb1 = function(data2) {
-			console.log(data2);
-		};
-		var tmp3;
-		var obj1 = params1;
-		var tmp5;
-		var _g3 = [];
-		var _g11 = 0;
-		var _g21 = Reflect.fields(obj1);
-		while(_g11 < _g21.length) {
-			var key1 = _g21[_g11];
-			++_g11;
-			_g3.push("" + encodeURIComponent(key1) + "=" + encodeURIComponent(obj1[key1]));
-		}
-		tmp5 = _g3;
-		tmp3 = tmp5.join("&");
-		var search1 = tmp3;
-		var fn_name1 = "_jsonp_" + browser_$tools_Http.counter_jsonp++;
-		if(new EReg("\\?","").match(url1)) url1 += "" + search1 + "&callback=" + fn_name1; else url1 += "?" + search1 + "&callback=" + fn_name1;
-		var tmp4;
-		var _this1 = window.document;
-		tmp4 = _this1.createElement("script");
-		var script1 = tmp4;
-		script1.type = "text/javascript";
-		script1.src = url1;
-		window[fn_name1] = function(data3) {
-			cb1(data3);
-			window.document.getElementsByTagName("head")[0].removeChild(script1);
-			script1 = null;
-			delete window[fn_name1];
-		};
-		window.document.getElementsByTagName("head")[0].appendChild(script1);
+	browser_$tools_Main.animate(function() {
 	});
-	var x = window.document.getElementById("txt");
-	x.style.height = 3333;
-	console.log(x.style.height);
-	x.style.width = 3333;
-	console.log(x.style.width);
-	x.setAttribute("p","a");
-	x.getAttribute("d");
-	x.addEventListener("click",function(e) {
-		console.log("hello");
-	});
-	var tmp6;
-	var this2 = x;
-	this2.addEventListener("click",function(e1) {
-	});
-	tmp6 = this2;
-	var this1 = tmp6;
-	this1.removeEventListener("click",function(e2) {
-		console.log("hello2");
-	});
-	this1;
-	var this3 = x;
-	this3.addEventListener("mouseout",function(e3) {
-	});
-	this3;
-	var this4 = x;
-	this4.addEventListener("mouseover",function(e4) {
-	});
-	this4;
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
@@ -139,6 +109,5 @@ function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;
-browser_$tools_Http.counter_jsonp = 0;
 browser_$tools_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});
