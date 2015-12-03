@@ -33,71 +33,85 @@ browser_$tools_Main.animate = function(__return) {
 		});
 		var element1 = el;
 		var cb1 = function() {
-			window.requestAnimationFrame(function(i2) {
-				el.style.setProperty("-ms-transform","translateY(100px)");
-				el.style.setProperty("-webkit-transform","translateY(100px)");
-				el.style.setProperty("-moz-transform","translateY(100px)");
-				el.style.setProperty("transform","translateY(100px)");
-			});
-			var element2 = el;
-			var cb = function() {
-				var y = '500px';
-				y;
-				window.requestAnimationFrame(function(i3) {
-					el.style.setProperty("-ms-transform","translate(" + "500px" + "," + y + ")");
-					el.style.setProperty("-webkit-transform","translate(" + "500px" + "," + y + ")");
-					el.style.setProperty("-moz-transform","translate(" + "500px" + "," + y + ")");
-					el.style.setProperty("transform","translate(" + "500px" + "," + y + ")");
+			setTimeout(function() {
+				window.requestAnimationFrame(function(i2) {
+					el.style.setProperty("-ms-transform","translateY(100px)");
+					el.style.setProperty("-webkit-transform","translateY(100px)");
+					el.style.setProperty("-moz-transform","translateY(100px)");
+					el.style.setProperty("transform","translateY(100px)");
 				});
-				__return();
-			};
-			var handler1 = (function($this) {
-				var $r;
-				var handler = null;
-				handler = function(e) {
-					cb();
-					var this1 = element2;
-					this1.removeEventListener("transitionend",handler);
-					this1;
+				var element2 = el;
+				var cb = function() {
+					var y = '500px';
+					y;
+					window.requestAnimationFrame(function(i3) {
+						el.style.setProperty("-ms-transform","translate(" + "500px" + "," + y + ")");
+						el.style.setProperty("-webkit-transform","translate(" + "500px" + "," + y + ")");
+						el.style.setProperty("-moz-transform","translate(" + "500px" + "," + y + ")");
+						el.style.setProperty("transform","translate(" + "500px" + "," + y + ")");
+					});
+					__return();
 				};
-				$r = handler;
-				return $r;
-			}(this));
-			var this2 = element2;
-			this2.addEventListener("transitionend",handler1);
-			this2;
+				var check_one = false;
+				var handler1 = (function($this) {
+					var $r;
+					var handler = null;
+					handler = function(e) {
+						if(check_one == false) {
+							check_one = true;
+							cb();
+							element2.removeEventListener("webkitTransitionEnd",handler);
+							element2.removeEventListener("msTransitionEnd",handler);
+							element2.removeEventListener("transitionend",handler);
+						}
+					};
+					$r = handler;
+					return $r;
+				}(this));
+				element2.addEventListener("webkitTransitionEnd",handler1);
+				element2.addEventListener("msTransitionEnd",handler1);
+				element2.addEventListener("transitionend",handler1);
+			},3000);
 		};
+		var check_one1 = false;
 		var handler3 = (function($this) {
 			var $r;
 			var handler2 = null;
 			handler2 = function(e1) {
-				cb1();
-				var this3 = element1;
-				this3.removeEventListener("transitionend",handler2);
-				this3;
+				if(check_one1 == false) {
+					check_one1 = true;
+					cb1();
+					element1.removeEventListener("webkitTransitionEnd",handler2);
+					element1.removeEventListener("msTransitionEnd",handler2);
+					element1.removeEventListener("transitionend",handler2);
+				}
 			};
 			$r = handler2;
 			return $r;
 		}(this));
-		var this4 = element1;
-		this4.addEventListener("transitionend",handler3);
-		this4;
+		element1.addEventListener("webkitTransitionEnd",handler3);
+		element1.addEventListener("msTransitionEnd",handler3);
+		element1.addEventListener("transitionend",handler3);
 	};
+	var check_one2 = false;
 	var handler5 = (function($this) {
 		var $r;
 		var handler4 = null;
 		handler4 = function(e2) {
-			cb2();
-			var this5 = element;
-			this5.removeEventListener("transitionend",handler4);
-			this5;
+			if(check_one2 == false) {
+				check_one2 = true;
+				cb2();
+				element.removeEventListener("webkitTransitionEnd",handler4);
+				element.removeEventListener("msTransitionEnd",handler4);
+				element.removeEventListener("transitionend",handler4);
+			}
 		};
 		$r = handler4;
 		return $r;
 	}(this));
-	var this6 = element;
-	this6.addEventListener("transitionend",handler5);
-	this6;
+	element.addEventListener("webkitTransitionEnd",handler5);
+	element.addEventListener("msTransitionEnd",handler5);
+	element.addEventListener("transitionend",handler5);
 };
 browser_$tools_Main.main = function() {
 	browser_$tools_Main.animate(function() {

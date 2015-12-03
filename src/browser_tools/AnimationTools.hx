@@ -50,12 +50,25 @@ class AnimationTools  {
 
   public static inline function wait_for_end_animation(element:AElement,cb:Void->Void) {
 
+    var check_one = false;
+
     function handler (e) {
-      cb();
-      element.on.transitionend - handler;
+
+      if (check_one == false) {
+        check_one = true;
+        cb();
+        //element.on.transitionend - handler;
+        element.removeEventListener('webkitTransitionEnd',handler);
+        element.removeEventListener('msTransitionEnd',handler);
+        element.removeEventListener('transitionend',handler);
+      }
     };
 
-    element.on.transitionend + handler;
+    element.addEventListener('webkitTransitionEnd',handler);
+    element.addEventListener('msTransitionEnd',handler);
+    element.addEventListener('transitionend',handler);
+
+    //element.on.transitionend + handler;
   }
 
 

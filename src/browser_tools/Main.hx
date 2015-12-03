@@ -10,7 +10,7 @@ import browser_tools.angular.Config;
 import js.html.*;
 
 import browser_tools.HelperAnimationTools.frame;
-
+import async_tools.Cps.*;
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
 using browser_tools.AssetsToolsCompileTime;
@@ -32,6 +32,9 @@ class Main implements async_tools.Async {
     @await el.wait_for_end_animation();
     frame(el.set_transform('translateX(0px)'));
     @await el.wait_for_end_animation();
+
+    @await wait(3000);
+
     frame(el.set_transform('translateY(100px)'));
     @await el.wait_for_end_animation();
     var x = untyped '500px', y = untyped __js__("'500px'");
