@@ -219,6 +219,10 @@ class HtmlTools {
     return element;
   }
 
+  public static inline function visibility_hide(element:Element) element.style.visibility = 'hidden';
+  public static inline function visibility_show(element:Element) element.style.visibility = 'visible';
+
+
   public static inline function grow(textarea:browser_tools.AElement) {
 
       var textarea_line = 10;
