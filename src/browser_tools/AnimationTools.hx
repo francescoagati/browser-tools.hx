@@ -1,9 +1,24 @@
 package browser_tools;
 
-
+using browser_tools.AnimationTools;
 
 
 class AnimationTools  {
+
+
+  public static inline function opacity_hide(element:AElement,value:String) {
+    element.set_opacity('0');
+  }
+
+
+  public static inline function opacity_show(element:AElement,value:String) {
+    element.set_opacity('1');
+  }
+
+  public static inline function set_opacity(element:AElement,value:String) {
+    element.style.opacity = value;
+  }
+
 
   public static inline function set_transition(element:AElement,transition:String) {
     HelperAnimationTools.set_vendor_property(element,'transition',transition);
@@ -17,8 +32,6 @@ class AnimationTools  {
   public static inline function set_translate(element:AElement,x:String,y:String) {
     HelperAnimationTools.set_vendor_property(element,'transform','translate($x,$y)');
   }
-
-
 
 
   public static inline function set_scale(element:AElement,x:String,y:String) {
