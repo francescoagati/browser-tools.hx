@@ -2,7 +2,7 @@ package browser_tools;
 import js.Browser.document;
 import js.Browser.window;
 
-class ViewPort {
+class Viewport {
 
   public static inline function scrollbarW() {
     document.body.style.overflow = 'hidden';
