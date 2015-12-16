@@ -45,10 +45,14 @@ class Main implements async_tools.Async {
 
   static function main() {
 
-    animate(function() {});
+    //animate(function() {});
 
-    var b = browser_tools.AnimationTools.is_animations_supported;
-    trace(b);
+    //var b = browser_tools.AnimationTools.is_animations_supported;
+    //trace(b);
+
+    var prefix = browser_tools.AnimationTools.prefix;
+    trace(prefix);
+
     /*
     var assets:AManifest = [];
     assets++

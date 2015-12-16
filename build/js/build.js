@@ -9,6 +9,21 @@ HxOverrides.iter = function(a) {
 };
 var async_$tools_Async = function() { };
 var browser_$tools_AnimationTools = function() { };
+browser_$tools_AnimationTools.get_prefix = function() {
+	if(browser_$tools_AnimationTools._prefix == null) {
+		var check = (function($this) {
+			var $r;
+			if(browser_$tools_AnimationTools._is_animations_supported == null) browser_$tools_AnimationTools._is_animations_supported = browser_$tools_AnimationTools.check_for_animations();
+			$r = browser_$tools_AnimationTools._is_animations_supported;
+			return $r;
+		}(this));
+		if(check == true) {
+			var style = window.document.body.style;
+			browser_$tools_AnimationTools._prefix = Object.prototype.hasOwnProperty.call(style,"borderRadius")?"":Object.prototype.hasOwnProperty.call(style,"MsBorderRadius")?"ms":Object.prototype.hasOwnProperty.call(style,"MozBorderRadius")?"moz":Object.prototype.hasOwnProperty.call(style,"webkitBorderRadius")?"webkit":"not-supported";
+		} else browser_$tools_AnimationTools._prefix = "not-supported";
+	}
+	return browser_$tools_AnimationTools._prefix;
+};
 browser_$tools_AnimationTools.check_for_animations = function() {
 	var animation = false;
 	var animationstring = "animation";
@@ -36,117 +51,9 @@ browser_$tools_AnimationTools.check_for_animations = function() {
 };
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
-browser_$tools_Main.animate = function(__return) {
-	var el = window.document.getElementById("animation");
-	el;
-	el.style.setProperty("-ms-transition","all 2s");
-	el.style.setProperty("-webkit-transition","all 2s");
-	el.style.setProperty("-moz-transition","all 2s");
-	el.style.setProperty("transition","all 2s");
-	window.requestAnimationFrame(function(i) {
-		el.style.setProperty("-ms-transform","translateX(-100px)");
-		el.style.setProperty("-webkit-transform","translateX(-100px)");
-		el.style.setProperty("-moz-transform","translateX(-100px)");
-		el.style.setProperty("transform","translateX(-100px)");
-	});
-	var element = el;
-	var cb2 = function() {
-		window.requestAnimationFrame(function(i1) {
-			el.style.setProperty("-ms-transform","translateX(0px)");
-			el.style.setProperty("-webkit-transform","translateX(0px)");
-			el.style.setProperty("-moz-transform","translateX(0px)");
-			el.style.setProperty("transform","translateX(0px)");
-		});
-		var element1 = el;
-		var cb1 = function() {
-			setTimeout(function() {
-				window.requestAnimationFrame(function(i2) {
-					el.style.setProperty("-ms-transform","translateY(100px)");
-					el.style.setProperty("-webkit-transform","translateY(100px)");
-					el.style.setProperty("-moz-transform","translateY(100px)");
-					el.style.setProperty("transform","translateY(100px)");
-				});
-				var element2 = el;
-				var cb = function() {
-					var y = '500px';
-					y;
-					window.requestAnimationFrame(function(i3) {
-						el.style.setProperty("-ms-transform","translate(" + "500px" + "," + y + ")");
-						el.style.setProperty("-webkit-transform","translate(" + "500px" + "," + y + ")");
-						el.style.setProperty("-moz-transform","translate(" + "500px" + "," + y + ")");
-						el.style.setProperty("transform","translate(" + "500px" + "," + y + ")");
-					});
-					__return();
-				};
-				var check_one = false;
-				var handler1 = (function($this) {
-					var $r;
-					var handler = null;
-					handler = function(e) {
-						if(check_one == false) {
-							check_one = true;
-							cb();
-							element2.removeEventListener("webkitTransitionEnd",handler);
-							element2.removeEventListener("msTransitionEnd",handler);
-							element2.removeEventListener("transitionend",handler);
-						}
-					};
-					$r = handler;
-					return $r;
-				}(this));
-				element2.addEventListener("webkitTransitionEnd",handler1);
-				element2.addEventListener("msTransitionEnd",handler1);
-				element2.addEventListener("transitionend",handler1);
-			},3000);
-		};
-		var check_one1 = false;
-		var handler3 = (function($this) {
-			var $r;
-			var handler2 = null;
-			handler2 = function(e1) {
-				if(check_one1 == false) {
-					check_one1 = true;
-					cb1();
-					element1.removeEventListener("webkitTransitionEnd",handler2);
-					element1.removeEventListener("msTransitionEnd",handler2);
-					element1.removeEventListener("transitionend",handler2);
-				}
-			};
-			$r = handler2;
-			return $r;
-		}(this));
-		element1.addEventListener("webkitTransitionEnd",handler3);
-		element1.addEventListener("msTransitionEnd",handler3);
-		element1.addEventListener("transitionend",handler3);
-	};
-	var check_one2 = false;
-	var handler5 = (function($this) {
-		var $r;
-		var handler4 = null;
-		handler4 = function(e2) {
-			if(check_one2 == false) {
-				check_one2 = true;
-				cb2();
-				element.removeEventListener("webkitTransitionEnd",handler4);
-				element.removeEventListener("msTransitionEnd",handler4);
-				element.removeEventListener("transitionend",handler4);
-			}
-		};
-		$r = handler4;
-		return $r;
-	}(this));
-	element.addEventListener("webkitTransitionEnd",handler5);
-	element.addEventListener("msTransitionEnd",handler5);
-	element.addEventListener("transitionend",handler5);
-};
 browser_$tools_Main.main = function() {
-	browser_$tools_Main.animate(function() {
-	});
-	var tmp;
-	if(browser_$tools_AnimationTools._is_animations_supported == null) browser_$tools_AnimationTools._is_animations_supported = browser_$tools_AnimationTools.check_for_animations();
-	tmp = browser_$tools_AnimationTools._is_animations_supported;
-	var b = tmp;
-	console.log(b);
+	var prefix = browser_$tools_AnimationTools.get_prefix();
+	console.log(prefix);
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;

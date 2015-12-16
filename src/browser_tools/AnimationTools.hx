@@ -3,7 +3,43 @@ package browser_tools;
 using browser_tools.AnimationTools;
 using StringTools;
 
+@:enum
+abstract Prefix(String) {
+  var ms = 'ms';
+  var moz = 'moz';
+  var webkit = 'webkit';
+  var not_supported = 'not-supported';
+  var not_prefixed = '';
+}
+
+
 class AnimationTools  {
+
+  static var _prefix:Prefix = null;
+  public static  var prefix(get,never):Prefix;
+  public static function get_prefix():Prefix {
+      if (_prefix == null) {
+         var check = is_animations_supported;
+         if (check == true) {
+          var style:haxe.DynamicAccess<Dynamic> = untyped js.Browser.document.body.style;
+          _prefix =  if (style.exists('borderRadius'))
+            not_prefixed;
+          else if (style.exists('MsBorderRadius'))
+            ms;
+          else if (style.exists('MozBorderRadius'))
+            moz;
+          else if (style.exists('webkitBorderRadius'))
+            webkit;
+          else
+            not_supported;
+        } else {
+          _prefix = not_supported;
+        }
+     }
+     return _prefix;
+ }
+
+
 
   static var _is_animations_supported:Bool = null;
   public static  var is_animations_supported(get,never):Bool;
