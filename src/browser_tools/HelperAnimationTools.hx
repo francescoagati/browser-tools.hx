@@ -8,15 +8,16 @@ class HelperAnimationTools {
 
   public static macro function set_vendor_property(element:ExprOf<AElement>,key:ExprOf<String>,value:Expr) {
 
-    var extensions = ['-ms-','-webkit-','-moz-',''];
+    var prop = '${key.getValue()}';
+    return macro  {
+      var extension = browser_tools.AnimationTools.prefix;
 
-    var exprs = [ for (extension in extensions) {
-      var prop = '${extension}${key.getValue()}';
-      macro $element.style.setProperty($v{prop},$e{value});
-    }];
+      if (extension != not_supported) {
+        var prop = if (extension == not_prefixed) $v{prop}; else "-" + $v{prop} + "-";
+        $element.style.setProperty('$prop',$e{value});
+      }
 
-
-    return macro $b{exprs};
+    }
   }
 
   public static macro function frame(expr:Expr) {

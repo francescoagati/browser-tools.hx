@@ -8,6 +8,7 @@ abstract Prefix(String) {
   var ms = 'ms';
   var moz = 'moz';
   var webkit = 'webkit';
+  var opera = 'o';
   var not_supported = 'not-supported';
   var not_prefixed = '';
 }
@@ -18,18 +19,24 @@ class AnimationTools  {
   static var _prefix:Prefix = null;
   public static  var prefix(get,never):Prefix;
   public static function get_prefix():Prefix {
+
+
+      inline function check_stype_property(style:Dynamic,prop:String) return (untyped style[prop]) != null;
+
       if (_prefix == null) {
          var check = is_animations_supported;
          if (check == true) {
-          var style:haxe.DynamicAccess<Dynamic> = untyped js.Browser.document.body.style;
-          _prefix =  if (style.exists('borderRadius'))
+           var style:haxe.DynamicAccess<Dynamic> = untyped js.Browser.document.body.style;
+          _prefix =  if (check_stype_property(style,'transform'))
             not_prefixed;
-          else if (style.exists('MsBorderRadius'))
+          else if (check_stype_property(style,'msTransform'))
             ms;
-          else if (style.exists('MozBorderRadius'))
+          else if (check_stype_property(style,'MozTransform'))
             moz;
-          else if (style.exists('webkitBorderRadius'))
+          else if (check_stype_property(style,'webkitTransform'))
             webkit;
+          else if (check_stype_property(style,'OTransform'))
+            opera;
           else
             not_supported;
         } else {
@@ -142,24 +149,26 @@ class AnimationTools  {
   public static inline function wait_for_end_animation(element:AElement,cb:Void->Void) {
 
     var check_one = false;
+    var prefix_string = prefix;
 
-    function handler (e) {
+    if (prefix != not_supported) {
 
-      if (check_one == false) {
-        check_one = true;
-        cb();
-        //element.on.transitionend - handler;
-        element.removeEventListener('webkitTransitionEnd',handler);
-        element.removeEventListener('msTransitionEnd',handler);
-        element.removeEventListener('transitionend',handler);
-      }
-    };
+      function handler (e) {
 
-    element.addEventListener('webkitTransitionEnd',handler);
-    element.addEventListener('msTransitionEnd',handler);
-    element.addEventListener('transitionend',handler);
+        if (check_one == false) {
+          check_one = true;
+          cb();
 
-    //element.on.transitionend + handler;
+          element.removeEventListener('${prefix_string}transitionend',handler);
+        }
+      };
+
+      element.addEventListener('${prefix_string}transitionend',handler);
+
+      //element.on.transitionend + handler;
+
+    }
+
   }
 
 
