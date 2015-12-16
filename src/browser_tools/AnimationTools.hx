@@ -1,9 +1,51 @@
 package browser_tools;
 
 using browser_tools.AnimationTools;
-
+using StringTools;
 
 class AnimationTools  {
+
+  static var _is_animations_supported:Bool = null;
+  public static  var is_animations_supported(get,never):Bool;
+  public static inline function get_is_animations_supported():Bool {
+    if (_is_animations_supported == null) _is_animations_supported = check_for_animations();
+    return _is_animations_supported;
+  }
+
+
+  @:noUsing
+  static function check_for_animations():Bool {
+    //from https://hacks.mozilla.org/2011/09/detecting-and-generating-css-animations-in-javascript/
+
+    var animation = false,
+        animationstring = 'animation',
+        keyframeprefix = '',
+        domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
+        pfx  = '',
+        elm = js.Browser.document.createElement('div');
+
+    if( elm.style.animationName != null ) { animation = true; }
+
+    if( animation == false ) {
+
+      var style:haxe.DynamicAccess<Dynamic> = untyped elm.style;
+
+      for( prefix in domPrefixes) {
+        if( style[ prefix + 'AnimationName' ] != null ) {
+          pfx = prefix;
+          animationstring = pfx + 'Animation';
+          keyframeprefix = '-' + pfx.toLowerCase() + '-';
+          animation = true;
+          break;
+        }
+      }
+    }
+
+    return animation;
+
+  }
+
+
 
 
   public static inline function opacity_hide(element:AElement,value:String) {

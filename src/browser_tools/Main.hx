@@ -47,7 +47,8 @@ class Main implements async_tools.Async {
 
     animate(function() {});
 
-
+    var b = browser_tools.AnimationTools.is_animations_supported;
+    trace(b);
     /*
     var assets:AManifest = [];
     assets++

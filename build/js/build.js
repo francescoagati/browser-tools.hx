@@ -8,6 +8,32 @@ HxOverrides.iter = function(a) {
 	}};
 };
 var async_$tools_Async = function() { };
+var browser_$tools_AnimationTools = function() { };
+browser_$tools_AnimationTools.check_for_animations = function() {
+	var animation = false;
+	var animationstring = "animation";
+	var keyframeprefix = "";
+	var domPrefixes = "Webkit Moz O ms Khtml".split(" ");
+	var pfx = "";
+	var elm = window.document.createElement("div");
+	if(elm.style.animationName != null) animation = true;
+	if(animation == false) {
+		var style = elm.style;
+		var _g = 0;
+		while(_g < domPrefixes.length) {
+			var prefix = domPrefixes[_g];
+			++_g;
+			if(style[prefix + "AnimationName"] != null) {
+				pfx = prefix;
+				animationstring = pfx + "Animation";
+				keyframeprefix = "-" + pfx.toLowerCase() + "-";
+				animation = true;
+				break;
+			}
+		}
+	}
+	return animation;
+};
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.animate = function(__return) {
@@ -116,6 +142,11 @@ browser_$tools_Main.animate = function(__return) {
 browser_$tools_Main.main = function() {
 	browser_$tools_Main.animate(function() {
 	});
+	var tmp;
+	if(browser_$tools_AnimationTools._is_animations_supported == null) browser_$tools_AnimationTools._is_animations_supported = browser_$tools_AnimationTools.check_for_animations();
+	tmp = browser_$tools_AnimationTools._is_animations_supported;
+	var b = tmp;
+	console.log(b);
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
