@@ -10,6 +10,8 @@ import browser_tools.angular.Config;
 import js.html.*;
 import browser_tools.Viewport;
 
+import browser_tools.BrowserDevice;
+
 import browser_tools.HelperAnimationTools.frame;
 import async_tools.Cps.*;
 using browser_tools.Assets.AssetsTools;
