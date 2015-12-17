@@ -44,10 +44,11 @@ class Main implements async_tools.Async {
     frame(el.set_translate(x,y));
   }
 
-
+  
   static function main() {
 
-    js.Browser.alert(browser_tools.BrowserDevice.browser);
+    js.Browser.alert(browser_tools.BrowserDevice.safariiOS);
+    js.Browser.alert(browser_tools.BrowserDevice.browser.version);
 
 
     animate(function() {});

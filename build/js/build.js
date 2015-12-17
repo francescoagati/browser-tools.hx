@@ -188,7 +188,20 @@ browser_$tools_Main.animate = function(__return) {
 	}
 };
 browser_$tools_Main.main = function() {
-	js_Browser.alert(browser_$tools_BrowserDevice.browser);
+	var tmp;
+	var s = window.navigator.userAgent;
+	var rg = new EReg("Safari","i");
+	tmp = rg.match(s);
+	var tmp1;
+	if(tmp) {
+		var tmp2;
+		var s1 = window.navigator.userAgent;
+		var rg1 = new EReg("iPhone|iPad|iPod","i");
+		tmp2 = rg1.match(s1);
+		if(tmp2) tmp1 = browser_$tools_BrowserDevice.is_mobile_explorer == false; else tmp1 = false;
+	} else tmp1 = false;
+	js_Browser.alert(tmp1 && browser_$tools_BrowserDevice.is_mobile_explorer == false);
+	js_Browser.alert(browser_$tools_BrowserDevice.browser.version);
 	browser_$tools_Main.animate(function() {
 	});
 	var prefix = browser_$tools_AnimationTools.get_prefix();
@@ -306,5 +319,6 @@ browser_$tools_BrowserDevice.browser = (function($this) {
 	$r = rg_system_mobile.match(navigator.userAgent)?{ browser : browser1, version : parseFloat(version), type : "mobile"}:{ browser : browser1, version : parseFloat(version), type : "desktop"};
 	return $r;
 }(this));
+browser_$tools_BrowserDevice.is_mobile_explorer = browser_$tools_BrowserDevice.browser.browser == "Trident" && browser_$tools_BrowserDevice.browser.type == "mobile"?true:false;
 browser_$tools_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});

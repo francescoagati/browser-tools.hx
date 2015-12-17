@@ -30,7 +30,9 @@ class BrowserDevice {
 
 
   public static var isOnlyWebkit(get,never):Bool;
-  public static var chromeIOS(get,never):Bool;
+  public static var safariiOS(get,never):Bool;
+  public static var chromeiOS(get,never):Bool;
+  public static var chromeAndroid(get,never):Bool;
   public static var android(get,never):Bool;
   public static var blackBerry(get,never):Bool;
   public static var iOS(get,never):Bool;
@@ -45,11 +47,15 @@ class BrowserDevice {
   public static var IE10_or_9(get,never):Bool;
 
 
+  public static var isIE(get,never):Int;
+
   static inline function get_browser():BrowserType {
     var navigator = js.Browser.navigator;
     var navigatorObj = navigator.appName,
         userAgentObj = navigator.userAgent,
         matchVersion;
+
+
 
     var browser:String = null,version:String = null;
     var rg_browser = ~/(opera|chrome|safari|firefox|msie|trident)\/?\s*(\.?\d+(\.\d+)*)/i;
@@ -86,11 +92,26 @@ class BrowserDevice {
 
   static inline function navigator() return js.Browser.navigator;
 
+  static function get_isIE():Int {
+    var myNav = js.Browser.navigator.userAgent.toLowerCase();
+    return (myNav.indexOf('msie') != -1) ? Std.parseInt(myNav.split('msie')[1]) : -1;
+  }
+
+
   static inline function get_isOnlyWebkit() {
     return (navigator().userAgent.match(~/WebKit/i) && navigator().userAgent.match(~/Android/i)) && !navigator().userAgent.match(~/Chrome/i) && is_mobile_explorer == false;
-
   }
-  static inline function get_chromeIOS() {
+
+  static inline function get_safariiOS() {
+    return (navigator().userAgent.match(~/Safari/i)) && iOS && is_mobile_explorer == false;
+  }
+
+  static inline function get_chromeAndroid() {
+    return (navigator().userAgent.match(~/chrome/i)) && android && is_mobile_explorer == false;
+  }
+
+
+  static inline function get_chromeiOS() {
     return (navigator().userAgent.match(~/CriOS/i)) && is_mobile_explorer == false;
   }
 
