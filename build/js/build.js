@@ -1,4 +1,28 @@
 (function (console) { "use strict";
+function $extend(from, fields) {
+	function Inherit() {} Inherit.prototype = from; var proto = new Inherit();
+	for (var name in fields) proto[name] = fields[name];
+	if( fields.toString !== Object.prototype.toString ) proto.toString = fields.toString;
+	return proto;
+}
+var EReg = function(r,opt) {
+	opt = opt.split("u").join("");
+	this.r = new RegExp(r,opt);
+};
+EReg.__name__ = true;
+EReg.prototype = {
+	match: function(s) {
+		if(this.r.global) this.r.lastIndex = 0;
+		this.r.m = this.r.exec(s);
+		this.r.s = s;
+		return this.r.m != null;
+	}
+	,matched: function(n) {
+		var tmp;
+		if(this.r.m != null && n >= 0 && n < this.r.m.length) tmp = this.r.m[n]; else throw new js__$Boot_HaxeError("EReg::matched");
+		return tmp;
+	}
+};
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
 HxOverrides.iter = function(a) {
@@ -53,6 +77,8 @@ browser_$tools_AnimationTools.check_for_animations = function() {
 	}
 	return animation;
 };
+var browser_$tools_BrowserDevice = function() { };
+browser_$tools_BrowserDevice.__name__ = true;
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__name__ = true;
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
@@ -162,12 +188,23 @@ browser_$tools_Main.animate = function(__return) {
 	}
 };
 browser_$tools_Main.main = function() {
+	js_Browser.alert(browser_$tools_BrowserDevice.browser);
 	browser_$tools_Main.animate(function() {
 	});
 	var prefix = browser_$tools_AnimationTools.get_prefix();
 	js_Browser.alert(prefix);
 	console.log(prefix);
 };
+var js__$Boot_HaxeError = function(val) {
+	Error.call(this);
+	this.val = val;
+	this.message = String(val);
+	if(Error.captureStackTrace) Error.captureStackTrace(this,js__$Boot_HaxeError);
+};
+js__$Boot_HaxeError.__name__ = true;
+js__$Boot_HaxeError.__super__ = Error;
+js__$Boot_HaxeError.prototype = $extend(Error.prototype,{
+});
 var js_Boot = function() { };
 js_Boot.__name__ = true;
 js_Boot.__string_rec = function(o,s) {
@@ -206,6 +243,7 @@ js_Boot.__string_rec = function(o,s) {
 		try {
 			tostr = o.toString;
 		} catch( e ) {
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
 			return "???";
 		}
 		if(tostr != null && tostr != Object.toString && typeof(tostr) == "function") {
@@ -250,5 +288,23 @@ Array.__name__ = true;
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;
+browser_$tools_BrowserDevice.browser = (function($this) {
+	var $r;
+	var navigator = window.navigator;
+	var navigatorObj = navigator.appName;
+	var userAgentObj = navigator.userAgent;
+	var matchVersion;
+	var browser = null;
+	var version = null;
+	var rg_browser = new EReg("(opera|chrome|safari|firefox|msie|trident)/?\\s*(\\.?\\d+(\\.\\d+)*)","i");
+	var rg_system_mobile = new EReg("iPhone|Android|webOS|iPad","i");
+	var rg_version = new EReg("version/([\\.\\d]+)","i");
+	var match_browser = rg_browser.match(userAgentObj);
+	var match_version = rg_version.match(userAgentObj);
+	var browser1 = match_browser?rg_browser.matched(1):navigatorObj;
+	version = match_version?rg_version.matched(1):rg_browser.matched(2);
+	$r = rg_system_mobile.match(navigator.userAgent)?{ browser : browser1, version : parseFloat(version), type : "mobile"}:{ browser : browser1, version : parseFloat(version), type : "desktop"};
+	return $r;
+}(this));
 browser_$tools_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});

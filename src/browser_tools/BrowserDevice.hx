@@ -78,7 +78,7 @@ class BrowserDevice {
       {
         browser:browser,
         version:Std.parseFloat(version),
-        type:'mobile'
+        type:'desktop'
       }
     }
 

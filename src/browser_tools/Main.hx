@@ -47,6 +47,9 @@ class Main implements async_tools.Async {
 
   static function main() {
 
+    js.Browser.alert(browser_tools.BrowserDevice.browser);
+
+
     animate(function() {});
 
     //var b = browser_tools.AnimationTools.is_animations_supported;
