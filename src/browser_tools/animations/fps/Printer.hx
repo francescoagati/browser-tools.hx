@@ -23,7 +23,15 @@ class Printer extends Loop {
 
     var html = '
       <div id="fps_printer"
-        style="font-size:24px;padding:20px;position:fixed;top:0px;left:0px;z-index:99999999999999999999999999999;display:inline-block"></div>
+        style="
+          pointer-events:none;
+          font-size:24px;
+          padding:20px;
+          position:fixed;
+          top:0px;
+          left:0px;
+          z-index:99999999999999999999999999999;
+          display:inline-block"></div>
     ';
 
     body.appendChild(html.toNode());
