@@ -5,3 +5,12 @@
 -dce full
 -D analyzer
 -D assets_load_compiletime=true
+--next
+-cp src
+-cp test
+-main Test
+-js build/js/test.js
+-lib async_tools weblog compiletime thx.core angular.haxe tink_macro
+-dce full
+-D analyzer
+-D assets_load_compiletime=true

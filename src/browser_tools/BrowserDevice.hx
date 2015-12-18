@@ -34,6 +34,7 @@ class BrowserDevice {
   public static var chromeiOS(get,never):Bool;
   public static var chromeAndroid(get,never):Bool;
   public static var android(get,never):Bool;
+  public static var gingerBread(get,never):Bool;
   public static var blackBerry(get,never):Bool;
   public static var iOS(get,never):Bool;
   public static var iOS7(get,never):Bool;
@@ -91,6 +92,9 @@ class BrowserDevice {
   }
 
   static inline function navigator() return js.Browser.navigator;
+  static inline function get_gingerBread() return navigator().userAgent.match(~/Android 2\.3\.[3-7]/i);
+
+
 
   static function get_isIE():Int {
     var myNav = js.Browser.navigator.userAgent.toLowerCase();

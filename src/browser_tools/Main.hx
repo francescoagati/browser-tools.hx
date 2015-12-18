@@ -11,6 +11,7 @@ import js.html.*;
 import browser_tools.Viewport;
 
 import browser_tools.BrowserDevice;
+import browser_tools.animations.DisplayObject;
 
 import browser_tools.HelperAnimationTools.frame;
 import async_tools.Cps.*;
@@ -44,21 +45,26 @@ class Main implements async_tools.Async {
     frame(el.set_translate(x,y));
   }
 
-  
+
   static function main() {
 
-    js.Browser.alert(browser_tools.BrowserDevice.safariiOS);
-    js.Browser.alert(browser_tools.BrowserDevice.browser.version);
+    DisplayObject.check_for_animations(function(check) {
+      js.Browser.alert(check);
+    });
 
 
-    animate(function() {});
+    //js.Browser.alert(browser_tools.BrowserDevice.safariiOS);
+    //js.Browser.alert(browser_tools.BrowserDevice.browser.version);
+
+
+    //animate(function() {});
 
     //var b = browser_tools.AnimationTools.is_animations_supported;
     //trace(b);
 
-    var prefix = browser_tools.AnimationTools.prefix;
-    js.Browser.alert(prefix);
-    trace(prefix);
+    //var prefix = browser_tools.AnimationTools.prefix;
+    //js.Browser.alert(prefix);
+    //trace(prefix);
 
     /*
     var assets:AManifest = [];
