@@ -1,11 +1,11 @@
--cp src
--main browser_tools.Main
--js build/js/build.js
--lib async_tools weblog compiletime thx.core angular.haxe tink_macro
--dce full
--D analyzer
--D assets_load_compiletime=true
---next
+#-cp src
+#-main browser_tools.Main
+#-lib async_tools weblog compiletime thx.core angular.haxe tink_macro
+#-js build/js/build.js
+#-dce full
+#-D analyzer
+#-D assets_load_compiletime=true
+#--next
 -cp src
 -cp test
 -main Test

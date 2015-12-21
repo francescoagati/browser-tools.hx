@@ -8,20 +8,75 @@
   </style>
 
 
+<script>
+
+(function() {
+  var lastTime = 0;
+  var vendors = ['ms', 'moz', 'webkit', 'o'];
+  for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+      window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+      window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+                                 || window[vendors[x]+'CancelRequestAnimationFrame'];
+  }
+
+  if (!window.requestAnimationFrame)
+      window.requestAnimationFrame = function(callback, element) {
+          var currTime = new Date().getTime();
+          var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+          var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+            timeToCall);
+          lastTime = currTime + timeToCall;
+          return id;
+      };
+
+  if (!window.cancelAnimationFrame)
+      window.cancelAnimationFrame = function(id) {
+          clearTimeout(id);
+      };
+}());
+
+</script>
+
+
 </head>
 <body>
 
-  <div class="start-hide">ciuppa</div>
+
+  <style>
+  #animation {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: relative;
+      -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+      animation: mymove 5s infinite;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes mymove {
+      from {left: 0px;}
+      to {left: 200px;}
+  }
+
+  @keyframes mymove {
+      from {left: 0px;}
+      to {left: 200px;}
+  }
+  </style>
+
 
   <div id="animation" style="background:red;width:500px;height:300px;"></div>
+
+
+  <div id="log">null</div>
 
   <script src="test.js"></script>
 
   <script>
-    window.enable_transactions = false;
-    transaction_check.check_for_animations(null,function(b) {
-      window.enable_transactions = b;
-    });
+    //window.enable_transactions = false;
+    //transaction_check.check_for_animations(null,function(b) {
+    //  window.enable_transactions = b;
+    //});
   </script>
 
 </body>

@@ -10,14 +10,24 @@ typedef Rect = {
   top:Float,
   width:Float,
   height:Float,
-  scaleX:Float,
-  scaleY:Float,
-  rotation:Float,
-  ?alpha:Float
+  ?scaleX:Float,
+  ?scaleY:Float,
+  ?rotation:Float,
+  ?alpha:Float,
+  x:Float,
+  y:Float
+}
+
+@:enum
+abstract RectProperty(String) {
+  var left = 'left';
+  var right = 'right';
+  var top = 'top';
+  var bottom = 'bottom';
 }
 
 
-@:native('transaction_check')
+@:native('browser_tools.transaction_check')
 @:keep
 class TransactionCheck implements async_tools.Async {
 
@@ -25,6 +35,32 @@ class TransactionCheck implements async_tools.Async {
     'check_animation_one'.byId().remove_node();
     'check_animation_two'.byId().remove_node();
   }
+
+
+  @:extern @:async static inline public function check_for_property_change(element:DisplayObject,prop:RectProperty,?tm:Int = 300):Bool {
+
+    inline function get_property(element:DisplayObject,prop:RectProperty,cb) {
+
+      js.Browser.window.requestAnimationFrame(function(i) {
+        var prop = switch(prop) {
+          case left:element.rect.left;
+          case right:element.rect.right;
+          case top:element.rect.top;
+          case bottom:element.rect.bottom;
+          case _:null;
+        };
+        cb(prop);
+      });
+
+    }
+
+    var last = @await get_property(element,prop);
+    @await wait(tm);
+    var now = @await get_property(element,prop);
+    @await wait(20);
+    return  last-now != 0;
+  }
+
 
 
   @:extern @:async static inline function check_for_transform():Array<Dynamic> {
@@ -107,7 +143,7 @@ class TransactionCheck implements async_tools.Async {
     return check;
   }
 
-
+  
 }
 
 
@@ -123,8 +159,8 @@ abstract DisplayObject(Element) from Element to Element {
   public var scaleY(get,set):Float;
   public var rotation(get,set):Float;
   public var alpha(get,set):Float;
-  public var rect(get,never):Rect;
 
+  public var rect(get,never): js.html.DOMRect;
   var cache(get,set):Rect;
 
   public  inline function get_cache() {
@@ -172,12 +208,11 @@ abstract DisplayObject(Element) from Element to Element {
   }
 
   public  inline function get_rect() {
-    return untyped null;
+    return this.getBoundingClientRect();
   }
 
 
   public static inline function check_for_animations(cb:Array<Dynamic>->Void) TransactionCheck.check_for_animations(cb);
-
-
+  @:from public static inline function fromAElement(element:AElement) return new DisplayObject(element);
 
 }

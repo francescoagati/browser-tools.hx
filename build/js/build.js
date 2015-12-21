@@ -1,5 +1,6 @@
 (function (console, $hx_exports) { "use strict";
-$hx_exports.transaction_check = $hx_exports.transaction_check || {};
+$hx_exports.browser_tools = $hx_exports.browser_tools || {};
+$hx_exports.browser_tools.transaction_check = $hx_exports.browser_tools.transaction_check || {};
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
 HxOverrides.iter = function(a) {
@@ -66,10 +67,10 @@ browser_$tools_Main.main = function() {
 		} else __endIf_1();
 	},20);
 };
-var transaction_$check = function() { };
-transaction_$check.__name__ = true;
-transaction_$check.__interfaces__ = [async_$tools_Async];
-transaction_$check.check_for_animations = $hx_exports.transaction_check.check_for_animations = function(container,__return) {
+var browser_$tools_transaction_$check = function() { };
+browser_$tools_transaction_$check.__name__ = true;
+browser_$tools_transaction_$check.__interfaces__ = [async_$tools_Async];
+browser_$tools_transaction_$check.check_for_animations = $hx_exports.browser_tools.transaction_check.check_for_animations = function(container,__return) {
 	setTimeout(function() {
 		var div1 = (function($this) {
 			var $r;
