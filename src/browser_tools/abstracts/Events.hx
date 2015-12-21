@@ -1,6 +1,6 @@
 
 
-package browser_tools;
+package browser_tools.abstracts;
 import js.html.*;
 import js.JQuery;
 import js.Browser;
@@ -27,7 +27,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventWheel(Element) {
@@ -47,7 +47,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventEnded(Element) {
@@ -67,7 +67,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTimeout(Element) {
@@ -87,7 +87,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventBlocked(Element) {
@@ -107,7 +107,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMAttrModified(Element) {
@@ -127,7 +127,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDragenter(Element) {
@@ -147,7 +147,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTouchmove(Element) {
@@ -167,7 +167,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventComplete(Element) {
@@ -187,7 +187,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMElementNameChanged(Element) {
@@ -207,7 +207,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventObsolete(Element) {
@@ -227,7 +227,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMouseover(Element) {
@@ -247,7 +247,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventGamepaddisconnected(Element) {
@@ -267,7 +267,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMAttributeNameChanged(Element) {
@@ -287,7 +287,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPagehide(Element) {
@@ -307,7 +307,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSuccess(Element) {
@@ -327,7 +327,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventChange(Element) {
@@ -347,7 +347,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSelect(Element) {
@@ -367,7 +367,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMSubtreeModified(Element) {
@@ -387,7 +387,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSVGZoom(Element) {
@@ -407,7 +407,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPlaying(Element) {
@@ -427,7 +427,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMouseenter(Element) {
@@ -447,7 +447,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTouchcancel(Element) {
@@ -467,7 +467,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDevicelight(Element) {
@@ -487,7 +487,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPlay(Element) {
@@ -507,7 +507,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventShow(Element) {
@@ -527,7 +527,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventStorage(Element) {
@@ -547,7 +547,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventInput(Element) {
@@ -567,7 +567,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventUpdateready(Element) {
@@ -587,7 +587,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventVisibilitychange(Element) {
@@ -607,7 +607,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventFullscreenchange(Element) {
@@ -627,7 +627,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventCanplaythrough(Element) {
@@ -647,7 +647,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDragleave(Element) {
@@ -667,7 +667,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventOffline(Element) {
@@ -687,7 +687,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTouchenter(Element) {
@@ -707,7 +707,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventBeforeprint(Element) {
@@ -727,7 +727,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDownloading(Element) {
@@ -747,7 +747,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventAbort(Element) {
@@ -767,7 +767,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPageshow(Element) {
@@ -787,7 +787,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSubmit(Element) {
@@ -807,7 +807,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventVersionchange(Element) {
@@ -827,7 +827,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventContextmenu(Element) {
@@ -847,7 +847,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventOpen(Element) {
@@ -867,7 +867,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventRatechange(Element) {
@@ -887,7 +887,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerout(Element) {
@@ -907,7 +907,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventBeforeunload(Element) {
@@ -927,7 +927,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMCharacterDataModified(Element) {
@@ -947,7 +947,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDragstart(Element) {
@@ -967,7 +967,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDrop(Element) {
@@ -987,7 +987,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventGotpointercapture(Element) {
@@ -1007,7 +1007,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventUpgradeneeded(Element) {
@@ -1027,7 +1027,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSVGError(Element) {
@@ -1047,7 +1047,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventAfterprint(Element) {
@@ -1067,7 +1067,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventReadystatechange(Element) {
@@ -1087,7 +1087,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLanguagechange(Element) {
@@ -1107,7 +1107,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSVGAbort(Element) {
@@ -1127,7 +1127,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSVGResize(Element) {
@@ -1147,7 +1147,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMousedown(Element) {
@@ -1167,7 +1167,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventKeydown(Element) {
@@ -1187,7 +1187,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerover(Element) {
@@ -1207,7 +1207,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventWaiting(Element) {
@@ -1227,7 +1227,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPause(Element) {
@@ -1247,7 +1247,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSelectstart(Element) {
@@ -1267,7 +1267,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTransitionend(Element) {
@@ -1287,7 +1287,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventCanplay(Element) {
@@ -1307,7 +1307,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDurationchange(Element) {
@@ -1327,7 +1327,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSelectionchange(Element) {
@@ -1347,7 +1347,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventCopy(Element) {
@@ -1367,7 +1367,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDragend(Element) {
@@ -1387,7 +1387,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSVGUnload(Element) {
@@ -1407,7 +1407,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDblclick(Element) {
@@ -1427,7 +1427,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMFocusIn(Element) {
@@ -1447,7 +1447,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLoadstart(Element) {
@@ -1467,7 +1467,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMActivate(Element) {
@@ -1487,7 +1487,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMNodeInserted(Element) {
@@ -1507,7 +1507,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventCached(Element) {
@@ -1527,7 +1527,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventBlur(Element) {
@@ -1547,7 +1547,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSeeked(Element) {
@@ -1567,7 +1567,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventFocus(Element) {
@@ -1587,7 +1587,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventKeypress(Element) {
@@ -1607,7 +1607,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerlockerror(Element) {
@@ -1627,7 +1627,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventChargingtimechange(Element) {
@@ -1647,7 +1647,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventVolumechange(Element) {
@@ -1667,7 +1667,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventCompositionstart(Element) {
@@ -1687,7 +1687,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMouseout(Element) {
@@ -1707,7 +1707,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventAnimationstart(Element) {
@@ -1727,7 +1727,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDeviceproximity(Element) {
@@ -1747,7 +1747,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLoadend(Element) {
@@ -1767,7 +1767,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerenter(Element) {
@@ -1787,7 +1787,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMFocusOut(Element) {
@@ -1807,7 +1807,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDrag(Element) {
@@ -1827,7 +1827,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSuspend(Element) {
@@ -1847,7 +1847,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPaste(Element) {
@@ -1867,7 +1867,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDeviceorientation(Element) {
@@ -1887,7 +1887,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMouseleave(Element) {
@@ -1907,7 +1907,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventFullscreenerror(Element) {
@@ -1927,7 +1927,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTouchstart(Element) {
@@ -1947,7 +1947,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDischargingtimechange(Element) {
@@ -1967,7 +1967,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventChargingchange(Element) {
@@ -1987,7 +1987,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMessage(Element) {
@@ -2007,7 +2007,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerdown(Element) {
@@ -2027,7 +2027,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventEndEvent(Element) {
@@ -2047,7 +2047,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDevicemotion(Element) {
@@ -2067,7 +2067,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerlockchange(Element) {
@@ -2087,7 +2087,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventResize(Element) {
@@ -2107,7 +2107,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTouchleave(Element) {
@@ -2127,7 +2127,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointercancel(Element) {
@@ -2147,7 +2147,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventProgress(Element) {
@@ -2167,7 +2167,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventCut(Element) {
@@ -2187,7 +2187,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerleave(Element) {
@@ -2207,7 +2207,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventAnimationend(Element) {
@@ -2227,7 +2227,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLoadeddata(Element) {
@@ -2247,7 +2247,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventOnline(Element) {
@@ -2267,7 +2267,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSVGScroll(Element) {
@@ -2287,7 +2287,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventClick(Element) {
@@ -2307,7 +2307,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMNodeRemoved(Element) {
@@ -2327,7 +2327,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventEmptied(Element) {
@@ -2347,7 +2347,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventError(Element) {
@@ -2367,7 +2367,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMNodeInsertedIntoDocument(Element) {
@@ -2387,7 +2387,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventScroll(Element) {
@@ -2407,7 +2407,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLevelchange(Element) {
@@ -2427,7 +2427,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTouchend(Element) {
@@ -2447,7 +2447,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLoad(Element) {
@@ -2467,7 +2467,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventUnload(Element) {
@@ -2487,7 +2487,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMContentLoaded(Element) {
@@ -2507,7 +2507,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMouseup(Element) {
@@ -2527,7 +2527,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventOrientationchange(Element) {
@@ -2547,7 +2547,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventUserproximity(Element) {
@@ -2567,7 +2567,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventAudioprocess(Element) {
@@ -2587,7 +2587,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLostpointercapture(Element) {
@@ -2607,7 +2607,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSeeking(Element) {
@@ -2627,7 +2627,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventAnimationiteration(Element) {
@@ -2647,7 +2647,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventBeginEvent(Element) {
@@ -2667,7 +2667,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventReset(Element) {
@@ -2687,7 +2687,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDragover(Element) {
@@ -2707,7 +2707,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventHashchange(Element) {
@@ -2727,7 +2727,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventInvalid(Element) {
@@ -2747,7 +2747,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventSVGLoad(Element) {
@@ -2767,7 +2767,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventCompositionupdate(Element) {
@@ -2787,7 +2787,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventStalled(Element) {
@@ -2807,7 +2807,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventChecking(Element) {
@@ -2827,7 +2827,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventNoupdate(Element) {
@@ -2847,7 +2847,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointermove(Element) {
@@ -2867,7 +2867,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventLoadedmetadata(Element) {
@@ -2887,7 +2887,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventDOMNodeRemovedFromDocument(Element) {
@@ -2907,7 +2907,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventRepeatEvent(Element) {
@@ -2927,7 +2927,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventClose(Element) {
@@ -2947,7 +2947,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventGamepadconnected(Element) {
@@ -2967,7 +2967,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPointerup(Element) {
@@ -2987,7 +2987,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventKeyup(Element) {
@@ -3007,7 +3007,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventMousemove(Element) {
@@ -3027,7 +3027,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventTimeupdate(Element) {
@@ -3047,7 +3047,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 
       abstract EventPopstate(Element) {
@@ -3067,7 +3067,7 @@ typedef EL = Event -> Void;
 
 
 
-    
+
 
 abstract EventAccessor(Element) {
     public inline function new(el:ELM) this = el;
@@ -3081,622 +3081,619 @@ abstract EventAccessor(Element) {
         this.removeEventListener(event,el);
     }
 
-    
+
         public var compositionend(get, never):EventCompositionend;
         inline function get_compositionend() return new EventCompositionend(this);
-      
+
 
         public var wheel(get, never):EventWheel;
         inline function get_wheel() return new EventWheel(this);
-      
+
 
         public var ended(get, never):EventEnded;
         inline function get_ended() return new EventEnded(this);
-      
+
 
         public var timeout(get, never):EventTimeout;
         inline function get_timeout() return new EventTimeout(this);
-      
+
 
         public var blocked(get, never):EventBlocked;
         inline function get_blocked() return new EventBlocked(this);
-      
+
 
         public var domattrmodified(get, never):EventDOMAttrModified;
         inline function get_domattrmodified() return new EventDOMAttrModified(this);
-      
+
 
         public var dragenter(get, never):EventDragenter;
         inline function get_dragenter() return new EventDragenter(this);
-      
+
 
         public var touchmove(get, never):EventTouchmove;
         inline function get_touchmove() return new EventTouchmove(this);
-      
+
 
         public var complete(get, never):EventComplete;
         inline function get_complete() return new EventComplete(this);
-      
+
 
         public var domelementnamechanged(get, never):EventDOMElementNameChanged;
         inline function get_domelementnamechanged() return new EventDOMElementNameChanged(this);
-      
+
 
         public var obsolete(get, never):EventObsolete;
         inline function get_obsolete() return new EventObsolete(this);
-      
+
 
         public var mouseover(get, never):EventMouseover;
         inline function get_mouseover() return new EventMouseover(this);
-      
+
 
         public var gamepaddisconnected(get, never):EventGamepaddisconnected;
         inline function get_gamepaddisconnected() return new EventGamepaddisconnected(this);
-      
+
 
         public var domattributenamechanged(get, never):EventDOMAttributeNameChanged;
         inline function get_domattributenamechanged() return new EventDOMAttributeNameChanged(this);
-      
+
 
         public var pagehide(get, never):EventPagehide;
         inline function get_pagehide() return new EventPagehide(this);
-      
+
 
         public var success(get, never):EventSuccess;
         inline function get_success() return new EventSuccess(this);
-      
+
 
         public var change(get, never):EventChange;
         inline function get_change() return new EventChange(this);
-      
+
 
         public var select(get, never):EventSelect;
         inline function get_select() return new EventSelect(this);
-      
+
 
         public var domsubtreemodified(get, never):EventDOMSubtreeModified;
         inline function get_domsubtreemodified() return new EventDOMSubtreeModified(this);
-      
+
 
         public var svgzoom(get, never):EventSVGZoom;
         inline function get_svgzoom() return new EventSVGZoom(this);
-      
+
 
         public var playing(get, never):EventPlaying;
         inline function get_playing() return new EventPlaying(this);
-      
+
 
         public var mouseenter(get, never):EventMouseenter;
         inline function get_mouseenter() return new EventMouseenter(this);
-      
+
 
         public var touchcancel(get, never):EventTouchcancel;
         inline function get_touchcancel() return new EventTouchcancel(this);
-      
+
 
         public var devicelight(get, never):EventDevicelight;
         inline function get_devicelight() return new EventDevicelight(this);
-      
+
 
         public var play(get, never):EventPlay;
         inline function get_play() return new EventPlay(this);
-      
+
 
         public var show(get, never):EventShow;
         inline function get_show() return new EventShow(this);
-      
+
 
         public var storage(get, never):EventStorage;
         inline function get_storage() return new EventStorage(this);
-      
+
 
         public var input(get, never):EventInput;
         inline function get_input() return new EventInput(this);
-      
+
 
         public var updateready(get, never):EventUpdateready;
         inline function get_updateready() return new EventUpdateready(this);
-      
+
 
         public var visibilitychange(get, never):EventVisibilitychange;
         inline function get_visibilitychange() return new EventVisibilitychange(this);
-      
+
 
         public var fullscreenchange(get, never):EventFullscreenchange;
         inline function get_fullscreenchange() return new EventFullscreenchange(this);
-      
+
 
         public var canplaythrough(get, never):EventCanplaythrough;
         inline function get_canplaythrough() return new EventCanplaythrough(this);
-      
+
 
         public var dragleave(get, never):EventDragleave;
         inline function get_dragleave() return new EventDragleave(this);
-      
+
 
         public var offline(get, never):EventOffline;
         inline function get_offline() return new EventOffline(this);
-      
+
 
         public var touchenter(get, never):EventTouchenter;
         inline function get_touchenter() return new EventTouchenter(this);
-      
+
 
         public var beforeprint(get, never):EventBeforeprint;
         inline function get_beforeprint() return new EventBeforeprint(this);
-      
+
 
         public var downloading(get, never):EventDownloading;
         inline function get_downloading() return new EventDownloading(this);
-      
+
 
         public var abort(get, never):EventAbort;
         inline function get_abort() return new EventAbort(this);
-      
+
 
         public var pageshow(get, never):EventPageshow;
         inline function get_pageshow() return new EventPageshow(this);
-      
+
 
         public var submit(get, never):EventSubmit;
         inline function get_submit() return new EventSubmit(this);
-      
+
 
         public var versionchange(get, never):EventVersionchange;
         inline function get_versionchange() return new EventVersionchange(this);
-      
+
 
         public var contextmenu(get, never):EventContextmenu;
         inline function get_contextmenu() return new EventContextmenu(this);
-      
+
 
         public var open(get, never):EventOpen;
         inline function get_open() return new EventOpen(this);
-      
+
 
         public var ratechange(get, never):EventRatechange;
         inline function get_ratechange() return new EventRatechange(this);
-      
+
 
         public var pointerout(get, never):EventPointerout;
         inline function get_pointerout() return new EventPointerout(this);
-      
+
 
         public var beforeunload(get, never):EventBeforeunload;
         inline function get_beforeunload() return new EventBeforeunload(this);
-      
+
 
         public var domcharacterdatamodified(get, never):EventDOMCharacterDataModified;
         inline function get_domcharacterdatamodified() return new EventDOMCharacterDataModified(this);
-      
+
 
         public var dragstart(get, never):EventDragstart;
         inline function get_dragstart() return new EventDragstart(this);
-      
+
 
         public var drop(get, never):EventDrop;
         inline function get_drop() return new EventDrop(this);
-      
+
 
         public var gotpointercapture(get, never):EventGotpointercapture;
         inline function get_gotpointercapture() return new EventGotpointercapture(this);
-      
+
 
         public var upgradeneeded(get, never):EventUpgradeneeded;
         inline function get_upgradeneeded() return new EventUpgradeneeded(this);
-      
+
 
         public var svgerror(get, never):EventSVGError;
         inline function get_svgerror() return new EventSVGError(this);
-      
+
 
         public var afterprint(get, never):EventAfterprint;
         inline function get_afterprint() return new EventAfterprint(this);
-      
+
 
         public var readystatechange(get, never):EventReadystatechange;
         inline function get_readystatechange() return new EventReadystatechange(this);
-      
+
 
         public var languagechange(get, never):EventLanguagechange;
         inline function get_languagechange() return new EventLanguagechange(this);
-      
+
 
         public var svgabort(get, never):EventSVGAbort;
         inline function get_svgabort() return new EventSVGAbort(this);
-      
+
 
         public var svgresize(get, never):EventSVGResize;
         inline function get_svgresize() return new EventSVGResize(this);
-      
+
 
         public var mousedown(get, never):EventMousedown;
         inline function get_mousedown() return new EventMousedown(this);
-      
+
 
         public var keydown(get, never):EventKeydown;
         inline function get_keydown() return new EventKeydown(this);
-      
+
 
         public var pointerover(get, never):EventPointerover;
         inline function get_pointerover() return new EventPointerover(this);
-      
+
 
         public var waiting(get, never):EventWaiting;
         inline function get_waiting() return new EventWaiting(this);
-      
+
 
         public var pause(get, never):EventPause;
         inline function get_pause() return new EventPause(this);
-      
+
 
         public var selectstart(get, never):EventSelectstart;
         inline function get_selectstart() return new EventSelectstart(this);
-      
+
 
         public var transitionend(get, never):EventTransitionend;
         inline function get_transitionend() return new EventTransitionend(this);
-      
+
 
         public var canplay(get, never):EventCanplay;
         inline function get_canplay() return new EventCanplay(this);
-      
+
 
         public var durationchange(get, never):EventDurationchange;
         inline function get_durationchange() return new EventDurationchange(this);
-      
+
 
         public var selectionchange(get, never):EventSelectionchange;
         inline function get_selectionchange() return new EventSelectionchange(this);
-      
+
 
         public var copy(get, never):EventCopy;
         inline function get_copy() return new EventCopy(this);
-      
+
 
         public var dragend(get, never):EventDragend;
         inline function get_dragend() return new EventDragend(this);
-      
+
 
         public var svgunload(get, never):EventSVGUnload;
         inline function get_svgunload() return new EventSVGUnload(this);
-      
+
 
         public var dblclick(get, never):EventDblclick;
         inline function get_dblclick() return new EventDblclick(this);
-      
+
 
         public var domfocusin(get, never):EventDOMFocusIn;
         inline function get_domfocusin() return new EventDOMFocusIn(this);
-      
+
 
         public var loadstart(get, never):EventLoadstart;
         inline function get_loadstart() return new EventLoadstart(this);
-      
+
 
         public var domactivate(get, never):EventDOMActivate;
         inline function get_domactivate() return new EventDOMActivate(this);
-      
+
 
         public var domnodeinserted(get, never):EventDOMNodeInserted;
         inline function get_domnodeinserted() return new EventDOMNodeInserted(this);
-      
+
 
         public var cached(get, never):EventCached;
         inline function get_cached() return new EventCached(this);
-      
+
 
         public var blur(get, never):EventBlur;
         inline function get_blur() return new EventBlur(this);
-      
+
 
         public var seeked(get, never):EventSeeked;
         inline function get_seeked() return new EventSeeked(this);
-      
+
 
         public var focus(get, never):EventFocus;
         inline function get_focus() return new EventFocus(this);
-      
+
 
         public var keypress(get, never):EventKeypress;
         inline function get_keypress() return new EventKeypress(this);
-      
+
 
         public var pointerlockerror(get, never):EventPointerlockerror;
         inline function get_pointerlockerror() return new EventPointerlockerror(this);
-      
+
 
         public var chargingtimechange(get, never):EventChargingtimechange;
         inline function get_chargingtimechange() return new EventChargingtimechange(this);
-      
+
 
         public var volumechange(get, never):EventVolumechange;
         inline function get_volumechange() return new EventVolumechange(this);
-      
+
 
         public var compositionstart(get, never):EventCompositionstart;
         inline function get_compositionstart() return new EventCompositionstart(this);
-      
+
 
         public var mouseout(get, never):EventMouseout;
         inline function get_mouseout() return new EventMouseout(this);
-      
+
 
         public var animationstart(get, never):EventAnimationstart;
         inline function get_animationstart() return new EventAnimationstart(this);
-      
+
 
         public var deviceproximity(get, never):EventDeviceproximity;
         inline function get_deviceproximity() return new EventDeviceproximity(this);
-      
+
 
         public var loadend(get, never):EventLoadend;
         inline function get_loadend() return new EventLoadend(this);
-      
+
 
         public var pointerenter(get, never):EventPointerenter;
         inline function get_pointerenter() return new EventPointerenter(this);
-      
+
 
         public var domfocusout(get, never):EventDOMFocusOut;
         inline function get_domfocusout() return new EventDOMFocusOut(this);
-      
+
 
         public var drag(get, never):EventDrag;
         inline function get_drag() return new EventDrag(this);
-      
+
 
         public var suspend(get, never):EventSuspend;
         inline function get_suspend() return new EventSuspend(this);
-      
+
 
         public var paste(get, never):EventPaste;
         inline function get_paste() return new EventPaste(this);
-      
+
 
         public var deviceorientation(get, never):EventDeviceorientation;
         inline function get_deviceorientation() return new EventDeviceorientation(this);
-      
+
 
         public var mouseleave(get, never):EventMouseleave;
         inline function get_mouseleave() return new EventMouseleave(this);
-      
+
 
         public var fullscreenerror(get, never):EventFullscreenerror;
         inline function get_fullscreenerror() return new EventFullscreenerror(this);
-      
+
 
         public var touchstart(get, never):EventTouchstart;
         inline function get_touchstart() return new EventTouchstart(this);
-      
+
 
         public var dischargingtimechange(get, never):EventDischargingtimechange;
         inline function get_dischargingtimechange() return new EventDischargingtimechange(this);
-      
+
 
         public var chargingchange(get, never):EventChargingchange;
         inline function get_chargingchange() return new EventChargingchange(this);
-      
+
 
         public var message(get, never):EventMessage;
         inline function get_message() return new EventMessage(this);
-      
+
 
         public var pointerdown(get, never):EventPointerdown;
         inline function get_pointerdown() return new EventPointerdown(this);
-      
+
 
         public var endevent(get, never):EventEndEvent;
         inline function get_endevent() return new EventEndEvent(this);
-      
+
 
         public var devicemotion(get, never):EventDevicemotion;
         inline function get_devicemotion() return new EventDevicemotion(this);
-      
+
 
         public var pointerlockchange(get, never):EventPointerlockchange;
         inline function get_pointerlockchange() return new EventPointerlockchange(this);
-      
+
 
         public var resize(get, never):EventResize;
         inline function get_resize() return new EventResize(this);
-      
+
 
         public var touchleave(get, never):EventTouchleave;
         inline function get_touchleave() return new EventTouchleave(this);
-      
+
 
         public var pointercancel(get, never):EventPointercancel;
         inline function get_pointercancel() return new EventPointercancel(this);
-      
+
 
         public var progress(get, never):EventProgress;
         inline function get_progress() return new EventProgress(this);
-      
+
 
         public var cut(get, never):EventCut;
         inline function get_cut() return new EventCut(this);
-      
+
 
         public var pointerleave(get, never):EventPointerleave;
         inline function get_pointerleave() return new EventPointerleave(this);
-      
+
 
         public var animationend(get, never):EventAnimationend;
         inline function get_animationend() return new EventAnimationend(this);
-      
+
 
         public var loadeddata(get, never):EventLoadeddata;
         inline function get_loadeddata() return new EventLoadeddata(this);
-      
+
 
         public var online(get, never):EventOnline;
         inline function get_online() return new EventOnline(this);
-      
+
 
         public var svgscroll(get, never):EventSVGScroll;
         inline function get_svgscroll() return new EventSVGScroll(this);
-      
+
 
         public var click(get, never):EventClick;
         inline function get_click() return new EventClick(this);
-      
+
 
         public var domnoderemoved(get, never):EventDOMNodeRemoved;
         inline function get_domnoderemoved() return new EventDOMNodeRemoved(this);
-      
+
 
         public var emptied(get, never):EventEmptied;
         inline function get_emptied() return new EventEmptied(this);
-      
+
 
         public var error(get, never):EventError;
         inline function get_error() return new EventError(this);
-      
+
 
         public var domnodeinsertedintodocument(get, never):EventDOMNodeInsertedIntoDocument;
         inline function get_domnodeinsertedintodocument() return new EventDOMNodeInsertedIntoDocument(this);
-      
+
 
         public var scroll(get, never):EventScroll;
         inline function get_scroll() return new EventScroll(this);
-      
+
 
         public var levelchange(get, never):EventLevelchange;
         inline function get_levelchange() return new EventLevelchange(this);
-      
+
 
         public var touchend(get, never):EventTouchend;
         inline function get_touchend() return new EventTouchend(this);
-      
+
 
         public var load(get, never):EventLoad;
         inline function get_load() return new EventLoad(this);
-      
+
 
         public var unload(get, never):EventUnload;
         inline function get_unload() return new EventUnload(this);
-      
+
 
         public var domcontentloaded(get, never):EventDOMContentLoaded;
         inline function get_domcontentloaded() return new EventDOMContentLoaded(this);
-      
+
 
         public var mouseup(get, never):EventMouseup;
         inline function get_mouseup() return new EventMouseup(this);
-      
+
 
         public var orientationchange(get, never):EventOrientationchange;
         inline function get_orientationchange() return new EventOrientationchange(this);
-      
+
 
         public var userproximity(get, never):EventUserproximity;
         inline function get_userproximity() return new EventUserproximity(this);
-      
+
 
         public var audioprocess(get, never):EventAudioprocess;
         inline function get_audioprocess() return new EventAudioprocess(this);
-      
+
 
         public var lostpointercapture(get, never):EventLostpointercapture;
         inline function get_lostpointercapture() return new EventLostpointercapture(this);
-      
+
 
         public var seeking(get, never):EventSeeking;
         inline function get_seeking() return new EventSeeking(this);
-      
+
 
         public var animationiteration(get, never):EventAnimationiteration;
         inline function get_animationiteration() return new EventAnimationiteration(this);
-      
+
 
         public var beginevent(get, never):EventBeginEvent;
         inline function get_beginevent() return new EventBeginEvent(this);
-      
+
 
         public var reset(get, never):EventReset;
         inline function get_reset() return new EventReset(this);
-      
+
 
         public var dragover(get, never):EventDragover;
         inline function get_dragover() return new EventDragover(this);
-      
+
 
         public var hashchange(get, never):EventHashchange;
         inline function get_hashchange() return new EventHashchange(this);
-      
+
 
         public var invalid(get, never):EventInvalid;
         inline function get_invalid() return new EventInvalid(this);
-      
+
 
         public var svgload(get, never):EventSVGLoad;
         inline function get_svgload() return new EventSVGLoad(this);
-      
+
 
         public var compositionupdate(get, never):EventCompositionupdate;
         inline function get_compositionupdate() return new EventCompositionupdate(this);
-      
+
 
         public var stalled(get, never):EventStalled;
         inline function get_stalled() return new EventStalled(this);
-      
+
 
         public var checking(get, never):EventChecking;
         inline function get_checking() return new EventChecking(this);
-      
+
 
         public var noupdate(get, never):EventNoupdate;
         inline function get_noupdate() return new EventNoupdate(this);
-      
+
 
         public var pointermove(get, never):EventPointermove;
         inline function get_pointermove() return new EventPointermove(this);
-      
+
 
         public var loadedmetadata(get, never):EventLoadedmetadata;
         inline function get_loadedmetadata() return new EventLoadedmetadata(this);
-      
+
 
         public var domnoderemovedfromdocument(get, never):EventDOMNodeRemovedFromDocument;
         inline function get_domnoderemovedfromdocument() return new EventDOMNodeRemovedFromDocument(this);
-      
+
 
         public var repeatevent(get, never):EventRepeatEvent;
         inline function get_repeatevent() return new EventRepeatEvent(this);
-      
+
 
         public var close(get, never):EventClose;
         inline function get_close() return new EventClose(this);
-      
+
 
         public var gamepadconnected(get, never):EventGamepadconnected;
         inline function get_gamepadconnected() return new EventGamepadconnected(this);
-      
+
 
         public var pointerup(get, never):EventPointerup;
         inline function get_pointerup() return new EventPointerup(this);
-      
+
 
         public var keyup(get, never):EventKeyup;
         inline function get_keyup() return new EventKeyup(this);
-      
+
 
         public var mousemove(get, never):EventMousemove;
         inline function get_mousemove() return new EventMousemove(this);
-      
+
 
         public var timeupdate(get, never):EventTimeupdate;
         inline function get_timeupdate() return new EventTimeupdate(this);
-      
+
 
         public var popstate(get, never):EventPopstate;
         inline function get_popstate() return new EventPopstate(this);
-      
+
 }
 
 
 class Events {}
-
-
-    

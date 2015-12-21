@@ -7,13 +7,13 @@ package browser_tools.abstracts;
 
 #if js
   import js.html.Element;
-  typedef ELM = Element
+  typedef ELMWRAPPER = Element
 #else
-  typedef ELM = Dynamic
+  typedef ELMWRAPPER = Dynamic
 #end
 
-abstract ClassesAccessor(ELM) {
-    public inline function new(el:ELM) this = el;
+abstract ClassesAccessor(ELMWRAPPER) {
+    public inline function new(el:ELMWRAPPER) this = el;
 
     public macro function add(ethis:Expr,exprs:Array<ExprOf<Dynamic>>) {
       return macro {
