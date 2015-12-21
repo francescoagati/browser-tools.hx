@@ -3,127 +3,27 @@ $hx_exports.browser_tools = $hx_exports.browser_tools || {};
 $hx_exports.browser_tools.transaction_check = $hx_exports.browser_tools.transaction_check || {};
 var Test = function() { };
 Test.main = function() {
+	var container = window.document.getElementById("animation");
 	var tmp;
-	var element = window.document.getElementById("animation");
-	tmp = element;
-	var container = tmp;
 	var tmp1;
-	var __fn_tmp_76177975_1110774428_e2539cd8f2184dfd69bf1b5cebad85c4 = function(__return) {
-		var __doCount = 0;
-		var tmp2;
-		var __continue_111 = null;
-		__continue_111 = function() {
-			if(__doCount++ == 0) while(true) {
-				var __afterVar_13 = [(function() {
-					return function(rt) {
-						rt;
-						var this1 = window.document.getElementById("log");
-						this1.innerHTML = "" + (rt == null?"null":"" + rt);
-						setTimeout((function() {
-							return function() {
-								__continue_111();
-							};
-						})(),500);
-					};
-				})()];
-				var element1 = [container];
-				var prop = ["left"];
-				var __return1 = [(function(__afterVar_13) {
-					return function(__parameter_14) {
-						__afterVar_13[0](__parameter_14);
-					};
-				})(__afterVar_13)];
-				var __afterVar_0 = [(function(__return1,prop,element1) {
-					return function(last) {
-						last;
-						setTimeout((function(__return1,prop,element1) {
-							return function() {
-								var __afterVar_2 = (function(__return1) {
-									return function(now) {
-										now;
-										setTimeout((function(__return1) {
-											return function() {
-												__return1[0](last - now != 0);
-											};
-										})(__return1),20);
-									};
-								})(__return1);
-								var element2 = element1[0];
-								var prop1 = prop[0];
-								var cb = (function() {
-									return function(__parameter_3) {
-										__afterVar_2(__parameter_3);
-									};
-								})();
-								window.requestAnimationFrame((function() {
-									return function(i) {
-										var prop2 = (function($this) {
-											var $r;
-											switch(prop1) {
-											case "left":
-												$r = element2.getBoundingClientRect().left;
-												break;
-											case "right":
-												$r = element2.getBoundingClientRect().right;
-												break;
-											case "top":
-												$r = element2.getBoundingClientRect().top;
-												break;
-											case "bottom":
-												$r = element2.getBoundingClientRect().bottom;
-												break;
-											default:
-												$r = null;
-											}
-											return $r;
-										}(this));
-										cb(prop2);
-									};
-								})());
-							};
-						})(__return1,prop,element1),300);
-					};
-				})(__return1,prop,element1)];
-				var element3 = [element1[0]];
-				var prop3 = [prop[0]];
-				var cb1 = [(function(__afterVar_0) {
-					return function(__parameter_1) {
-						__afterVar_0[0](__parameter_1);
-					};
-				})(__afterVar_0)];
-				window.requestAnimationFrame((function(cb1,prop3,element3) {
-					return function(i1) {
-						var tmp3;
-						switch(prop3[0]) {
-						case "left":
-							tmp3 = element3[0].getBoundingClientRect().left;
-							break;
-						case "right":
-							tmp3 = element3[0].getBoundingClientRect().right;
-							break;
-						case "top":
-							tmp3 = element3[0].getBoundingClientRect().top;
-							break;
-						case "bottom":
-							tmp3 = element3[0].getBoundingClientRect().bottom;
-							break;
-						default:
-							tmp3 = null;
-						}
-						var prop4 = tmp3;
-						cb1[0](prop4);
-					};
-				})(cb1,prop3,element3));
-				if(!(--__doCount != 0)) break;
-			}
-		};
-		tmp2 = __continue_111;
-		var __continue_11 = tmp2;
-		__continue_11();
-	};
-	tmp1 = __fn_tmp_76177975_1110774428_e2539cd8f2184dfd69bf1b5cebad85c4;
-	tmp1(function() {
-	});
+	var tmp2;
+	var tmp3;
+	var this5 = container;
+	this5.classList.add("a1");
+	tmp3 = this5;
+	var this4 = tmp3;
+	this4.classList.add("a2");
+	tmp2 = this4;
+	var this3 = tmp2;
+	this3.classList.add("a3");
+	tmp1 = this3;
+	var this2 = tmp1;
+	this2.classList.remove("b1");
+	tmp = this2;
+	var this1 = tmp;
+	this1.classList.remove("b2");
+	this1;
+	container.classList.contains("a1");
 };
 var async_$tools_Async = function() { };
 var browser_$tools_transaction_$check = function() { };

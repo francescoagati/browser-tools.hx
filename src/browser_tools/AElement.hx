@@ -53,20 +53,6 @@ abstract EventMouseOut(Element) {
 }
 */
 
-abstract AttrAccessor(Element) {
-    public inline function new(el:ELM) this = el;
-
-    @:arrayAccess
-    public inline function set(name:String,value:String) {
-        this.setAttribute(name,value);
-    }
-
-     @:arrayAccess
-    public inline function get(name:String) {
-        this.getAttribute(name);
-    }
-
-}
 /*
 abstract EventAccessor(Element) {
     public inline function new(el:ELM) this = el;
@@ -93,6 +79,24 @@ abstract EventAccessor(Element) {
 }
 */
 
+
+
+abstract AttrAccessor(Element) {
+    public inline function new(el:ELM) this = el;
+
+    @:arrayAccess
+    public inline function set(name:String,value:String) {
+        this.setAttribute(name,value);
+    }
+
+     @:arrayAccess
+    public inline function get(name:String) {
+        this.getAttribute(name);
+    }
+
+}
+
+
 @:forward abstract AElement(Element) from Element to Element {
 
     public inline function new(el:Element) {
@@ -105,6 +109,9 @@ abstract EventAccessor(Element) {
 
     public var attr(get, never):AttrAccessor;
     inline function get_attr() return new AttrAccessor(this);
+
+    public var classes(get, never):browser_tools.abstracts.ClassesAccessor;
+    inline function get_classes() return new browser_tools.abstracts.ClassesAccessor(this);
 
 
 
