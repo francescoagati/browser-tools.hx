@@ -1,15 +1,5 @@
-(function (console, $hx_exports) { "use strict";
-$hx_exports.browser_tools = $hx_exports.browser_tools || {};
-$hx_exports.browser_tools.transaction_check = $hx_exports.browser_tools.transaction_check || {};
-var HxOverrides = function() { };
-HxOverrides.__name__ = true;
-HxOverrides.iter = function(a) {
-	return { cur : 0, arr : a, hasNext : function() {
-		return this.cur < this.arr.length;
-	}, next : function() {
-		return this.arr[this.cur++];
-	}};
-};
+(function (console) { "use strict";
+var $estr = function() { return js_Boot.__string_rec(this,''); };
 Math.__name__ = true;
 var async_$tools_Async = function() { };
 async_$tools_Async.__name__ = true;
@@ -17,106 +7,98 @@ var browser_$tools_Main = function() { };
 browser_$tools_Main.__name__ = true;
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
-	var container = null;
-	var __return = function(check) {
-		js_Browser.alert(check);
+	var values = [];
+	var tmp;
+	var tmp1;
+	var this3 = window.document.getElementById("player");
+	tmp1 = this3;
+	var this2 = tmp1;
+	tmp = this2;
+	var this1 = tmp;
+	this1.addEventListener("click",function(event1) {
+		browser_$tools_Main.test_prop = event1.target.value;
+	});
+	this1;
+	var tmp2;
+	var tmp3;
+	var this6 = window.document.getElementById("player");
+	tmp3 = this6;
+	var this5 = tmp3;
+	tmp2 = this5;
+	var this4 = tmp2;
+	this4.addEventListener("click",function(event2) {
+		browser_$tools_Main.test_prop = event2.target.value;
+	});
+	this4;
+	var tmp4;
+	var tmp5;
+	var this9 = window.document.getElementById("player");
+	tmp5 = this9;
+	var this8 = tmp5;
+	tmp4 = this8;
+	var this7 = tmp4;
+	this7.addEventListener("click",function(event3) {
+		values.push(event3.target.value);
+	});
+	this7;
+	var tmp6;
+	var tmp7;
+	var this12 = window.document.getElementById("player");
+	tmp7 = this12;
+	var this11 = tmp7;
+	tmp6 = this11;
+	var this10 = tmp6;
+	this10.addEventListener("click",function(event4) {
+		values.push(event4.target.value);
+	});
+	this10;
+	var tmp8;
+	var tmp9;
+	var this15 = window.document.getElementById("player");
+	tmp9 = this15;
+	var this14 = tmp9;
+	tmp8 = this14;
+	var this13 = tmp8;
+	this13.addEventListener("click",function(e) {
+		var target = e.currentTarget;
+		var delegate = null;
+		{
+			var _g = browser_$tools_events_SelectorType.tag("pippa");
+			switch(_g[1]) {
+			case 0:
+				var id = _g[2];
+				delegate = window.document.getElementById(id);
+				break;
+			case 1:
+				var tag = _g[2];
+				var tags = target.getElementsByTagName(tag);
+				if(tags[0] != null) delegate = tags[0];
+				break;
+			case 3:
+				var cls = _g[2];
+				var tags1 = target.getElementsByClassName(cls);
+				if(tags1[0] != null) delegate = tags1[0];
+				break;
+			case 2:
+				var path = _g[2];
+				var tag1 = target.querySelector(path);
+				if(tag1 != null) delegate = tag1;
+				break;
+			}
+		}
+		if(delegate != null) console.log(delegate);
+	});
+	this13;
+	var fn = function(event) {
+		browser_$tools_Main.test_prop = event.target.value;
 	};
-	setTimeout(function() {
-		var div1 = (function($this) {
-			var $r;
-			var fragment = window.document.createDocumentFragment();
-			var div = window.document.createElement("div");
-			div.innerHTML = "\n\n      <style>\n          @-webkit-keyframes wave {\n            from {\n              -webkit-transform: translateX(0);\n                      transform: translateX(0);\n            }\n            to {\n              -webkit-transform: translateX(100%);\n                      transform: translateX(100%);\n            }\n          }\n          @keyframes wave {\n            from {\n              -webkit-transform: translateX(0);\n                      transform: translateX(0);\n            }\n            to {\n              -webkit-transform: translateX(100%);\n                      transform: translateX(100%);\n            }\n          }\n          .check_animate {\n            -webkit-animation: wave 500ms ease alternate infinite;\n                    animation: wave 500ms ease alternate infinite;\n          }\n\n          div.check_animate {\n            width: 20px;\n            position:fixed;\n            bottom:0;\n            height: 2px;\n          }\n\n          #check_animation_one {\n            background-color: white;\n            -webkit-transform: translateZ(0);\n                    transform: translateZ(0);\n            will-change: transform;\n          }\n\n          #check_animation_two {\n            background-color: #ececec;\n          }\n      </style>\n\n\n      <div id=\"check_animation_one\" class=\"check_animate\"></div>\n      <div id=\"check_animation_two\" class=\"check_animate\"></div>\n\n    ";
-			$r = div;
-			return $r;
-		}(this));
-		div1;
-		var __endIf_1 = function() {
-			container.appendChild(div1);
-			setTimeout(function() {
-				var __afterVar_19 = function(check1) {
-					check1;
-					var element = window.document.getElementById("check_animation_one");
-					if($bind(element,element.remove) == null) element.parentNode.removeChild(element); else element.remove();
-					element;
-					var element1 = window.document.getElementById("check_animation_two");
-					if($bind(element1,element1.remove) == null) element1.parentNode.removeChild(element1); else element1.remove();
-					element1;
-					__return(check1);
-				};
-				var __return1 = function(__parameter_20) {
-					__afterVar_19(__parameter_20);
-				};
-				var check2 = window.document.getElementById("check_animation_one");
-				check2;
-				var last = check2.getBoundingClientRect().left;
-				last;
-				setTimeout(function() {
-					var now = check2.getBoundingClientRect().left;
-					now;
-					setTimeout(function() {
-						__return1([last - now != 0,last - now]);
-					},50);
-				},300);
-			},20);
-			return;
-		};
-		if(container == null) {
-			container = window.document.body;
-			__endIf_1();
-		} else __endIf_1();
-	},20);
+	console.log(fn);
 };
-var browser_$tools_transaction_$check = function() { };
-browser_$tools_transaction_$check.__name__ = true;
-browser_$tools_transaction_$check.__interfaces__ = [async_$tools_Async];
-browser_$tools_transaction_$check.check_for_animations = $hx_exports.browser_tools.transaction_check.check_for_animations = function(container,__return) {
-	setTimeout(function() {
-		var div1 = (function($this) {
-			var $r;
-			var fragment = window.document.createDocumentFragment();
-			var div = window.document.createElement("div");
-			div.innerHTML = "\n\n      <style>\n          @-webkit-keyframes wave {\n            from {\n              -webkit-transform: translateX(0);\n                      transform: translateX(0);\n            }\n            to {\n              -webkit-transform: translateX(100%);\n                      transform: translateX(100%);\n            }\n          }\n          @keyframes wave {\n            from {\n              -webkit-transform: translateX(0);\n                      transform: translateX(0);\n            }\n            to {\n              -webkit-transform: translateX(100%);\n                      transform: translateX(100%);\n            }\n          }\n          .check_animate {\n            -webkit-animation: wave 500ms ease alternate infinite;\n                    animation: wave 500ms ease alternate infinite;\n          }\n\n          div.check_animate {\n            width: 20px;\n            position:fixed;\n            bottom:0;\n            height: 2px;\n          }\n\n          #check_animation_one {\n            background-color: white;\n            -webkit-transform: translateZ(0);\n                    transform: translateZ(0);\n            will-change: transform;\n          }\n\n          #check_animation_two {\n            background-color: #ececec;\n          }\n      </style>\n\n\n      <div id=\"check_animation_one\" class=\"check_animate\"></div>\n      <div id=\"check_animation_two\" class=\"check_animate\"></div>\n\n    ";
-			$r = div;
-			return $r;
-		}(this));
-		div1;
-		var __endIf_1 = function() {
-			container.appendChild(div1);
-			setTimeout(function() {
-				var __afterVar_19 = function(check) {
-					check;
-					var element = window.document.getElementById("check_animation_one");
-					if($bind(element,element.remove) == null) element.parentNode.removeChild(element); else element.remove();
-					element;
-					var element1 = window.document.getElementById("check_animation_two");
-					if($bind(element1,element1.remove) == null) element1.parentNode.removeChild(element1); else element1.remove();
-					element1;
-					__return(check);
-				};
-				var __return1 = function(__parameter_20) {
-					__afterVar_19(__parameter_20);
-				};
-				var check1 = window.document.getElementById("check_animation_one");
-				check1;
-				var last = check1.getBoundingClientRect().left;
-				last;
-				setTimeout(function() {
-					var now = check1.getBoundingClientRect().left;
-					now;
-					setTimeout(function() {
-						__return1([last - now != 0,last - now]);
-					},50);
-				},300);
-			},20);
-			return;
-		};
-		if(container == null) {
-			container = window.document.body;
-			__endIf_1();
-		} else __endIf_1();
-	},20);
-};
+var browser_$tools_events_SelectorType = { __ename__ : true, __constructs__ : ["id","tag","query","cls"] };
+browser_$tools_events_SelectorType.id = function(id) { var $x = ["id",0,id]; $x.__enum__ = browser_$tools_events_SelectorType; $x.toString = $estr; return $x; };
+browser_$tools_events_SelectorType.tag = function(tag) { var $x = ["tag",1,tag]; $x.__enum__ = browser_$tools_events_SelectorType; $x.toString = $estr; return $x; };
+browser_$tools_events_SelectorType.query = function(path) { var $x = ["query",2,path]; $x.__enum__ = browser_$tools_events_SelectorType; $x.toString = $estr; return $x; };
+browser_$tools_events_SelectorType.cls = function(cls) { var $x = ["cls",3,cls]; $x.__enum__ = browser_$tools_events_SelectorType; $x.toString = $estr; return $x; };
 var js_Boot = function() { };
 js_Boot.__name__ = true;
 js_Boot.__string_rec = function(o,s) {
@@ -186,18 +168,10 @@ js_Boot.__string_rec = function(o,s) {
 		return String(o);
 	}
 };
-var js_Browser = function() { };
-js_Browser.__name__ = true;
-js_Browser.alert = function(v) {
-	window.alert(js_Boot.__string_rec(v,""));
-};
-function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
-var $_, $fid = 0;
-function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
 String.__name__ = true;
 Array.__name__ = true;
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;
 browser_$tools_Main.main();
-})(typeof console != "undefined" ? console : {log:function(){}}, typeof window != "undefined" ? window : exports);
+})(typeof console != "undefined" ? console : {log:function(){}});

@@ -1,34 +1,35 @@
 package browser_tools;
 import browser_tools.AElement;
-import browser_tools.HtmlTools;
-import browser_tools.Assets;
-import browser_tools.Debug;
-import browser_tools.Console;
-import browser_tools.Http;
-import browser_tools.Loader;
-import browser_tools.angular.Config;
+//import browser_tools.HtmlTools;
+//import browser_tools.Assets;
+//import browser_tools.Debug;
+//import browser_tools.Console;
+//import browser_tools.Http;
+//import browser_tools.Loader;
+//import browser_tools.angular.Config;
 import js.html.*;
-import browser_tools.Viewport;
+//import browser_tools.Viewport;
+import browser_tools.events.Mapper.*;
+import browser_tools.events.Mapper.SelectorType;
+//import browser_tools.BrowserDevice;
+//import browser_tools.animations.DisplayObject;
 
-import browser_tools.BrowserDevice;
-import browser_tools.animations.DisplayObject;
-
-import browser_tools.HelperAnimationTools.frame;
+//import browser_tools.HelperAnimationTools.frame;
 import async_tools.Cps.*;
-using browser_tools.Assets.AssetsTools;
-using browser_tools.Debug;
-using browser_tools.AssetsToolsCompileTime;
-using browser_tools.HttpTools;
+//using browser_tools.Assets.AssetsTools;
+//using browser_tools.Debug;
+//using browser_tools.AssetsToolsCompileTime;
+//using browser_tools.HttpTools;
 using browser_tools.HtmlTools;
-using browser_tools.LayoutTools;
-using browser_tools.AnimationTools;
+//using browser_tools.LayoutTools;
+//using browser_tools.AnimationTools;
 
-class Binder implements browser_tools.angular.Binder.IAngularBinder {
-  var scope:Dynamic;
-}
+//class Binder implements browser_tools.angular.Binder.IAngularBinder {
+//  var scope:Dynamic;
+//}
 
 class Main implements async_tools.Async {
-
+/*
   @:async static function animate() {
     var el = 'animation'.byId();
     el.set_transition('all 2s');
@@ -44,13 +45,33 @@ class Main implements async_tools.Async {
     var x = untyped '500px', y = untyped __js__("'500px'");
     frame(el.set_translate(x,y));
   }
-
+*/
+  public static var test_prop;
 
   static function main() {
 
-    DisplayObject.check_for_animations(function(check) {
-      js.Browser.alert(check);
+    var values = [];
+
+    'player'.byId().on.click + map_event_to_property(_.target.value,Main.test_prop);
+    'player'.byId().on.click + map_event_to_expr(_.target.value,Main.test_prop = _);
+    'player'.byId().on.click + map_event_to_expr(_.target.value,values.push(_));
+
+    'player'.byId().on.click + map_event_to_expr(_.target.value,{
+      values.push(_);
     });
+
+    'player'.byId().on.click + map_event_to_selectors({
+
+        selector_is(SelectorType.tag('pippa'),trace(_));
+
+    });
+
+
+    var fn = map_event_to_property(_.target.value,Main.test_prop);
+    trace(fn);
+    //DisplayObject.check_for_animations(function(check) {
+    //  js.Browser.alert(check);
+    //});
 
 
     //js.Browser.alert(browser_tools.BrowserDevice.safariiOS);
