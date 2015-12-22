@@ -62,7 +62,10 @@ class Main implements async_tools.Async {
 
     'player'.byId().on.click + map_event_to_selectors({
 
-        selector_is(SelectorType.tag('pippa'),trace(_));
+        selector_is(SelectorType.tag('div'),trace(_));
+        selector_is(SelectorType.cls('player'),trace(_));
+        selector_is(SelectorType.query('.player'),trace(_));
+
 
     });
 

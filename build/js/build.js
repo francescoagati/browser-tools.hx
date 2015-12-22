@@ -63,7 +63,7 @@ browser_$tools_Main.main = function() {
 		var target = e.currentTarget;
 		var delegate = null;
 		{
-			var _g = browser_$tools_events_SelectorType.tag("pippa");
+			var _g = browser_$tools_events_SelectorType.tag("div");
 			switch(_g[1]) {
 			case 0:
 				var id = _g[2];
@@ -87,6 +87,58 @@ browser_$tools_Main.main = function() {
 			}
 		}
 		if(delegate != null) console.log(delegate);
+		var delegate1 = null;
+		{
+			var _g1 = browser_$tools_events_SelectorType.cls("player");
+			switch(_g1[1]) {
+			case 0:
+				var id1 = _g1[2];
+				delegate1 = window.document.getElementById(id1);
+				break;
+			case 1:
+				var tag2 = _g1[2];
+				var tags2 = target.getElementsByTagName(tag2);
+				if(tags2[0] != null) delegate1 = tags2[0];
+				break;
+			case 3:
+				var cls1 = _g1[2];
+				var tags3 = target.getElementsByClassName(cls1);
+				if(tags3[0] != null) delegate1 = tags3[0];
+				break;
+			case 2:
+				var path1 = _g1[2];
+				var tag3 = target.querySelector(path1);
+				if(tag3 != null) delegate1 = tag3;
+				break;
+			}
+		}
+		if(delegate1 != null) console.log(delegate1);
+		var delegate2 = null;
+		{
+			var _g2 = browser_$tools_events_SelectorType.query(".player");
+			switch(_g2[1]) {
+			case 0:
+				var id2 = _g2[2];
+				delegate2 = window.document.getElementById(id2);
+				break;
+			case 1:
+				var tag4 = _g2[2];
+				var tags4 = target.getElementsByTagName(tag4);
+				if(tags4[0] != null) delegate2 = tags4[0];
+				break;
+			case 3:
+				var cls2 = _g2[2];
+				var tags5 = target.getElementsByClassName(cls2);
+				if(tags5[0] != null) delegate2 = tags5[0];
+				break;
+			case 2:
+				var path2 = _g2[2];
+				var tag5 = target.querySelector(path2);
+				if(tag5 != null) delegate2 = tag5;
+				break;
+			}
+		}
+		if(delegate2 != null) console.log(delegate2);
 	});
 	this13;
 	var fn = function(event) {
