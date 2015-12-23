@@ -48,8 +48,16 @@ class Main implements async_tools.Async {
 */
   public static var test_prop;
 
-  static function main() {
 
+  @:async inline static function render() {
+    @await 'animation'.byId().classes.animate_class('move','left');
+    'animation'.byId().classes + 'end_animation';
+  }
+
+  static function main() {
+    render(function() {});
+
+/*
     var values = [];
 
     'player'.byId().on.click + map_event_to_property(_.target.value,Main.test_prop);
@@ -75,6 +83,9 @@ class Main implements async_tools.Async {
 
     var fn = map_event_to_property(_.target.value,Main.test_prop);
     trace(fn);
+
+    */
+
     //DisplayObject.check_for_animations(function(check) {
     //  js.Browser.alert(check);
     //});

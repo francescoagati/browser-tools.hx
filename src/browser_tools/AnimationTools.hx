@@ -43,6 +43,15 @@ class AnimationTools  {
           _prefix = not_supported;
         }
      }
+
+     untyped __js__('
+
+       if("WebkitOpacity" in document.body.style) {0} = "webkit";
+
+     ',_prefix);
+
+
+
      return _prefix;
  }
 

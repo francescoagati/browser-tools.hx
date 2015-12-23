@@ -6,11 +6,15 @@ package browser_tools.abstracts;
 
 
 #if js
+  import async_tools.Cps.*;
   import js.html.Element;
+  import browser_tools.events.Helper;
   typedef ELMWRAPPER = Element
 #else
   typedef ELMWRAPPER = Dynamic
 #end
+
+
 
 abstract ClassesAccessor(ELMWRAPPER) {
     public inline function new(el:ELMWRAPPER) this = el;
@@ -43,4 +47,29 @@ abstract ClassesAccessor(ELMWRAPPER) {
     @:op(A == B) public inline function contains_class(cls:String):Bool {
       return new ClassesAccessor(this).contains(cls);
     }
+
+    #if js
+      public inline function animate_class(cls:String,?property_detect:String,cb:Dynamic->Void) {
+        var el = new AElement(this);
+        var prefix = AnimationTools.get_prefix();
+        var event_animation = browser_tools.events.Helper.get_event('AnimationEnd');
+        var event_transition = browser_tools.events.Helper.get_event('TransitionEnd');
+        var check = false;
+        function fn(e) {
+          if (check == false) cb(null);
+          check = true;
+          el.removeEventListener(event_animation,fn);
+          el.removeEventListener(event_transition,fn);
+          el.classes - cls;
+        };
+        el.addEventListener(event_animation,fn);
+        el.addEventListener(event_transition,fn);
+        el.classes + cls;
+        //el.addEventListener('webkitTransitionEnd',fn);
+
+
+
+      }
+    #end
+
 }

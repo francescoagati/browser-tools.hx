@@ -4,7 +4,7 @@
 -js build/js/build.js
 -dce full
 -D analyzer
--D assets_load_compiletime=true   
+-D assets_load_compiletime=true
 #--next
 #-cp src
 #-cp test
@@ -14,3 +14,4 @@
 #-dce full
 #-D analyzer
 #-D assets_load_compiletime=true
+  
