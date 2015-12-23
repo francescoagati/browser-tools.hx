@@ -16,6 +16,58 @@ enum SelectorType{
 
 class Mapper {
 
+  public static macro function is_query(path:ExprOf<String>,expr:Expr) {
+
+    var expr_delegate = expr.substitute({
+      "_":macro delegate
+    });
+
+    return macro {
+      var delegate = target.querySelector($path);
+      if (delegate != null) $expr_delegate;
+    };
+  }
+
+  public static macro function is_class(cls:ExprOf<String>,expr:Expr) {
+
+    var expr_delegate = expr.substitute({
+      "_":macro delegate
+    });
+
+    return macro {
+      var tags = target.getElementsByClassName($cls);
+      var delegate:js.html.Element = if (tags[0] != null) tags[0]; else null;
+      if (delegate != null) $expr_delegate;
+    };
+  }
+
+
+  public static macro function is_tag(tag:ExprOf<String>,expr:Expr) {
+
+    var expr_delegate = expr.substitute({
+      "_":macro delegate
+    });
+
+    return macro {
+      var tags = target.getElementsByTagName($tag);
+      var delegate:js.html.Element = if (tags[0] != null) tags[0]; else null;
+      if (delegate != null) $expr_delegate;
+    };
+  }
+
+
+  public static macro function is_id(id:ExprOf<String>,expr:Expr) {
+
+    var expr_delegate = expr.substitute({
+      "_":macro delegate
+    });
+
+    return macro {
+      var delegate = js.Browser.document.getElementById($id);
+      if (delegate != null) $expr_delegate;
+    };
+  }
+
   public static macro function selector_is(sel:ExprOf<browser_tools.events.Mapper.SelectorType>,expr:Expr) {
 
 

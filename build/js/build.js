@@ -138,7 +138,17 @@ browser_$tools_Main.main = function() {
 				break;
 			}
 		}
-		if(delegate2 != null) console.log(delegate2);
+		if(delegate2 != null) console.log(delegate2.id);
+		var delegate3 = window.document.getElementById("pippa");
+		if(delegate3 != null) console.log(delegate3);
+		var tags6 = target.getElementsByTagName("div");
+		var delegate4 = tags6[0] != null?tags6[0]:null;
+		if(delegate4 != null) console.log(delegate4.nodeName);
+		var tags7 = target.getElementsByClassName("player");
+		var delegate5 = tags7[0] != null?tags7[0]:null;
+		if(delegate5 != null) console.log(delegate5.className);
+		var delegate6 = target.querySelector("#pippa");
+		if(delegate6 != null) console.log(delegate6.id);
 	});
 	this13;
 	var fn = function(event) {

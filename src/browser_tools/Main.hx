@@ -64,9 +64,12 @@ class Main implements async_tools.Async {
 
         selector_is(SelectorType.tag('div'),trace(_));
         selector_is(SelectorType.cls('player'),trace(_));
-        selector_is(SelectorType.query('.player'),trace(_));
+        selector_is(SelectorType.query('.player'),trace(_.id));
 
-
+        is_id('pippa',trace(_));
+        is_tag('div',trace(_.nodeName));
+        is_class('player',trace(_.className));
+        is_query('#pippa',trace(_.id));
     });
 
 
