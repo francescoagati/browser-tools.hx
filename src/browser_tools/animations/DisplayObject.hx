@@ -28,7 +28,7 @@ abstract RectProperty(String) {
 
 
 @:native('browser_tools.transaction_check')
-@:keep
+
 class TransactionCheck implements async_tools.Async {
 
   @:extern public static inline function delete_check() {
@@ -143,7 +143,7 @@ class TransactionCheck implements async_tools.Async {
     return check;
   }
 
-  
+
 }
 
 
