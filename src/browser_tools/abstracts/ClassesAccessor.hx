@@ -53,7 +53,7 @@ abstract ClassesAccessor(ELMWRAPPER) {
       public inline function animate_class(cls:String,?property_detect:String = null,cb:Dynamic->Void) {
         var el = new AElement(this);
 
-        var prefix = AnimationTools.get_prefix();
+        var prefix = Helper.get_prefix();
         var event_animation = browser_tools.events.Helper.get_event('AnimationEnd');
         var event_transition = browser_tools.events.Helper.get_event('TransitionEnd');
         var check = false;
