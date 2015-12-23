@@ -9,6 +9,7 @@ package browser_tools.abstracts;
   import async_tools.Cps.*;
   import js.html.Element;
   import browser_tools.events.Helper;
+  import browser_tools.animations.fps.Transaction;
   typedef ELMWRAPPER = Element
 #else
   typedef ELMWRAPPER = Dynamic
@@ -49,8 +50,9 @@ abstract ClassesAccessor(ELMWRAPPER) {
     }
 
     #if js
-      public inline function animate_class(cls:String,?property_detect:String,cb:Dynamic->Void) {
+      public inline function animate_class(cls:String,?property_detect:String = null,cb:Dynamic->Void) {
         var el = new AElement(this);
+
         var prefix = AnimationTools.get_prefix();
         var event_animation = browser_tools.events.Helper.get_event('AnimationEnd');
         var event_transition = browser_tools.events.Helper.get_event('TransitionEnd');
@@ -62,6 +64,13 @@ abstract ClassesAccessor(ELMWRAPPER) {
           el.removeEventListener(event_transition,fn);
           el.classes - cls;
         };
+
+        if (property_detect != null) {
+          Transaction.check_for_property_change(el,property_detect,function(response) {
+            if (response == false) fn(null);
+          });
+        }
+
         el.addEventListener(event_animation,fn);
         el.addEventListener(event_transition,fn);
         el.classes + cls;
