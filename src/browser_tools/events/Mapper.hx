@@ -23,7 +23,7 @@ class Mapper {
     });
 
     return macro {
-      var delegate = target.querySelector($path);
+      var delegate:browser_tools.AElement = target.querySelector($path);
       if (delegate != null) $expr_delegate;
     };
   }
@@ -36,7 +36,7 @@ class Mapper {
 
     return macro {
       var tags = target.getElementsByClassName($cls);
-      var delegate:js.html.Element = if (tags[0] != null) tags[0]; else null;
+      var delegate:browser_tools.AElement = if (tags[0] != null) tags[0]; else null;
       if (delegate != null) $expr_delegate;
     };
   }
@@ -50,7 +50,7 @@ class Mapper {
 
     return macro {
       var tags = target.getElementsByTagName($tag);
-      var delegate:js.html.Element = if (tags[0] != null) tags[0]; else null;
+      var delegate:browser_tools.AElement = if (tags[0] != null) tags[0]; else null;
       if (delegate != null) $expr_delegate;
     };
   }
@@ -63,7 +63,7 @@ class Mapper {
     });
 
     return macro {
-      var delegate = js.Browser.document.getElementById($id);
+      var delegate:browser_tools.AElement = js.Browser.document.getElementById($id);
       if (delegate != null) $expr_delegate;
     };
   }
@@ -77,7 +77,7 @@ class Mapper {
 
 
     return macro {
-      var delegate = null;
+      var delegate:browser_tools.AElement = null;
       switch($e{sel}) {
         case id(id):{
           delegate = js.Browser.document.getElementById(id);
@@ -105,7 +105,7 @@ class Mapper {
   public static macro function map_event_to_selectors(expr:Expr) {
 
     return macro function(e:Dynamic) {
-      var target:js.html.Element = e.currentTarget;
+      var target:browser_tools.AElement = e.currentTarget;
       $expr;
     };
   }
