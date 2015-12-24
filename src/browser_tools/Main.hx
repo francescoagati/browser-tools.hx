@@ -50,8 +50,12 @@ class Main implements async_tools.Async {
 
 
   @:async inline static function render() {
-    @await 'animation'.byId().classes.animate_class('move','left');
-    'animation'.byId().classes + 'end_animation';
+    @await 'animation'.byId().classes.animate_class('slideInLeft');
+    @await wait(2000);
+    @await 'animation'.byId().classes.animate_class('jello');
+    @await 'animation'.byId().classes.animate_class('slideOutLeft');
+    'animation'.byId().style.opacity = '0';
+    //'animation'.byId().classes + 'end_animation';
   }
 
   static function main() {
