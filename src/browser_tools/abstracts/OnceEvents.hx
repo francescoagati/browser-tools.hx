@@ -14,7 +14,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("compositionend",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("compositionend",fn);
+            }
+
+             this.addEventListener("compositionend",handler);
              return new EventCompositionend(this);
          }
 
@@ -34,7 +40,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("wheel",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("wheel",fn);
+            }
+
+             this.addEventListener("wheel",handler);
              return new EventWheel(this);
          }
 
@@ -54,7 +66,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("ended",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("ended",fn);
+            }
+
+             this.addEventListener("ended",handler);
              return new EventEnded(this);
          }
 
@@ -74,7 +92,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("timeout",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("timeout",fn);
+            }
+
+             this.addEventListener("timeout",handler);
              return new EventTimeout(this);
          }
 
@@ -94,7 +118,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("blocked",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("blocked",fn);
+            }
+
+             this.addEventListener("blocked",handler);
              return new EventBlocked(this);
          }
 
@@ -114,7 +144,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domattrmodified",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domattrmodified",fn);
+            }
+
+             this.addEventListener("domattrmodified",handler);
              return new EventDOMAttrModified(this);
          }
 
@@ -134,7 +170,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("dragenter",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("dragenter",fn);
+            }
+
+             this.addEventListener("dragenter",handler);
              return new EventDragenter(this);
          }
 
@@ -154,7 +196,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("touchmove",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("touchmove",fn);
+            }
+
+             this.addEventListener("touchmove",handler);
              return new EventTouchmove(this);
          }
 
@@ -174,7 +222,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("complete",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("complete",fn);
+            }
+
+             this.addEventListener("complete",handler);
              return new EventComplete(this);
          }
 
@@ -194,7 +248,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domelementnamechanged",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domelementnamechanged",fn);
+            }
+
+             this.addEventListener("domelementnamechanged",handler);
              return new EventDOMElementNameChanged(this);
          }
 
@@ -214,7 +274,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("obsolete",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("obsolete",fn);
+            }
+
+             this.addEventListener("obsolete",handler);
              return new EventObsolete(this);
          }
 
@@ -234,7 +300,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("mouseover",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("mouseover",fn);
+            }
+
+             this.addEventListener("mouseover",handler);
              return new EventMouseover(this);
          }
 
@@ -254,7 +326,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("gamepaddisconnected",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("gamepaddisconnected",fn);
+            }
+
+             this.addEventListener("gamepaddisconnected",handler);
              return new EventGamepaddisconnected(this);
          }
 
@@ -274,7 +352,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domattributenamechanged",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domattributenamechanged",fn);
+            }
+
+             this.addEventListener("domattributenamechanged",handler);
              return new EventDOMAttributeNameChanged(this);
          }
 
@@ -294,7 +378,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pagehide",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pagehide",fn);
+            }
+
+             this.addEventListener("pagehide",handler);
              return new EventPagehide(this);
          }
 
@@ -314,7 +404,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("success",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("success",fn);
+            }
+
+             this.addEventListener("success",handler);
              return new EventSuccess(this);
          }
 
@@ -334,7 +430,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("change",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("change",fn);
+            }
+
+             this.addEventListener("change",handler);
              return new EventChange(this);
          }
 
@@ -354,7 +456,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("select",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("select",fn);
+            }
+
+             this.addEventListener("select",handler);
              return new EventSelect(this);
          }
 
@@ -374,7 +482,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domsubtreemodified",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domsubtreemodified",fn);
+            }
+
+             this.addEventListener("domsubtreemodified",handler);
              return new EventDOMSubtreeModified(this);
          }
 
@@ -394,7 +508,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("svgzoom",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("svgzoom",fn);
+            }
+
+             this.addEventListener("svgzoom",handler);
              return new EventSVGZoom(this);
          }
 
@@ -414,7 +534,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("playing",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("playing",fn);
+            }
+
+             this.addEventListener("playing",handler);
              return new EventPlaying(this);
          }
 
@@ -434,7 +560,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("mouseenter",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("mouseenter",fn);
+            }
+
+             this.addEventListener("mouseenter",handler);
              return new EventMouseenter(this);
          }
 
@@ -454,7 +586,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("touchcancel",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("touchcancel",fn);
+            }
+
+             this.addEventListener("touchcancel",handler);
              return new EventTouchcancel(this);
          }
 
@@ -474,7 +612,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("devicelight",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("devicelight",fn);
+            }
+
+             this.addEventListener("devicelight",handler);
              return new EventDevicelight(this);
          }
 
@@ -494,7 +638,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("play",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("play",fn);
+            }
+
+             this.addEventListener("play",handler);
              return new EventPlay(this);
          }
 
@@ -514,7 +664,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("show",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("show",fn);
+            }
+
+             this.addEventListener("show",handler);
              return new EventShow(this);
          }
 
@@ -534,7 +690,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("storage",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("storage",fn);
+            }
+
+             this.addEventListener("storage",handler);
              return new EventStorage(this);
          }
 
@@ -554,7 +716,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("input",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("input",fn);
+            }
+
+             this.addEventListener("input",handler);
              return new EventInput(this);
          }
 
@@ -574,7 +742,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("updateready",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("updateready",fn);
+            }
+
+             this.addEventListener("updateready",handler);
              return new EventUpdateready(this);
          }
 
@@ -594,7 +768,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("visibilitychange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("visibilitychange",fn);
+            }
+
+             this.addEventListener("visibilitychange",handler);
              return new EventVisibilitychange(this);
          }
 
@@ -614,7 +794,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("fullscreenchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("fullscreenchange",fn);
+            }
+
+             this.addEventListener("fullscreenchange",handler);
              return new EventFullscreenchange(this);
          }
 
@@ -634,7 +820,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("canplaythrough",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("canplaythrough",fn);
+            }
+
+             this.addEventListener("canplaythrough",handler);
              return new EventCanplaythrough(this);
          }
 
@@ -654,7 +846,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("dragleave",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("dragleave",fn);
+            }
+
+             this.addEventListener("dragleave",handler);
              return new EventDragleave(this);
          }
 
@@ -674,7 +872,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("offline",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("offline",fn);
+            }
+
+             this.addEventListener("offline",handler);
              return new EventOffline(this);
          }
 
@@ -694,7 +898,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("touchenter",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("touchenter",fn);
+            }
+
+             this.addEventListener("touchenter",handler);
              return new EventTouchenter(this);
          }
 
@@ -714,7 +924,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("beforeprint",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("beforeprint",fn);
+            }
+
+             this.addEventListener("beforeprint",handler);
              return new EventBeforeprint(this);
          }
 
@@ -734,7 +950,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("downloading",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("downloading",fn);
+            }
+
+             this.addEventListener("downloading",handler);
              return new EventDownloading(this);
          }
 
@@ -754,7 +976,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("abort",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("abort",fn);
+            }
+
+             this.addEventListener("abort",handler);
              return new EventAbort(this);
          }
 
@@ -774,7 +1002,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pageshow",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pageshow",fn);
+            }
+
+             this.addEventListener("pageshow",handler);
              return new EventPageshow(this);
          }
 
@@ -794,7 +1028,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("submit",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("submit",fn);
+            }
+
+             this.addEventListener("submit",handler);
              return new EventSubmit(this);
          }
 
@@ -814,7 +1054,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("versionchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("versionchange",fn);
+            }
+
+             this.addEventListener("versionchange",handler);
              return new EventVersionchange(this);
          }
 
@@ -834,7 +1080,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("contextmenu",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("contextmenu",fn);
+            }
+
+             this.addEventListener("contextmenu",handler);
              return new EventContextmenu(this);
          }
 
@@ -854,7 +1106,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("open",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("open",fn);
+            }
+
+             this.addEventListener("open",handler);
              return new EventOpen(this);
          }
 
@@ -874,7 +1132,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("ratechange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("ratechange",fn);
+            }
+
+             this.addEventListener("ratechange",handler);
              return new EventRatechange(this);
          }
 
@@ -894,7 +1158,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerout",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerout",fn);
+            }
+
+             this.addEventListener("pointerout",handler);
              return new EventPointerout(this);
          }
 
@@ -914,7 +1184,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("beforeunload",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("beforeunload",fn);
+            }
+
+             this.addEventListener("beforeunload",handler);
              return new EventBeforeunload(this);
          }
 
@@ -934,7 +1210,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domcharacterdatamodified",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domcharacterdatamodified",fn);
+            }
+
+             this.addEventListener("domcharacterdatamodified",handler);
              return new EventDOMCharacterDataModified(this);
          }
 
@@ -954,7 +1236,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("dragstart",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("dragstart",fn);
+            }
+
+             this.addEventListener("dragstart",handler);
              return new EventDragstart(this);
          }
 
@@ -974,7 +1262,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("drop",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("drop",fn);
+            }
+
+             this.addEventListener("drop",handler);
              return new EventDrop(this);
          }
 
@@ -994,7 +1288,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("gotpointercapture",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("gotpointercapture",fn);
+            }
+
+             this.addEventListener("gotpointercapture",handler);
              return new EventGotpointercapture(this);
          }
 
@@ -1014,7 +1314,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("upgradeneeded",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("upgradeneeded",fn);
+            }
+
+             this.addEventListener("upgradeneeded",handler);
              return new EventUpgradeneeded(this);
          }
 
@@ -1034,7 +1340,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("svgerror",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("svgerror",fn);
+            }
+
+             this.addEventListener("svgerror",handler);
              return new EventSVGError(this);
          }
 
@@ -1054,7 +1366,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("afterprint",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("afterprint",fn);
+            }
+
+             this.addEventListener("afterprint",handler);
              return new EventAfterprint(this);
          }
 
@@ -1074,7 +1392,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("readystatechange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("readystatechange",fn);
+            }
+
+             this.addEventListener("readystatechange",handler);
              return new EventReadystatechange(this);
          }
 
@@ -1094,7 +1418,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("languagechange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("languagechange",fn);
+            }
+
+             this.addEventListener("languagechange",handler);
              return new EventLanguagechange(this);
          }
 
@@ -1114,7 +1444,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("svgabort",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("svgabort",fn);
+            }
+
+             this.addEventListener("svgabort",handler);
              return new EventSVGAbort(this);
          }
 
@@ -1134,7 +1470,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("svgresize",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("svgresize",fn);
+            }
+
+             this.addEventListener("svgresize",handler);
              return new EventSVGResize(this);
          }
 
@@ -1154,7 +1496,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("mousedown",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("mousedown",fn);
+            }
+
+             this.addEventListener("mousedown",handler);
              return new EventMousedown(this);
          }
 
@@ -1174,7 +1522,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("keydown",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("keydown",fn);
+            }
+
+             this.addEventListener("keydown",handler);
              return new EventKeydown(this);
          }
 
@@ -1194,7 +1548,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerover",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerover",fn);
+            }
+
+             this.addEventListener("pointerover",handler);
              return new EventPointerover(this);
          }
 
@@ -1214,7 +1574,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("waiting",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("waiting",fn);
+            }
+
+             this.addEventListener("waiting",handler);
              return new EventWaiting(this);
          }
 
@@ -1234,7 +1600,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pause",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pause",fn);
+            }
+
+             this.addEventListener("pause",handler);
              return new EventPause(this);
          }
 
@@ -1254,7 +1626,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("selectstart",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("selectstart",fn);
+            }
+
+             this.addEventListener("selectstart",handler);
              return new EventSelectstart(this);
          }
 
@@ -1274,7 +1652,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("transitionend",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("transitionend",fn);
+            }
+
+             this.addEventListener("transitionend",handler);
              return new EventTransitionend(this);
          }
 
@@ -1294,7 +1678,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("canplay",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("canplay",fn);
+            }
+
+             this.addEventListener("canplay",handler);
              return new EventCanplay(this);
          }
 
@@ -1314,7 +1704,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("durationchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("durationchange",fn);
+            }
+
+             this.addEventListener("durationchange",handler);
              return new EventDurationchange(this);
          }
 
@@ -1334,7 +1730,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("selectionchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("selectionchange",fn);
+            }
+
+             this.addEventListener("selectionchange",handler);
              return new EventSelectionchange(this);
          }
 
@@ -1354,7 +1756,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("copy",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("copy",fn);
+            }
+
+             this.addEventListener("copy",handler);
              return new EventCopy(this);
          }
 
@@ -1374,7 +1782,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("dragend",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("dragend",fn);
+            }
+
+             this.addEventListener("dragend",handler);
              return new EventDragend(this);
          }
 
@@ -1394,7 +1808,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("svgunload",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("svgunload",fn);
+            }
+
+             this.addEventListener("svgunload",handler);
              return new EventSVGUnload(this);
          }
 
@@ -1414,7 +1834,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("dblclick",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("dblclick",fn);
+            }
+
+             this.addEventListener("dblclick",handler);
              return new EventDblclick(this);
          }
 
@@ -1434,7 +1860,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domfocusin",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domfocusin",fn);
+            }
+
+             this.addEventListener("domfocusin",handler);
              return new EventDOMFocusIn(this);
          }
 
@@ -1454,7 +1886,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("loadstart",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("loadstart",fn);
+            }
+
+             this.addEventListener("loadstart",handler);
              return new EventLoadstart(this);
          }
 
@@ -1474,7 +1912,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domactivate",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domactivate",fn);
+            }
+
+             this.addEventListener("domactivate",handler);
              return new EventDOMActivate(this);
          }
 
@@ -1494,7 +1938,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domnodeinserted",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domnodeinserted",fn);
+            }
+
+             this.addEventListener("domnodeinserted",handler);
              return new EventDOMNodeInserted(this);
          }
 
@@ -1514,7 +1964,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("cached",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("cached",fn);
+            }
+
+             this.addEventListener("cached",handler);
              return new EventCached(this);
          }
 
@@ -1534,7 +1990,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("blur",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("blur",fn);
+            }
+
+             this.addEventListener("blur",handler);
              return new EventBlur(this);
          }
 
@@ -1554,7 +2016,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("seeked",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("seeked",fn);
+            }
+
+             this.addEventListener("seeked",handler);
              return new EventSeeked(this);
          }
 
@@ -1574,7 +2042,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("focus",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("focus",fn);
+            }
+
+             this.addEventListener("focus",handler);
              return new EventFocus(this);
          }
 
@@ -1594,7 +2068,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("keypress",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("keypress",fn);
+            }
+
+             this.addEventListener("keypress",handler);
              return new EventKeypress(this);
          }
 
@@ -1614,7 +2094,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerlockerror",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerlockerror",fn);
+            }
+
+             this.addEventListener("pointerlockerror",handler);
              return new EventPointerlockerror(this);
          }
 
@@ -1634,7 +2120,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("chargingtimechange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("chargingtimechange",fn);
+            }
+
+             this.addEventListener("chargingtimechange",handler);
              return new EventChargingtimechange(this);
          }
 
@@ -1654,7 +2146,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("volumechange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("volumechange",fn);
+            }
+
+             this.addEventListener("volumechange",handler);
              return new EventVolumechange(this);
          }
 
@@ -1674,7 +2172,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("compositionstart",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("compositionstart",fn);
+            }
+
+             this.addEventListener("compositionstart",handler);
              return new EventCompositionstart(this);
          }
 
@@ -1694,7 +2198,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("mouseout",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("mouseout",fn);
+            }
+
+             this.addEventListener("mouseout",handler);
              return new EventMouseout(this);
          }
 
@@ -1714,7 +2224,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("animationstart",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("animationstart",fn);
+            }
+
+             this.addEventListener("animationstart",handler);
              return new EventAnimationstart(this);
          }
 
@@ -1734,7 +2250,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("deviceproximity",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("deviceproximity",fn);
+            }
+
+             this.addEventListener("deviceproximity",handler);
              return new EventDeviceproximity(this);
          }
 
@@ -1754,7 +2276,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("loadend",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("loadend",fn);
+            }
+
+             this.addEventListener("loadend",handler);
              return new EventLoadend(this);
          }
 
@@ -1774,7 +2302,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerenter",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerenter",fn);
+            }
+
+             this.addEventListener("pointerenter",handler);
              return new EventPointerenter(this);
          }
 
@@ -1794,7 +2328,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domfocusout",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domfocusout",fn);
+            }
+
+             this.addEventListener("domfocusout",handler);
              return new EventDOMFocusOut(this);
          }
 
@@ -1814,7 +2354,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("drag",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("drag",fn);
+            }
+
+             this.addEventListener("drag",handler);
              return new EventDrag(this);
          }
 
@@ -1834,7 +2380,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("suspend",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("suspend",fn);
+            }
+
+             this.addEventListener("suspend",handler);
              return new EventSuspend(this);
          }
 
@@ -1854,7 +2406,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("paste",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("paste",fn);
+            }
+
+             this.addEventListener("paste",handler);
              return new EventPaste(this);
          }
 
@@ -1874,7 +2432,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("deviceorientation",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("deviceorientation",fn);
+            }
+
+             this.addEventListener("deviceorientation",handler);
              return new EventDeviceorientation(this);
          }
 
@@ -1894,7 +2458,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("mouseleave",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("mouseleave",fn);
+            }
+
+             this.addEventListener("mouseleave",handler);
              return new EventMouseleave(this);
          }
 
@@ -1914,7 +2484,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("fullscreenerror",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("fullscreenerror",fn);
+            }
+
+             this.addEventListener("fullscreenerror",handler);
              return new EventFullscreenerror(this);
          }
 
@@ -1934,7 +2510,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("touchstart",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("touchstart",fn);
+            }
+
+             this.addEventListener("touchstart",handler);
              return new EventTouchstart(this);
          }
 
@@ -1954,7 +2536,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("dischargingtimechange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("dischargingtimechange",fn);
+            }
+
+             this.addEventListener("dischargingtimechange",handler);
              return new EventDischargingtimechange(this);
          }
 
@@ -1974,7 +2562,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("chargingchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("chargingchange",fn);
+            }
+
+             this.addEventListener("chargingchange",handler);
              return new EventChargingchange(this);
          }
 
@@ -1994,7 +2588,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("message",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("message",fn);
+            }
+
+             this.addEventListener("message",handler);
              return new EventMessage(this);
          }
 
@@ -2014,7 +2614,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerdown",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerdown",fn);
+            }
+
+             this.addEventListener("pointerdown",handler);
              return new EventPointerdown(this);
          }
 
@@ -2034,7 +2640,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("endevent",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("endevent",fn);
+            }
+
+             this.addEventListener("endevent",handler);
              return new EventEndEvent(this);
          }
 
@@ -2054,7 +2666,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("devicemotion",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("devicemotion",fn);
+            }
+
+             this.addEventListener("devicemotion",handler);
              return new EventDevicemotion(this);
          }
 
@@ -2074,7 +2692,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerlockchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerlockchange",fn);
+            }
+
+             this.addEventListener("pointerlockchange",handler);
              return new EventPointerlockchange(this);
          }
 
@@ -2094,7 +2718,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("resize",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("resize",fn);
+            }
+
+             this.addEventListener("resize",handler);
              return new EventResize(this);
          }
 
@@ -2114,7 +2744,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("touchleave",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("touchleave",fn);
+            }
+
+             this.addEventListener("touchleave",handler);
              return new EventTouchleave(this);
          }
 
@@ -2134,7 +2770,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointercancel",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointercancel",fn);
+            }
+
+             this.addEventListener("pointercancel",handler);
              return new EventPointercancel(this);
          }
 
@@ -2154,7 +2796,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("progress",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("progress",fn);
+            }
+
+             this.addEventListener("progress",handler);
              return new EventProgress(this);
          }
 
@@ -2174,7 +2822,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("cut",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("cut",fn);
+            }
+
+             this.addEventListener("cut",handler);
              return new EventCut(this);
          }
 
@@ -2194,7 +2848,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerleave",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerleave",fn);
+            }
+
+             this.addEventListener("pointerleave",handler);
              return new EventPointerleave(this);
          }
 
@@ -2214,7 +2874,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("animationend",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("animationend",fn);
+            }
+
+             this.addEventListener("animationend",handler);
              return new EventAnimationend(this);
          }
 
@@ -2234,7 +2900,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("loadeddata",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("loadeddata",fn);
+            }
+
+             this.addEventListener("loadeddata",handler);
              return new EventLoadeddata(this);
          }
 
@@ -2254,7 +2926,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("online",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("online",fn);
+            }
+
+             this.addEventListener("online",handler);
              return new EventOnline(this);
          }
 
@@ -2274,7 +2952,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("svgscroll",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("svgscroll",fn);
+            }
+
+             this.addEventListener("svgscroll",handler);
              return new EventSVGScroll(this);
          }
 
@@ -2294,7 +2978,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("click",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("click",fn);
+            }
+
+             this.addEventListener("click",handler);
              return new EventClick(this);
          }
 
@@ -2314,7 +3004,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domnoderemoved",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domnoderemoved",fn);
+            }
+
+             this.addEventListener("domnoderemoved",handler);
              return new EventDOMNodeRemoved(this);
          }
 
@@ -2334,7 +3030,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("emptied",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("emptied",fn);
+            }
+
+             this.addEventListener("emptied",handler);
              return new EventEmptied(this);
          }
 
@@ -2354,7 +3056,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("error",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("error",fn);
+            }
+
+             this.addEventListener("error",handler);
              return new EventError(this);
          }
 
@@ -2374,7 +3082,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domnodeinsertedintodocument",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domnodeinsertedintodocument",fn);
+            }
+
+             this.addEventListener("domnodeinsertedintodocument",handler);
              return new EventDOMNodeInsertedIntoDocument(this);
          }
 
@@ -2394,7 +3108,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("scroll",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("scroll",fn);
+            }
+
+             this.addEventListener("scroll",handler);
              return new EventScroll(this);
          }
 
@@ -2414,7 +3134,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("levelchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("levelchange",fn);
+            }
+
+             this.addEventListener("levelchange",handler);
              return new EventLevelchange(this);
          }
 
@@ -2434,7 +3160,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("touchend",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("touchend",fn);
+            }
+
+             this.addEventListener("touchend",handler);
              return new EventTouchend(this);
          }
 
@@ -2454,7 +3186,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("load",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("load",fn);
+            }
+
+             this.addEventListener("load",handler);
              return new EventLoad(this);
          }
 
@@ -2474,7 +3212,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("unload",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("unload",fn);
+            }
+
+             this.addEventListener("unload",handler);
              return new EventUnload(this);
          }
 
@@ -2494,7 +3238,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domcontentloaded",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domcontentloaded",fn);
+            }
+
+             this.addEventListener("domcontentloaded",handler);
              return new EventDOMContentLoaded(this);
          }
 
@@ -2514,7 +3264,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("mouseup",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("mouseup",fn);
+            }
+
+             this.addEventListener("mouseup",handler);
              return new EventMouseup(this);
          }
 
@@ -2534,7 +3290,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("orientationchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("orientationchange",fn);
+            }
+
+             this.addEventListener("orientationchange",handler);
              return new EventOrientationchange(this);
          }
 
@@ -2554,7 +3316,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("userproximity",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("userproximity",fn);
+            }
+
+             this.addEventListener("userproximity",handler);
              return new EventUserproximity(this);
          }
 
@@ -2574,7 +3342,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("audioprocess",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("audioprocess",fn);
+            }
+
+             this.addEventListener("audioprocess",handler);
              return new EventAudioprocess(this);
          }
 
@@ -2594,7 +3368,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("lostpointercapture",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("lostpointercapture",fn);
+            }
+
+             this.addEventListener("lostpointercapture",handler);
              return new EventLostpointercapture(this);
          }
 
@@ -2614,7 +3394,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("seeking",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("seeking",fn);
+            }
+
+             this.addEventListener("seeking",handler);
              return new EventSeeking(this);
          }
 
@@ -2634,7 +3420,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("animationiteration",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("animationiteration",fn);
+            }
+
+             this.addEventListener("animationiteration",handler);
              return new EventAnimationiteration(this);
          }
 
@@ -2654,7 +3446,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("beginevent",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("beginevent",fn);
+            }
+
+             this.addEventListener("beginevent",handler);
              return new EventBeginEvent(this);
          }
 
@@ -2674,7 +3472,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("reset",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("reset",fn);
+            }
+
+             this.addEventListener("reset",handler);
              return new EventReset(this);
          }
 
@@ -2694,7 +3498,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("dragover",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("dragover",fn);
+            }
+
+             this.addEventListener("dragover",handler);
              return new EventDragover(this);
          }
 
@@ -2714,7 +3524,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("hashchange",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("hashchange",fn);
+            }
+
+             this.addEventListener("hashchange",handler);
              return new EventHashchange(this);
          }
 
@@ -2734,7 +3550,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("invalid",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("invalid",fn);
+            }
+
+             this.addEventListener("invalid",handler);
              return new EventInvalid(this);
          }
 
@@ -2754,7 +3576,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("svgload",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("svgload",fn);
+            }
+
+             this.addEventListener("svgload",handler);
              return new EventSVGLoad(this);
          }
 
@@ -2774,7 +3602,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("compositionupdate",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("compositionupdate",fn);
+            }
+
+             this.addEventListener("compositionupdate",handler);
              return new EventCompositionupdate(this);
          }
 
@@ -2794,7 +3628,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("stalled",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("stalled",fn);
+            }
+
+             this.addEventListener("stalled",handler);
              return new EventStalled(this);
          }
 
@@ -2814,7 +3654,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("checking",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("checking",fn);
+            }
+
+             this.addEventListener("checking",handler);
              return new EventChecking(this);
          }
 
@@ -2834,7 +3680,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("noupdate",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("noupdate",fn);
+            }
+
+             this.addEventListener("noupdate",handler);
              return new EventNoupdate(this);
          }
 
@@ -2854,7 +3706,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointermove",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointermove",fn);
+            }
+
+             this.addEventListener("pointermove",handler);
              return new EventPointermove(this);
          }
 
@@ -2874,7 +3732,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("loadedmetadata",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("loadedmetadata",fn);
+            }
+
+             this.addEventListener("loadedmetadata",handler);
              return new EventLoadedmetadata(this);
          }
 
@@ -2894,7 +3758,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("domnoderemovedfromdocument",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("domnoderemovedfromdocument",fn);
+            }
+
+             this.addEventListener("domnoderemovedfromdocument",handler);
              return new EventDOMNodeRemovedFromDocument(this);
          }
 
@@ -2914,7 +3784,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("repeatevent",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("repeatevent",fn);
+            }
+
+             this.addEventListener("repeatevent",handler);
              return new EventRepeatEvent(this);
          }
 
@@ -2934,7 +3810,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("close",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("close",fn);
+            }
+
+             this.addEventListener("close",handler);
              return new EventClose(this);
          }
 
@@ -2954,7 +3836,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("gamepadconnected",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("gamepadconnected",fn);
+            }
+
+             this.addEventListener("gamepadconnected",handler);
              return new EventGamepadconnected(this);
          }
 
@@ -2974,7 +3862,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("pointerup",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("pointerup",fn);
+            }
+
+             this.addEventListener("pointerup",handler);
              return new EventPointerup(this);
          }
 
@@ -2994,7 +3888,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("keyup",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("keyup",fn);
+            }
+
+             this.addEventListener("keyup",handler);
              return new EventKeyup(this);
          }
 
@@ -3014,7 +3914,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("mousemove",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("mousemove",fn);
+            }
+
+             this.addEventListener("mousemove",handler);
              return new EventMousemove(this);
          }
 
@@ -3034,7 +3940,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("timeupdate",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("timeupdate",fn);
+            }
+
+             this.addEventListener("timeupdate",handler);
              return new EventTimeupdate(this);
          }
 
@@ -3054,7 +3966,13 @@ typedef EL = Event -> Void;
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("popstate",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("popstate",fn);
+            }
+
+             this.addEventListener("popstate",handler);
              return new EventPopstate(this);
          }
 
@@ -3069,7 +3987,7 @@ typedef EL = Event -> Void;
 
     
 
-abstract EventAccessor(Element) {
+abstract OnceEventAccessor(Element) {
     public inline function new(el:ELM) this = el;
 
     @:arrayAccess

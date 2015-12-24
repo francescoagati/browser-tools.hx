@@ -12,7 +12,13 @@ class CodeGenerator {
          public inline function new(el:Element) this = el;
 
          @:op(A+B) public inline function addEventListener(el:Event -> Void) {
-             this.addEventListener("${event.toLowerCase()}",el);
+
+            function handler = function(ev:Event) {
+              el(ev);
+              this.removeEventListener("${event.toLowerCase()}",fn);
+            }
+
+             this.addEventListener("${event.toLowerCase()}",handler);
              return new Event${event}(this);
          }
 
@@ -66,7 +72,7 @@ class CodeGenerator {
 
     var code = '
 
-package browser_tools;
+package browser_tools.abstracts;
 import js.html.*;
 import js.JQuery;
 import js.Browser;
@@ -76,7 +82,7 @@ typedef EL = Event -> Void;
 
 $output
 
-abstract EventAccessor(Element) {
+abstract OnceEventAccessor(Element) {
     public inline function new(el:ELM) this = el;
 
     @:arrayAccess
@@ -98,7 +104,7 @@ class Events {}
     ';
 
 
-    sys.io.File.saveContent('src/browser_tools/Events.hx',code);
+    sys.io.File.saveContent('src/browser_tools/abstracts/OnceEvents.hx',code);
 
 
   }
