@@ -16,14 +16,15 @@ enum SelectorType{
 
 class Mapper {
 
-  public static macro function check_query(element:ExprOf<browser_tools.AElement>,query:ExprOf<String>):ExprOf<Bool> {
-    return macro {
+  #if js
+  public static  function check_query(element:browser_tools.AElement,query:String):Bool {
+
       var matchesSelector =  untyped __js__(
         '{0}.webkitMatchesSelector || {0}.mozMatchesSelector || {0}.oMatchesSelector || {0}.matchesSelector',$element);
-       matchesSelector.call($element, $query);
+      return matchesSelector.call(element, query);
 
-    };
   }
+  #end
 
   public static macro function is_query(query:ExprOf<String>,expr:Expr) {
 
