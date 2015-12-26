@@ -16,56 +16,69 @@ enum SelectorType{
 
 class Mapper {
 
-  public static macro function is_query(path:ExprOf<String>,expr:Expr) {
+  public static macro function check_query(element:ExprOf<browser_tools.AElement>,query:ExprOf<String>):ExprOf<Bool> {
+    return macro {
+      var matchesSelector =  untyped __js__(
+        '{0}.webkitMatchesSelector || {0}.mozMatchesSelector || {0}.oMatchesSelector || {0}.matchesSelector',$element);
+       matchesSelector.call($element, $query);
+
+    };
+  }
+
+  public static macro function is_query(query:ExprOf<String>,expr:Expr) {
 
     var expr_delegate = expr.substitute({
-      "_":macro delegate
+      "_":macro target
     });
 
     return macro {
-      var delegate:browser_tools.AElement = target.querySelector($path);
-      if (delegate != null) $expr_delegate;
+      var check = check_query(target,$query);
+      if (check) $expr_delegate;
     };
+
   }
+
+
+  public static macro function check_class(element:ExprOf<browser_tools.AElement>,cls:ExprOf<String>)
+    return macro $element.classes == $cls;
 
   public static macro function is_class(cls:ExprOf<String>,expr:Expr) {
 
     var expr_delegate = expr.substitute({
-      "_":macro delegate
+      "_":macro target
     });
 
-    return macro {
-      var tags = target.getElementsByClassName($cls);
-      var delegate:browser_tools.AElement = if (tags[0] != null) tags[0]; else null;
-      if (delegate != null) $expr_delegate;
-    };
+    return macro if (check_class(target,$cls)) $expr_delegate;
+
   }
 
+
+  public static macro function check_tag(element:ExprOf<js.html.Element>,tag:ExprOf<String>)
+    return macro $element.nodeName == $tag;
 
   public static macro function is_tag(tag:ExprOf<String>,expr:Expr) {
 
     var expr_delegate = expr.substitute({
-      "_":macro delegate
+      "_":macro target
     });
 
-    return macro {
-      var tags = target.getElementsByTagName($tag);
-      var delegate:browser_tools.AElement = if (tags[0] != null) tags[0]; else null;
-      if (delegate != null) $expr_delegate;
-    };
+    return macro if (check_tag(target,$tag)) $expr_delegate;
+
   }
+
+
+  public static macro function check_id(element:ExprOf<js.html.Element>,id:ExprOf<String>)
+    return macro $element.id == $id;
 
 
   public static macro function is_id(id:ExprOf<String>,expr:Expr) {
 
     var expr_delegate = expr.substitute({
-      "_":macro delegate
+      "_":macro target
     });
 
-    return macro {
-      var delegate:browser_tools.AElement = js.Browser.document.getElementById($id);
-      if (delegate != null) $expr_delegate;
-    };
+    return macro if (check_id(target,$id)) $expr_delegate;
+
   }
 
   public static macro function selector_is(sel:ExprOf<browser_tools.events.Mapper.SelectorType>,expr:Expr) {

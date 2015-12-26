@@ -59,7 +59,21 @@ class Main implements async_tools.Async {
   }
 
   static function main() {
-    render(function() {});
+    //render(function() {});
+
+    'player'.byId().on.click + map_event_to_selectors({
+
+        //selector_is(SelectorType.tag('div'),trace(_));
+        //selector_is(SelectorType.cls('player'),trace(_));
+        //selector_is(SelectorType.query('.player'),trace(_.id));
+
+        is_id('pippa',trace(_));
+        is_tag('div',trace(_.nodeName));
+        is_class('player',trace(_.className));
+        is_query('#pippa',trace(_.id));
+    });
+
+
 
 /*
     var values = [];
@@ -70,18 +84,6 @@ class Main implements async_tools.Async {
 
     'player'.byId().on.click + map_event_to_expr(_.target.value,{
       values.push(_);
-    });
-
-    'player'.byId().on.click + map_event_to_selectors({
-
-        selector_is(SelectorType.tag('div'),trace(_));
-        selector_is(SelectorType.cls('player'),trace(_));
-        selector_is(SelectorType.query('.player'),trace(_.id));
-
-        is_id('pippa',trace(_));
-        is_tag('div',trace(_.nodeName));
-        is_class('player',trace(_.className));
-        is_query('#pippa',trace(_.id));
     });
 
 
