@@ -50,15 +50,19 @@ abstract ClassesAccessor(ELMWRAPPER) {
     }
 
     #if js
-      public inline function animate_class(cls:String,?property_detect:String = null,cb:Dynamic->Void) {
+      public inline function animate_class(cls:String,?property_detect:String = null,cb:Bool->Void) {
         var el = new AElement(this);
+
+        var animation_ended = null;
 
         var prefix = Helper.get_prefix();
         var event_animation = browser_tools.events.Helper.get_event('AnimationEnd');
         var event_transition = browser_tools.events.Helper.get_event('TransitionEnd');
         var check = false;
+
         function fn(e) {
-          if (check == false) cb(null);
+          if (check == false) cb(animation_ended);
+
           check = true;
           el.removeEventListener(event_animation,fn);
           el.removeEventListener(event_transition,fn);
@@ -67,16 +71,21 @@ abstract ClassesAccessor(ELMWRAPPER) {
 
         if (property_detect != null) {
           Transaction.check_for_property_change(el,property_detect,function(response) {
-            if (response == false) fn(null);
+            if (response == false) {
+              animation_ended = false;
+              fn(null);
+            }
           });
         }
 
-        el.addEventListener(event_animation,fn);
-        el.addEventListener(event_transition,fn);
+        function fn_animation_ended(e) {
+          animation_ended = true;
+          fn(e);
+        }
+
+        el.addEventListener(event_animation,fn_animation_ended);
+        el.addEventListener(event_transition,fn_animation_ended);
         el.classes + cls;
-        //el.addEventListener('webkitTransitionEnd',fn);
-
-
 
       }
     #end

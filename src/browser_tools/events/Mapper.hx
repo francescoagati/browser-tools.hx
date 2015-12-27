@@ -7,10 +7,10 @@ package browser_tools.events;
 #end
 
 enum SelectorType{
-  id(id:String);
-  tag(tag:String);
-  query(path:String);
-  cls(cls:String);
+  Id(id:String);
+  Tag(tag:String);
+  Query(path:String);
+  Cls(cls:String);
 }
 
 
@@ -86,32 +86,19 @@ class Mapper {
 
 
     var expr_delegate = expr.substitute({
-      "_":macro delegate
+      "_":macro target
     });
 
 
     return macro {
-      var delegate:browser_tools.AElement = null;
       switch($e{sel}) {
-        case id(id):{
-          delegate = js.Browser.document.getElementById(id);
-        };
-        case tag(tag):{
-          var tags = target.getElementsByTagName(tag);
-          if (tags[0] != null) delegate = tags[0];
-        };
-        case cls(cls):{
-          var tags = target.getElementsByClassName(cls);
-          if (tags[0] != null) delegate = tags[0];
-        };
-        case query(path):{
-          var tag = target.querySelector(path);
-          if (tag != null) delegate = tag;
-        };
+        case Id(id):is_id(id,$expr_delegate);
+        case Tag(tag):is_tag(tag,$expr_delegate);
+        case Cls(cls):is_class(cls,$expr_delegate);
+        case Query(path):is_query(path,$expr_delegate);
         case _:null;
       }
 
-      if (delegate != null) $expr_delegate;
 
     }
   }

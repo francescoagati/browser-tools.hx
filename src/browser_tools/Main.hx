@@ -71,6 +71,11 @@ class Main implements async_tools.Async {
         is_tag('div',trace(_.nodeName));
         is_class('player',trace(_.className));
         is_query('#pippa',trace(_.id));
+
+        selector_is(Id('pippa'),trace(_.id));
+        selector_is(Query('#pippa'),trace(_.id));
+        selector_is(Cls('animated'),trace(_.id));
+        selector_is(Tag('div'),trace(_.id));
     });
 
 
