@@ -21,16 +21,18 @@ class StringTools {
   #end
 
 
+  static macro function check_container()
+    return macro if (cb.toString() == 'null') {
+      cb = container;
+      container = macro js.Browser.document.body;
+    }
+
 
   public static macro function to_delegate_query(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
     var events = selector.split(' ');
     var selector = events.pop();
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
@@ -49,11 +51,7 @@ class StringTools {
     var events = selector.split(' ');
     var selector = events.pop();
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
@@ -72,11 +70,7 @@ class StringTools {
     var events = selector.split(' ');
     var selector = events.pop();
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
@@ -96,11 +90,7 @@ class StringTools {
     var events = selector.split(' ');
     var selector = events.pop();
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
@@ -136,11 +126,7 @@ class StringTools {
     var events = selector.split(' ');
     var selector = events.pop();
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
@@ -160,11 +146,7 @@ class StringTools {
     var events = selector.split(' ');
     var selector = events.pop();
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
@@ -186,11 +168,7 @@ class StringTools {
     var query = selector.split("|").last().trim();
     var events = selector.split("|").first().split(' ');
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
@@ -209,11 +187,7 @@ class StringTools {
     var query = selector.split("|").last().trim();
     var events = selector.split("|").first().split(' ');
 
-    if (cb.toString() == 'null') {
-      cb = container;
-      container = macro js.Browser.document.body;
-
-    }
+    check_container();
 
     var exprs_events = process_events(events);
 
