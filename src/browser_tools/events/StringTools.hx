@@ -12,6 +12,103 @@ using thx.Arrays;
 class StringTools {
 
 
+  static function filter_event(event:String) return event != ' ' && event != '' && event != '|';
+
+
+  public static macro function to_delegate_query(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
+    var events = selector.split(' ');
+    var selector = events.pop();
+
+    if (cb.toString() == 'null') {
+      cb = container;
+      container = macro js.Browser.document.body;
+
+    }
+
+    var exprs_events = [ for(event in events) if (filter_event(event))  macro element.addEventListener($v{event},handler_event)  ];
+
+    return macro {
+      var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
+        browser_tools.events.Mapper.is_query($v{selector},$cb(event));
+      });
+
+      var element = $e{container};
+      $b{exprs_events};
+    }
+  }
+
+
+  public static macro function to_delegate_tag(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
+    var events = selector.split(' ');
+    var selector = events.pop();
+
+    if (cb.toString() == 'null') {
+      cb = container;
+      container = macro js.Browser.document.body;
+
+    }
+
+    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+
+    return macro {
+      var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
+        browser_tools.events.Mapper.is_tag($v{selector},$cb(event));
+      });
+
+      var element = $e{container};
+      $b{exprs_events};
+    }
+  }
+
+
+  public static macro function to_delegate_id(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
+    var events = selector.split(' ');
+    var selector = events.pop();
+
+    if (cb.toString() == 'null') {
+      cb = container;
+      container = macro js.Browser.document.body;
+
+    }
+
+    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+
+    return macro {
+      var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
+        browser_tools.events.Mapper.is_id($v{selector},$cb(event));
+      });
+
+      var element = $e{container};
+      $b{exprs_events};
+    }
+  }
+
+
+
+  public static macro function to_delegate_class(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
+    var events = selector.split(' ');
+    var selector = events.pop();
+
+    if (cb.toString() == 'null') {
+      cb = container;
+      container = macro js.Browser.document.body;
+
+    }
+
+    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+
+    return macro {
+      var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
+        browser_tools.events.Mapper.is_class($v{selector},$cb(event));
+      });
+
+      var element = $e{container};
+      $b{exprs_events};
+    }
+  }
+
+
+
   public static macro function to_event_id(selector:String,cb:ExprOf<js.html.Event->Void>) {
     var events = selector.split(' ');
     var selector = events.pop();
@@ -88,7 +185,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events) macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = [ for(event in events) if (filter_event(event)) macro element.addEventListener($v{event},handler_event)  ];
 
     return macro {
       var handler_event = $cb;
@@ -111,7 +208,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events) macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = [ for(event in events) if (filter_event(event)) macro element.addEventListener($v{event},handler_event)  ];
 
     return macro {
       var handler_event = $cb;

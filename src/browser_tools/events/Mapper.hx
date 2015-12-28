@@ -102,6 +102,7 @@ class Mapper {
   public static macro function map_event_to_selectors(expr:Expr) {
 
     return macro function(e:Dynamic) {
+      var event = e;
       var target:browser_tools.AElement = e.currentTarget;
       $expr;
     };

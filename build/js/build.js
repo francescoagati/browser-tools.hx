@@ -12,15 +12,21 @@ var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
 	var handler_event = function(e) {
-		console.log(e);
+		var event = e;
+		var target = e.currentTarget;
+		var check = browser_$tools_events_Mapper.check_query(target,"#foo.bar");
+		if(check) console.log(event);
 	};
-	var element = window.document.getElementById("pippa");
+	var element = window.document.body;
 	element.addEventListener("click",handler_event);
 	element.addEventListener("doubleclick",handler_event);
 	element.addEventListener("mouseover",handler_event);
 	element.addEventListener("mouseout",handler_event);
 	var handler_event1 = function(e1) {
-		console.log(e1);
+		var event1 = e1;
+		var target1 = e1.currentTarget;
+		var check1 = browser_$tools_events_Mapper.check_query(target1,"#foo.bar");
+		if(check1) console.log(event1);
 	};
 	var element1 = window.document.getElementById("pippa");
 	element1.addEventListener("click",handler_event1);
@@ -28,103 +34,170 @@ browser_$tools_Main.main = function() {
 	element1.addEventListener("mouseover",handler_event1);
 	element1.addEventListener("mouseout",handler_event1);
 	var handler_event2 = function(e2) {
-		console.log(e2);
+		var event2 = e2;
+		var target2 = e2.currentTarget;
+		if(target2.nodeName == "div") console.log(event2);
 	};
-	var elements = window.document.body.getElementsByClassName("animated");
-	var _g = 0;
-	while(_g < elements.length) {
-		var element2 = elements[_g];
-		++_g;
-		element2.addEventListener("click",handler_event2);
-		element2.addEventListener("doubleclick",handler_event2);
-		element2.addEventListener("mouseover",handler_event2);
-		element2.addEventListener("mouseout",handler_event2);
-	}
+	var element2 = window.document.body;
+	element2.addEventListener("click",handler_event2);
+	element2.addEventListener("doubleclick",handler_event2);
+	element2.addEventListener("mouseover",handler_event2);
+	element2.addEventListener("mouseout",handler_event2);
 	var handler_event3 = function(e3) {
-		console.log(e3);
+		var event3 = e3;
+		var target3 = e3.currentTarget;
+		if(target3.nodeName == "div") console.log(event3);
 	};
-	var elements1 = window.document.getElementById("pippa").getElementsByClassName("animated");
-	var _g1 = 0;
-	while(_g1 < elements1.length) {
-		var element3 = elements1[_g1];
-		++_g1;
-		element3.addEventListener("click",handler_event3);
-		element3.addEventListener("doubleclick",handler_event3);
-		element3.addEventListener("mouseover",handler_event3);
-		element3.addEventListener("mouseout",handler_event3);
-	}
+	var element3 = window.document.getElementById("pippa");
+	element3.addEventListener("click",handler_event3);
+	element3.addEventListener("doubleclick",handler_event3);
+	element3.addEventListener("mouseover",handler_event3);
+	element3.addEventListener("mouseout",handler_event3);
 	var handler_event4 = function(e4) {
-		console.log(e4);
+		var event4 = e4;
+		var target4 = e4.currentTarget;
+		if(target4.id == "pippa") console.log(event4);
 	};
-	var elements2 = window.document.body.getElementsByTagName("div");
-	var _g2 = 0;
-	while(_g2 < elements2.length) {
-		var element4 = elements2[_g2];
-		++_g2;
-		element4.addEventListener("click",handler_event4);
-		element4.addEventListener("doubleclick",handler_event4);
-		element4.addEventListener("mouseover",handler_event4);
-		element4.addEventListener("mouseout",handler_event4);
-	}
+	var element4 = window.document.body;
+	element4.addEventListener("click",handler_event4);
+	element4.addEventListener("doubleclick",handler_event4);
+	element4.addEventListener("mouseover",handler_event4);
+	element4.addEventListener("mouseout",handler_event4);
 	var handler_event5 = function(e5) {
-		console.log(e5);
+		var event5 = e5;
+		var target5 = e5.currentTarget;
+		if(target5.classList.contains("animated")) console.log(event5);
 	};
-	var elements3 = window.document.getElementById("pippa").getElementsByTagName("div");
-	var _g3 = 0;
-	while(_g3 < elements3.length) {
-		var element5 = elements3[_g3];
-		++_g3;
-		element5.addEventListener("click",handler_event5);
-		element5.addEventListener("doubleclick",handler_event5);
-		element5.addEventListener("mouseover",handler_event5);
-		element5.addEventListener("mouseout",handler_event5);
-	}
+	var element5 = window.document.body;
+	element5.addEventListener("click",handler_event5);
+	element5.addEventListener("doubleclick",handler_event5);
+	element5.addEventListener("mouseover",handler_event5);
+	element5.addEventListener("mouseout",handler_event5);
 	var handler_event6 = function(e6) {
-		console.log(e6);
+		var event6 = e6;
+		var target6 = e6.currentTarget;
+		if(target6.classList.contains("animated")) console.log(event6);
 	};
-	var element6 = window.document.body.querySelector("#foo.bar");
+	var element6 = window.document.getElementById("pippa");
 	element6.addEventListener("click",handler_event6);
 	element6.addEventListener("doubleclick",handler_event6);
 	element6.addEventListener("mouseover",handler_event6);
 	element6.addEventListener("mouseout",handler_event6);
-	element6.addEventListener("",handler_event6);
 	var handler_event7 = function(e7) {
 		console.log(e7);
 	};
-	var element7 = window.document.getElementById("pippa").querySelector("#foo.bar");
+	var element7 = window.document.getElementById("pippa");
 	element7.addEventListener("click",handler_event7);
 	element7.addEventListener("doubleclick",handler_event7);
 	element7.addEventListener("mouseover",handler_event7);
 	element7.addEventListener("mouseout",handler_event7);
-	element7.addEventListener("",handler_event7);
 	var handler_event8 = function(e8) {
 		console.log(e8);
 	};
-	var elements4 = window.document.body.querySelectorAll("#foo.bar");
-	var _g4 = 0;
-	while(_g4 < elements4.length) {
-		var element8 = elements4[_g4];
-		++_g4;
-		element8.addEventListener("click",handler_event8);
-		element8.addEventListener("doubleclick",handler_event8);
-		element8.addEventListener("mouseover",handler_event8);
-		element8.addEventListener("mouseout",handler_event8);
-		element8.addEventListener("",handler_event8);
-	}
+	var element8 = window.document.getElementById("pippa");
+	element8.addEventListener("click",handler_event8);
+	element8.addEventListener("doubleclick",handler_event8);
+	element8.addEventListener("mouseover",handler_event8);
+	element8.addEventListener("mouseout",handler_event8);
 	var handler_event9 = function(e9) {
 		console.log(e9);
 	};
-	var elements5 = window.document.getElementById("pippa").querySelectorAll("#foo.bar");
-	var _g5 = 0;
-	while(_g5 < elements5.length) {
-		var element9 = elements5[_g5];
-		++_g5;
+	var elements = window.document.body.getElementsByClassName("animated");
+	var _g = 0;
+	while(_g < elements.length) {
+		var element9 = elements[_g];
+		++_g;
 		element9.addEventListener("click",handler_event9);
 		element9.addEventListener("doubleclick",handler_event9);
 		element9.addEventListener("mouseover",handler_event9);
 		element9.addEventListener("mouseout",handler_event9);
-		element9.addEventListener("",handler_event9);
 	}
+	var handler_event10 = function(e10) {
+		console.log(e10);
+	};
+	var elements1 = window.document.getElementById("pippa").getElementsByClassName("animated");
+	var _g1 = 0;
+	while(_g1 < elements1.length) {
+		var element10 = elements1[_g1];
+		++_g1;
+		element10.addEventListener("click",handler_event10);
+		element10.addEventListener("doubleclick",handler_event10);
+		element10.addEventListener("mouseover",handler_event10);
+		element10.addEventListener("mouseout",handler_event10);
+	}
+	var handler_event11 = function(e11) {
+		console.log(e11);
+	};
+	var elements2 = window.document.body.getElementsByTagName("div");
+	var _g2 = 0;
+	while(_g2 < elements2.length) {
+		var element11 = elements2[_g2];
+		++_g2;
+		element11.addEventListener("click",handler_event11);
+		element11.addEventListener("doubleclick",handler_event11);
+		element11.addEventListener("mouseover",handler_event11);
+		element11.addEventListener("mouseout",handler_event11);
+	}
+	var handler_event12 = function(e12) {
+		console.log(e12);
+	};
+	var elements3 = window.document.getElementById("pippa").getElementsByTagName("div");
+	var _g3 = 0;
+	while(_g3 < elements3.length) {
+		var element12 = elements3[_g3];
+		++_g3;
+		element12.addEventListener("click",handler_event12);
+		element12.addEventListener("doubleclick",handler_event12);
+		element12.addEventListener("mouseover",handler_event12);
+		element12.addEventListener("mouseout",handler_event12);
+	}
+	var handler_event13 = function(e13) {
+		console.log(e13);
+	};
+	var element13 = window.document.body.querySelector("#foo.bar");
+	element13.addEventListener("click",handler_event13);
+	element13.addEventListener("doubleclick",handler_event13);
+	element13.addEventListener("mouseover",handler_event13);
+	element13.addEventListener("mouseout",handler_event13);
+	var handler_event14 = function(e14) {
+		console.log(e14);
+	};
+	var element14 = window.document.getElementById("pippa").querySelector("#foo.bar");
+	element14.addEventListener("click",handler_event14);
+	element14.addEventListener("doubleclick",handler_event14);
+	element14.addEventListener("mouseover",handler_event14);
+	element14.addEventListener("mouseout",handler_event14);
+	var handler_event15 = function(e15) {
+		console.log(e15);
+	};
+	var elements4 = window.document.body.querySelectorAll("#foo.bar");
+	var _g4 = 0;
+	while(_g4 < elements4.length) {
+		var element15 = elements4[_g4];
+		++_g4;
+		element15.addEventListener("click",handler_event15);
+		element15.addEventListener("doubleclick",handler_event15);
+		element15.addEventListener("mouseover",handler_event15);
+		element15.addEventListener("mouseout",handler_event15);
+	}
+	var handler_event16 = function(e16) {
+		console.log(e16);
+	};
+	var elements5 = window.document.getElementById("pippa").querySelectorAll("#foo.bar");
+	var _g5 = 0;
+	while(_g5 < elements5.length) {
+		var element16 = elements5[_g5];
+		++_g5;
+		element16.addEventListener("click",handler_event16);
+		element16.addEventListener("doubleclick",handler_event16);
+		element16.addEventListener("mouseover",handler_event16);
+		element16.addEventListener("mouseout",handler_event16);
+	}
+};
+var browser_$tools_events_Mapper = function() { };
+browser_$tools_events_Mapper.check_query = function(element,query) {
+	var matchesSelector = $element.webkitMatchesSelector || $element.mozMatchesSelector || $element.oMatchesSelector || $element.matchesSelector;
+	return matchesSelector.call(element,query);
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;

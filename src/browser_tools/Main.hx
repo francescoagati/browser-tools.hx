@@ -62,6 +62,39 @@ class Main implements async_tools.Async {
   static function main() {
     //render(function() {});
 
+    'click doubleclick mouseover mouseout  | #foo.bar'.to_delegate_query(function(e) {
+      untyped console.log(e);
+    });
+
+    'click doubleclick mouseover mouseout  | #foo.bar'.to_delegate_query('pippa'.byId(),function(e) {
+      untyped console.log(e);
+    });
+
+
+    'click doubleclick mouseover mouseout div'.to_delegate_tag(function(e) {
+      untyped console.log(e);
+    });
+
+    'click doubleclick mouseover mouseout div'.to_delegate_tag('pippa'.byId(),function(e) {
+      untyped console.log(e);
+    });
+
+
+    'click doubleclick mouseover mouseout pippa'.to_delegate_id(function(e) {
+      untyped console.log(e);
+    });
+
+
+    'click doubleclick mouseover mouseout animated'.to_delegate_class(function(e) {
+      untyped console.log(e);
+    });
+
+    'click doubleclick mouseover mouseout animated'.to_delegate_class('pippa'.byId(),function(e) {
+      untyped console.log(e);
+    });
+
+
+
     'click doubleclick mouseover mouseout pippa'.to_event_id(function(e) {
       untyped console.log(e);
     });
