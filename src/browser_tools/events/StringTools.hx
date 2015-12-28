@@ -11,8 +11,15 @@ using thx.Arrays;
 
 class StringTools {
 
+  #if macro
+    static inline function filter_event(event:String) return event != ' ' && event != '' && event != '|';
 
-  static function filter_event(event:String) return event != ' ' && event != '' && event != '|';
+    static inline function process_events(events:Array<String>)
+        return [ for(event in events) if (filter_event(event)) macro element.addEventListener($v{event},handler_event)  ];
+
+
+  #end
+
 
 
   public static macro function to_delegate_query(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
@@ -25,7 +32,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events) if (filter_event(event))  macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
@@ -48,7 +55,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
@@ -71,7 +78,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
@@ -95,7 +102,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = browser_tools.events.Mapper.map_event_to_selectors({
@@ -113,7 +120,7 @@ class StringTools {
     var events = selector.split(' ');
     var selector = events.pop();
 
-    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = $cb;
@@ -135,7 +142,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = $cb;
@@ -159,7 +166,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events)  macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = $cb;
@@ -185,7 +192,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events) if (filter_event(event)) macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = $cb;
@@ -208,7 +215,7 @@ class StringTools {
 
     }
 
-    var exprs_events = [ for(event in events) if (filter_event(event)) macro element.addEventListener($v{event},handler_event)  ];
+    var exprs_events = process_events(events);
 
     return macro {
       var handler_event = $cb;
