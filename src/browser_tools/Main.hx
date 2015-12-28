@@ -20,6 +20,7 @@ import async_tools.Cps.*;
 //using browser_tools.Debug;
 //using browser_tools.AssetsToolsCompileTime;
 //using browser_tools.HttpTools;
+using browser_tools.events.StringTools;
 using browser_tools.HtmlTools;
 //using browser_tools.LayoutTools;
 //using browser_tools.AnimationTools;
@@ -59,7 +60,56 @@ class Main implements async_tools.Async {
   }
 
   static function main() {
-    render(function() {});
+    //render(function() {});
+
+    'click doubleclick mouseover mouseout pippa'.to_event_id(function(e) {
+      untyped console.log(e);
+    });
+
+    'click doubleclick mouseover mouseout pippa'.to_event_id(function(e) {
+      trace(e);
+    });
+
+
+    'click doubleclick mouseover mouseout animated'.to_event_class(function(e) {
+      trace(e);
+    });
+
+
+    'click doubleclick mouseover mouseout animated'.to_event_class('pippa'.byId(),function(e) {
+      trace(e);
+    });
+
+
+    'click doubleclick mouseover mouseout div'.to_event_tag(function(e) {
+      trace(e);
+    });
+
+
+    'click doubleclick mouseover mouseout div'.to_event_tag('pippa'.byId(),function(e) {
+      trace(e);
+    });
+
+
+    'click doubleclick mouseover mouseout | #foo.bar'.to_event_query(function(e) {
+      trace(e);
+    });
+
+
+    'click doubleclick mouseover mouseout | #foo.bar'.to_event_query('pippa'.byId(),function(e) {
+      trace(e);
+    });
+
+    'click doubleclick mouseover mouseout | #foo.bar'.to_event_query_all(function(e) {
+      trace(e);
+    });
+
+
+    'click doubleclick mouseover mouseout | #foo.bar'.to_event_query_all('pippa'.byId(),function(e) {
+      trace(e);
+    });
+
+
 /*
     'player'.byId().on.click + map_event_to_selectors({
 

@@ -84,9 +84,7 @@ class Mapper {
 
   public static macro function selector_is(sel:ExprOf<browser_tools.events.Mapper.SelectorType>,expr:Expr) {
 
-
     var expr_delegate = process_expr_target(expr);
-
 
     return macro {
       switch($e{sel}) {

@@ -1,142 +1,134 @@
 (function (console) { "use strict";
+var HxOverrides = function() { };
+HxOverrides.iter = function(a) {
+	return { cur : 0, arr : a, hasNext : function() {
+		return this.cur < this.arr.length;
+	}, next : function() {
+		return this.arr[this.cur++];
+	}};
+};
 var async_$tools_Async = function() { };
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
-	var tmp;
-	var this10 = window.document.getElementById("animation");
-	tmp = this10;
-	var this1 = tmp;
-	var cb2 = function(__parameter_15) {
-		__parameter_15;
-		setTimeout(function() {
-			var this3 = (function($this) {
-				var $r;
-				var this2 = window.document.getElementById("animation");
-				$r = this2;
-				return $r;
-			}(this));
-			var cb1 = function(__parameter_19) {
-				__parameter_19;
-				var this5 = (function($this) {
-					var $r;
-					var this4 = window.document.getElementById("animation");
-					$r = this4;
-					return $r;
-				}(this));
-				var cb = function(__parameter_21) {
-					__parameter_21;
-					window.document.getElementById("animation").style.opacity = "0";
-					null;
-				};
-				var el = this5;
-				var animation_ended = null;
-				var prefix = browser_$tools_events_Helper.get_prefix();
-				var event_animation = browser_$tools_events_Helper.get_prefix() == ""?"AnimationEnd".toLowerCase():"" + browser_$tools_events_Helper.get_prefix() + "AnimationEnd";
-				var event_transition = browser_$tools_events_Helper.get_prefix() == ""?"TransitionEnd".toLowerCase():"" + browser_$tools_events_Helper.get_prefix() + "AnimationEnd";
-				var check = false;
-				var fn1 = (function($this) {
-					var $r;
-					var fn = null;
-					fn = function(e) {
-						if(check == false) cb(animation_ended);
-						check = true;
-						el.removeEventListener(event_animation,fn);
-						el.removeEventListener(event_transition,fn);
-						var this6 = el;
-						this6.classList.remove("slideOutLeft");
-						this6;
-					};
-					$r = fn;
-					return $r;
-				}(this));
-				var fn_animation_ended = function(e1) {
-					animation_ended = true;
-					fn1(e1);
-				};
-				el.addEventListener(event_animation,fn_animation_ended);
-				el.addEventListener(event_transition,fn_animation_ended);
-				var this7 = el;
-				this7.classList.add("slideOutLeft");
-				this7;
-			};
-			var el1 = this3;
-			var animation_ended1 = null;
-			var prefix1 = browser_$tools_events_Helper.get_prefix();
-			var event_animation1 = browser_$tools_events_Helper.get_prefix() == ""?"AnimationEnd".toLowerCase():"" + browser_$tools_events_Helper.get_prefix() + "AnimationEnd";
-			var event_transition1 = browser_$tools_events_Helper.get_prefix() == ""?"TransitionEnd".toLowerCase():"" + browser_$tools_events_Helper.get_prefix() + "AnimationEnd";
-			var check1 = false;
-			var fn3 = (function($this) {
-				var $r;
-				var fn2 = null;
-				fn2 = function(e2) {
-					if(check1 == false) cb1(animation_ended1);
-					check1 = true;
-					el1.removeEventListener(event_animation1,fn2);
-					el1.removeEventListener(event_transition1,fn2);
-					var this8 = el1;
-					this8.classList.remove("jello");
-					this8;
-				};
-				$r = fn2;
-				return $r;
-			}(this));
-			var fn_animation_ended1 = function(e3) {
-				animation_ended1 = true;
-				fn3(e3);
-			};
-			el1.addEventListener(event_animation1,fn_animation_ended1);
-			el1.addEventListener(event_transition1,fn_animation_ended1);
-			var this9 = el1;
-			this9.classList.add("jello");
-			this9;
-		},2000);
+	var handler_event = function(e) {
+		console.log(e);
 	};
-	var el2 = this1;
-	var animation_ended2 = null;
-	var prefix2 = browser_$tools_events_Helper.get_prefix();
-	var event_animation2 = browser_$tools_events_Helper.get_prefix() == ""?"AnimationEnd".toLowerCase():"" + browser_$tools_events_Helper.get_prefix() + "AnimationEnd";
-	var event_transition2 = browser_$tools_events_Helper.get_prefix() == ""?"TransitionEnd".toLowerCase():"" + browser_$tools_events_Helper.get_prefix() + "AnimationEnd";
-	var check2 = false;
-	var tmp1;
-	var fn5 = null;
-	fn5 = function(e5) {
-		if(check2 == false) cb2(animation_ended2);
-		check2 = true;
-		el2.removeEventListener(event_animation2,fn5);
-		el2.removeEventListener(event_transition2,fn5);
-		var this11 = el2;
-		this11.classList.remove("slideInLeft");
-		this11;
+	var element = window.document.getElementById("pippa");
+	element.addEventListener("click",handler_event);
+	element.addEventListener("doubleclick",handler_event);
+	element.addEventListener("mouseover",handler_event);
+	element.addEventListener("mouseout",handler_event);
+	var handler_event1 = function(e1) {
+		console.log(e1);
 	};
-	tmp1 = fn5;
-	var fn4 = tmp1;
-	var fn_animation_ended2 = function(e4) {
-		animation_ended2 = true;
-		fn4(e4);
+	var element1 = window.document.getElementById("pippa");
+	element1.addEventListener("click",handler_event1);
+	element1.addEventListener("doubleclick",handler_event1);
+	element1.addEventListener("mouseover",handler_event1);
+	element1.addEventListener("mouseout",handler_event1);
+	var handler_event2 = function(e2) {
+		console.log(e2);
 	};
-	el2.addEventListener(event_animation2,fn_animation_ended2);
-	el2.addEventListener(event_transition2,fn_animation_ended2);
-	var this12 = el2;
-	this12.classList.add("slideInLeft");
-	this12;
-};
-var browser_$tools_events_Helper = function() { };
-browser_$tools_events_Helper.get_prefix = function() {
-	if(browser_$tools_events_Helper._prefix == null) {
-		var check = true;
-		if(check == true) {
-			var style = window.document.body.style;
-			browser_$tools_events_Helper._prefix = style.transform != null?"":style.msTransform != null?"ms":style.MozTransform != null?"moz":style.webkitTransform != null?"webkit":style.OTransform != null?"o":"not-supported";
-		} else browser_$tools_events_Helper._prefix = "not-supported";
+	var elements = window.document.body.getElementsByClassName("animated");
+	var _g = 0;
+	while(_g < elements.length) {
+		var element2 = elements[_g];
+		++_g;
+		element2.addEventListener("click",handler_event2);
+		element2.addEventListener("doubleclick",handler_event2);
+		element2.addEventListener("mouseover",handler_event2);
+		element2.addEventListener("mouseout",handler_event2);
 	}
-	
-
-     if("WebkitOpacity" in document.body.style) browser_$tools_events_Helper._prefix = "webkit";
-
-   ;
-	return browser_$tools_events_Helper._prefix;
+	var handler_event3 = function(e3) {
+		console.log(e3);
+	};
+	var elements1 = window.document.getElementById("pippa").getElementsByClassName("animated");
+	var _g1 = 0;
+	while(_g1 < elements1.length) {
+		var element3 = elements1[_g1];
+		++_g1;
+		element3.addEventListener("click",handler_event3);
+		element3.addEventListener("doubleclick",handler_event3);
+		element3.addEventListener("mouseover",handler_event3);
+		element3.addEventListener("mouseout",handler_event3);
+	}
+	var handler_event4 = function(e4) {
+		console.log(e4);
+	};
+	var elements2 = window.document.body.getElementsByTagName("div");
+	var _g2 = 0;
+	while(_g2 < elements2.length) {
+		var element4 = elements2[_g2];
+		++_g2;
+		element4.addEventListener("click",handler_event4);
+		element4.addEventListener("doubleclick",handler_event4);
+		element4.addEventListener("mouseover",handler_event4);
+		element4.addEventListener("mouseout",handler_event4);
+	}
+	var handler_event5 = function(e5) {
+		console.log(e5);
+	};
+	var elements3 = window.document.getElementById("pippa").getElementsByTagName("div");
+	var _g3 = 0;
+	while(_g3 < elements3.length) {
+		var element5 = elements3[_g3];
+		++_g3;
+		element5.addEventListener("click",handler_event5);
+		element5.addEventListener("doubleclick",handler_event5);
+		element5.addEventListener("mouseover",handler_event5);
+		element5.addEventListener("mouseout",handler_event5);
+	}
+	var handler_event6 = function(e6) {
+		console.log(e6);
+	};
+	var element6 = window.document.body.querySelector("#foo.bar");
+	element6.addEventListener("click",handler_event6);
+	element6.addEventListener("doubleclick",handler_event6);
+	element6.addEventListener("mouseover",handler_event6);
+	element6.addEventListener("mouseout",handler_event6);
+	element6.addEventListener("",handler_event6);
+	var handler_event7 = function(e7) {
+		console.log(e7);
+	};
+	var element7 = window.document.getElementById("pippa").querySelector("#foo.bar");
+	element7.addEventListener("click",handler_event7);
+	element7.addEventListener("doubleclick",handler_event7);
+	element7.addEventListener("mouseover",handler_event7);
+	element7.addEventListener("mouseout",handler_event7);
+	element7.addEventListener("",handler_event7);
+	var handler_event8 = function(e8) {
+		console.log(e8);
+	};
+	var elements4 = window.document.body.querySelectorAll("#foo.bar");
+	var _g4 = 0;
+	while(_g4 < elements4.length) {
+		var element8 = elements4[_g4];
+		++_g4;
+		element8.addEventListener("click",handler_event8);
+		element8.addEventListener("doubleclick",handler_event8);
+		element8.addEventListener("mouseover",handler_event8);
+		element8.addEventListener("mouseout",handler_event8);
+		element8.addEventListener("",handler_event8);
+	}
+	var handler_event9 = function(e9) {
+		console.log(e9);
+	};
+	var elements5 = window.document.getElementById("pippa").querySelectorAll("#foo.bar");
+	var _g5 = 0;
+	while(_g5 < elements5.length) {
+		var element9 = elements5[_g5];
+		++_g5;
+		element9.addEventListener("click",handler_event9);
+		element9.addEventListener("doubleclick",handler_event9);
+		element9.addEventListener("mouseover",handler_event9);
+		element9.addEventListener("mouseout",handler_event9);
+		element9.addEventListener("",handler_event9);
+	}
 };
+function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
+var $_, $fid = 0;
+function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;
