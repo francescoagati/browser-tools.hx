@@ -12,7 +12,7 @@ using thx.Arrays;
 class StringTools {
 
   #if macro
-    static inline function filter_event(event:String) return event != ' ' && event != '' && event != '|';
+    static inline function filter_event(event:String) return event.trim() != '' && event.trim() != '|';
 
     static inline function process_events(events:Array<String>)
         return [ for(event in events) if (filter_event(event)) macro element.addEventListener($v{event},handler_event)  ];
@@ -24,7 +24,7 @@ class StringTools {
   static macro function prepare_variables() {
     return macro {
       events = selector.split('|')[0].split(' ');
-      selector = selector.split('|')[1];
+      selector = selector.split('|')[1].trim();
     };
   }
 

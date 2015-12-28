@@ -30,7 +30,7 @@ browser_$tools_Main.main = function() {
 	var handler_event = function(e) {
 		var event = e;
 		var target = e.currentTarget;
-		var check = browser_$tools_events_Mapper.check_query(target," #foo.bar");
+		var check = browser_$tools_events_Mapper.check_query(target,"#foo.bar");
 		if(check) console.log(event);
 	};
 	var element = window.document.body;
@@ -41,7 +41,7 @@ browser_$tools_Main.main = function() {
 	var handler_event1 = function(e1) {
 		var event1 = e1;
 		var target1 = e1.currentTarget;
-		var check1 = browser_$tools_events_Mapper.check_query(target1," #foo.bar");
+		var check1 = browser_$tools_events_Mapper.check_query(target1,"#foo.bar");
 		if(check1) console.log(event1);
 	};
 	var element1 = window.document.getElementById("pippa");
@@ -52,7 +52,7 @@ browser_$tools_Main.main = function() {
 	var handler_event2 = function(e2) {
 		var event2 = e2;
 		var target2 = e2.currentTarget;
-		if(target2.nodeName == " div") console.log(event2);
+		if(target2.nodeName == "div") console.log(event2);
 	};
 	var element2 = window.document.body;
 	element2.addEventListener("click",handler_event2);
@@ -62,7 +62,7 @@ browser_$tools_Main.main = function() {
 	var handler_event3 = function(e3) {
 		var event3 = e3;
 		var target3 = e3.currentTarget;
-		if(target3.nodeName == " div") console.log(event3);
+		if(target3.nodeName == "div") console.log(event3);
 	};
 	var element3 = window.document.getElementById("pippa");
 	element3.addEventListener("click",handler_event3);
@@ -72,7 +72,7 @@ browser_$tools_Main.main = function() {
 	var handler_event4 = function(e4) {
 		var event4 = e4;
 		var target4 = e4.currentTarget;
-		if(target4.id == " pippa") console.log(event4);
+		if(target4.id == "pippa") console.log(event4);
 	};
 	var element4 = window.document.body;
 	element4.addEventListener("click",handler_event4);
@@ -82,7 +82,7 @@ browser_$tools_Main.main = function() {
 	var handler_event5 = function(e5) {
 		var event5 = e5;
 		var target5 = e5.currentTarget;
-		if(target5.classList.contains(" animated")) console.log(event5);
+		if(target5.classList.contains("animated")) console.log(event5);
 	};
 	var element5 = window.document.body;
 	element5.addEventListener("click",handler_event5);
@@ -92,7 +92,7 @@ browser_$tools_Main.main = function() {
 	var handler_event6 = function(e6) {
 		var event6 = e6;
 		var target6 = e6.currentTarget;
-		if(target6.classList.contains(" animated")) console.log(event6);
+		if(target6.classList.contains("animated")) console.log(event6);
 	};
 	var element6 = window.document.getElementById("pippa");
 	element6.addEventListener("click",handler_event6);
@@ -102,7 +102,7 @@ browser_$tools_Main.main = function() {
 	var handler_event7 = function(e7) {
 		console.log(e7);
 	};
-	var element7 = window.document.getElementById(" pippa");
+	var element7 = window.document.getElementById("pippa");
 	element7.addEventListener("click",handler_event7);
 	element7.addEventListener("doubleclick",handler_event7);
 	element7.addEventListener("mouseover",handler_event7);
@@ -110,7 +110,7 @@ browser_$tools_Main.main = function() {
 	var handler_event8 = function(e8) {
 		console.log(e8);
 	};
-	var element8 = window.document.getElementById(" pippa");
+	var element8 = window.document.getElementById("pippa");
 	element8.addEventListener("click",handler_event8);
 	element8.addEventListener("doubleclick",handler_event8);
 	element8.addEventListener("mouseover",handler_event8);
@@ -118,7 +118,7 @@ browser_$tools_Main.main = function() {
 	var handler_event9 = function(e9) {
 		console.log(e9);
 	};
-	var elements = window.document.body.getElementsByClassName(" animated");
+	var elements = window.document.body.getElementsByClassName("animated");
 	var _g = 0;
 	while(_g < elements.length) {
 		var element9 = elements[_g];
@@ -131,7 +131,7 @@ browser_$tools_Main.main = function() {
 	var handler_event10 = function(e10) {
 		console.log(e10);
 	};
-	var elements1 = window.document.getElementById("pippa").getElementsByClassName(" animated");
+	var elements1 = window.document.getElementById("pippa").getElementsByClassName("animated");
 	var _g1 = 0;
 	while(_g1 < elements1.length) {
 		var element10 = elements1[_g1];
@@ -144,7 +144,7 @@ browser_$tools_Main.main = function() {
 	var handler_event11 = function(e11) {
 		console.log(e11);
 	};
-	var elements2 = window.document.body.getElementsByTagName(" div");
+	var elements2 = window.document.body.getElementsByTagName("div");
 	var _g2 = 0;
 	while(_g2 < elements2.length) {
 		var element11 = elements2[_g2];
@@ -157,7 +157,7 @@ browser_$tools_Main.main = function() {
 	var handler_event12 = function(e12) {
 		console.log(e12);
 	};
-	var elements3 = window.document.getElementById("pippa").getElementsByTagName(" div");
+	var elements3 = window.document.getElementById("pippa").getElementsByTagName("div");
 	var _g3 = 0;
 	while(_g3 < elements3.length) {
 		var element12 = elements3[_g3];
