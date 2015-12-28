@@ -26,11 +26,17 @@ class Mapper {
   }
   #end
 
-  public static macro function is_query(query:ExprOf<String>,expr:Expr) {
+  #if macro
 
-    var expr_delegate = expr.substitute({
+  static function process_expr_target(expr:Expr)
+    return expr.substitute({
       "_":macro target
     });
+
+  #end
+  public static macro function is_query(query:ExprOf<String>,expr:Expr) {
+
+    var expr_delegate = process_expr_target(expr);
 
     return macro {
       var check = check_query(target,$query);
@@ -45,9 +51,7 @@ class Mapper {
 
   public static macro function is_class(cls:ExprOf<String>,expr:Expr) {
 
-    var expr_delegate = expr.substitute({
-      "_":macro target
-    });
+    var expr_delegate = process_expr_target(expr);
 
     return macro if (check_class(target,$cls)) $expr_delegate;
 
@@ -59,9 +63,7 @@ class Mapper {
 
   public static macro function is_tag(tag:ExprOf<String>,expr:Expr) {
 
-    var expr_delegate = expr.substitute({
-      "_":macro target
-    });
+    var expr_delegate = process_expr_target(expr);
 
     return macro if (check_tag(target,$tag)) $expr_delegate;
 
@@ -74,9 +76,7 @@ class Mapper {
 
   public static macro function is_id(id:ExprOf<String>,expr:Expr) {
 
-    var expr_delegate = expr.substitute({
-      "_":macro target
-    });
+    var expr_delegate = process_expr_target(expr);
 
     return macro if (check_id(target,$id)) $expr_delegate;
 
@@ -85,9 +85,7 @@ class Mapper {
   public static macro function selector_is(sel:ExprOf<browser_tools.events.Mapper.SelectorType>,expr:Expr) {
 
 
-    var expr_delegate = expr.substitute({
-      "_":macro target
-    });
+    var expr_delegate = process_expr_target(expr);
 
 
     return macro {

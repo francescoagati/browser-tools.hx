@@ -59,8 +59,8 @@ class Main implements async_tools.Async {
   }
 
   static function main() {
-    //render(function() {});
-
+    render(function() {});
+/*
     'player'.byId().on.click + map_event_to_selectors({
 
         //selector_is(SelectorType.tag('div'),trace(_));
@@ -77,7 +77,7 @@ class Main implements async_tools.Async {
         selector_is(Cls('animated'),trace(_.id));
         selector_is(Tag('div'),trace(_.id));
     });
-
+*/
 
 
 /*
