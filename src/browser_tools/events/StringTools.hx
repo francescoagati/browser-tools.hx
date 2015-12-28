@@ -21,6 +21,13 @@ class StringTools {
   #end
 
 
+  static macro function prepare_variables() {
+    return macro {
+      events = selector.split('|')[0].split(' ');
+      selector = selector.split('|')[1];
+    };
+  }
+
   static macro function check_container()
     return macro if (cb.toString() == 'null') {
       cb = container;
@@ -29,9 +36,8 @@ class StringTools {
 
 
   public static macro function to_delegate_query(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
-    var events = selector.split(' ');
-    var selector = events.pop();
-
+    var events;
+    prepare_variables();
     check_container();
 
     var exprs_events = process_events(events);
@@ -48,8 +54,9 @@ class StringTools {
 
 
   public static macro function to_delegate_tag(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
-    var events = selector.split(' ');
-    var selector = events.pop();
+    var events;
+    prepare_variables();
+
 
     check_container();
 
@@ -67,8 +74,9 @@ class StringTools {
 
 
   public static macro function to_delegate_id(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
-    var events = selector.split(' ');
-    var selector = events.pop();
+    var events;
+    prepare_variables();
+
 
     check_container();
 
@@ -87,8 +95,9 @@ class StringTools {
 
 
   public static macro function to_delegate_class(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
-    var events = selector.split(' ');
-    var selector = events.pop();
+    var events;
+    prepare_variables();
+
 
     check_container();
 
@@ -107,8 +116,9 @@ class StringTools {
 
 
   public static macro function to_event_id(selector:String,cb:ExprOf<js.html.Event->Void>) {
-    var events = selector.split(' ');
-    var selector = events.pop();
+    var events;
+    prepare_variables();
+
 
     var exprs_events = process_events(events);
 
@@ -123,8 +133,9 @@ class StringTools {
 
 
   public static macro function to_event_class(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
-    var events = selector.split(' ');
-    var selector = events.pop();
+    var events;
+    prepare_variables();
+
 
     check_container();
 
@@ -143,8 +154,9 @@ class StringTools {
 
 
   public static macro function to_event_tag(selector:String,?container:ExprOf<js.html.Element>,?cb:ExprOf<js.html.Event->Void>) {
-    var events = selector.split(' ');
-    var selector = events.pop();
+    var events;
+    prepare_variables();
+
 
     check_container();
 

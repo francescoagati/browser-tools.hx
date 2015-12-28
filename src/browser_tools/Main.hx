@@ -71,55 +71,55 @@ class Main implements async_tools.Async {
     });
 
 
-    'click doubleclick mouseover mouseout div'.to_delegate_tag(function(e) {
+    'click doubleclick mouseover mouseout | div'.to_delegate_tag(function(e) {
       untyped console.log(e);
     });
 
-    'click doubleclick mouseover mouseout div'.to_delegate_tag('pippa'.byId(),function(e) {
-      untyped console.log(e);
-    });
-
-
-    'click doubleclick mouseover mouseout pippa'.to_delegate_id(function(e) {
+    'click doubleclick mouseover mouseout | div'.to_delegate_tag('pippa'.byId(),function(e) {
       untyped console.log(e);
     });
 
 
-    'click doubleclick mouseover mouseout animated'.to_delegate_class(function(e) {
-      untyped console.log(e);
-    });
-
-    'click doubleclick mouseover mouseout animated'.to_delegate_class('pippa'.byId(),function(e) {
+    'click doubleclick mouseover mouseout | pippa'.to_delegate_id(function(e) {
       untyped console.log(e);
     });
 
 
-
-    'click doubleclick mouseover mouseout pippa'.to_event_id(function(e) {
+    'click doubleclick mouseover mouseout | animated'.to_delegate_class(function(e) {
       untyped console.log(e);
     });
 
-    'click doubleclick mouseover mouseout pippa'.to_event_id(function(e) {
+    'click doubleclick mouseover mouseout | animated'.to_delegate_class('pippa'.byId(),function(e) {
+      untyped console.log(e);
+    });
+
+
+
+    'click doubleclick mouseover mouseout | pippa'.to_event_id(function(e) {
+      untyped console.log(e);
+    });
+
+    'click doubleclick mouseover mouseout | pippa'.to_event_id(function(e) {
       trace(e);
     });
 
 
-    'click doubleclick mouseover mouseout animated'.to_event_class(function(e) {
+    'click doubleclick mouseover mouseout | animated'.to_event_class(function(e) {
       trace(e);
     });
 
 
-    'click doubleclick mouseover mouseout animated'.to_event_class('pippa'.byId(),function(e) {
+    'click doubleclick mouseover mouseout | animated'.to_event_class('pippa'.byId(),function(e) {
       trace(e);
     });
 
 
-    'click doubleclick mouseover mouseout div'.to_event_tag(function(e) {
+    'click doubleclick mouseover mouseout | div'.to_event_tag(function(e) {
       trace(e);
     });
 
 
-    'click doubleclick mouseover mouseout div'.to_event_tag('pippa'.byId(),function(e) {
+    'click doubleclick mouseover mouseout | div'.to_event_tag('pippa'.byId(),function(e) {
       trace(e);
     });
 
