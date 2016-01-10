@@ -1,5 +1,6 @@
 package browser_tools;
 import browser_tools.AElement;
+using browser_tools.assets.CacheTools;
 //import browser_tools.HtmlTools;
 //import browser_tools.Assets;
 //import browser_tools.Debug;
@@ -30,6 +31,8 @@ using browser_tools.HtmlTools;
 //}
 
 class Main implements async_tools.Async {
+
+
 /*
   @:async static function animate() {
     var el = 'animation'.byId();
@@ -61,6 +64,8 @@ class Main implements async_tools.Async {
 
   static function main() {
     //render(function() {});
+
+    'test.png'.preload();
 
     'click doubleclick mouseover mouseout  | #foo.bar'.to_delegate_query(function(e) {
       untyped console.log(e);
