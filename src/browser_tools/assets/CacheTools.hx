@@ -1,11 +1,24 @@
 package browser_tools.assets;
 
-class CacheTools {
+class CacheTools implements async_tools.Async {
 
-    public static inline function preload(path:String,?cb:Void->Void) {
-      var image = new js.html.Image();
-      if (cb != null) image.onload = cb;
-      image.src = path;
-    }
+
+  @:async public static inline function preload_list(paths:Array<String>) {
+
+    var assets = [
+      @fork(path in paths) {
+        @await preload(path);
+        true;
+      }
+    ];
+
+
+  }
+
+  public static inline function preload(path:String,?cb:Void->Void) {
+    var image = new js.html.Image();
+    if (cb != null) image.onload = cb;
+    image.src = path;
+  }
 
 }

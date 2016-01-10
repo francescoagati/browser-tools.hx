@@ -29,6 +29,37 @@ browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
 	var image = new Image();
 	image.src = "test.png";
+	var image1 = new Image();
+	image1.src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js";
+	var paths = ["https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js","test.png"];
+	var __afterVar_15 = function(assets) {
+		assets;
+		thx_Functions.noop();
+	};
+	var __iterator = 0;
+	if(__iterator < paths.length) {
+		var __results = [];
+		var __counter = 1;
+		var __i = 0;
+		var __checkCounter = function() {
+			if(--__counter == 0) __afterVar_15(__results);
+		};
+		do {
+			var path = paths[__iterator++];
+			var __index = [__i];
+			__counter++;
+			var image2 = new Image();
+			image2.onload = (function(__index) {
+				return function() {
+					__results[__index[0]] = true;
+					__checkCounter();
+				};
+			})(__index);
+			image2.src = path;
+			__i++;
+		} while(__iterator < paths.length);
+		__checkCounter();
+	}
 	var handler_event = function(e) {
 		var event = e;
 		var target = e.currentTarget;
@@ -610,6 +641,10 @@ js_html_compat_Uint8Array._subarray = function(start,end) {
 var thx_Either = { __ename__ : true, __constructs__ : ["Left","Right"] };
 thx_Either.Left = function(value) { var $x = ["Left",0,value]; $x.__enum__ = thx_Either; $x.toString = $estr; return $x; };
 thx_Either.Right = function(value) { var $x = ["Right",1,value]; $x.__enum__ = thx_Either; $x.toString = $estr; return $x; };
+var thx_Functions = function() { };
+thx_Functions.__name__ = true;
+thx_Functions.noop = function() {
+};
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
