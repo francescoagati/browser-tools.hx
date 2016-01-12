@@ -7,6 +7,10 @@ HxOverrides.iter = function(a) {
 		return this.arr[this.cur++];
 	}};
 };
+var Std = function() { };
+Std.random = function(x) {
+	return x <= 0?0:Math.floor(Math.random() * x);
+};
 var async_$tools_Async = function() { };
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
@@ -48,17 +52,22 @@ browser_$tools_Main.main = function() {
 			if(--__counter == 0) __afterVar_15(__results);
 		};
 		do {
-			var path = paths[__iterator++];
+			var path = [paths[__iterator++]];
 			var __index = [__i];
 			__counter++;
-			var image = new Image();
-			image.onload = (function(__index) {
+			var n = Std.random(30);
+			setTimeout((function(__index,path) {
 				return function() {
-					__results[__index[0]] = true;
-					__checkCounter();
+					var image = new Image();
+					image.onload = (function(__index) {
+						return function() {
+							__results[__index[0]] = true;
+							__checkCounter();
+						};
+					})(__index);
+					image.src = path[0];
 				};
-			})(__index);
-			image.src = path;
+			})(__index,path),n);
 			__i++;
 		} while(__iterator < paths.length);
 		__checkCounter();
@@ -81,17 +90,22 @@ browser_$tools_Main.main = function() {
 			if(--__counter1 == 0) __afterVar_151(__results1);
 		};
 		do {
-			var path1 = paths1[__iterator1++];
+			var path1 = [paths1[__iterator1++]];
 			var __index1 = [__i1];
 			__counter1++;
-			var image3 = new Image();
-			image3.onload = (function(__index1) {
+			var n1 = Std.random(30);
+			setTimeout((function(__index1,path1) {
 				return function() {
-					__results1[__index1[0]] = true;
-					__checkCounter1();
+					var image3 = new Image();
+					image3.onload = (function(__index1) {
+						return function() {
+							__results1[__index1[0]] = true;
+							__checkCounter1();
+						};
+					})(__index1);
+					image3.src = path1[0];
 				};
-			})(__index1);
-			image3.src = path1;
+			})(__index1,path1),n1);
 			__i1++;
 		} while(__iterator1 < paths1.length);
 		__checkCounter1();
