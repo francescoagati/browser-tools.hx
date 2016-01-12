@@ -72,7 +72,7 @@ class Main implements async_tools.Async {
       << 'http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'
       << Cdn.angular;
 
-    
+    assets.preload(thx.Functions.noop);
 
     'test.png'.preload();
     Cdn.angular.preload();
