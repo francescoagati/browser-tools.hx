@@ -1,6 +1,6 @@
 package browser_tools;
 import browser_tools.AElement;
-import browser_tools.assets.cdn.cdnjs.Library;
+import browser_tools.assets.cdn.cdnjs.Library as Cdn;
 using browser_tools.assets.CacheTools;
 //import browser_tools.HtmlTools;
 //import browser_tools.Assets;
@@ -67,9 +67,9 @@ class Main implements async_tools.Async {
     //render(function() {});
 
     'test.png'.preload();
-    Library.angular.preload();
+    Cdn.angular.preload();
 
-    [Library.angular,'test.png'].preload_list(thx.Functions.noop);
+    [Cdn.angular,'test.png'].preload_list(thx.Functions.noop);
 
     'click doubleclick mouseover mouseout  | #foo.bar'.to_delegate_query(function(e) {
       untyped console.log(e);
