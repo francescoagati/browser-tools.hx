@@ -15,63 +15,78 @@ var async_$tools_Async = function() { };
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
-	var assets = [];
-	var this3 = (function($this) {
+	((function($this) {
 		var $r;
-		var this2 = (function($this) {
-			var $r;
-			var this1 = (function($this) {
+		var __fn_tmp_16408303_0919545069_69ad9ccc4bdf97fef79de50f21140038 = function(__return) {
+			var assets = [];
+			assets;
+			var this3 = (function($this) {
 				var $r;
-				var group = [];
-				assets.push(group);
-				$r = group;
+				var this2 = (function($this) {
+					var $r;
+					var this1 = (function($this) {
+						var $r;
+						var group = [];
+						assets.push(group);
+						$r = group;
+						return $r;
+					}($this));
+					this1.push("test.png");
+					$r = this1;
+					return $r;
+				}($this));
+				this2.push("http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js");
+				$r = this2;
 				return $r;
-			}($this));
-			this1.push("test.png");
-			$r = this1;
-			return $r;
-		}($this));
-		this2.push("http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js");
-		$r = this2;
-		return $r;
-	}(this));
-	this3.push("https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js");
-	this3;
-	var paths = Array.prototype.concat.apply([],assets);
-	var __return = thx_Functions.noop;
-	var __afterVar_15 = function(assets1) {
-		assets1;
-		__return();
-	};
-	var __iterator = 0;
-	if(__iterator < paths.length) {
-		var __results = [];
-		var __counter = 1;
-		var __i = 0;
-		var __checkCounter = function() {
-			if(--__counter == 0) __afterVar_15(__results);
-		};
-		do {
-			var path = [paths[__iterator++]];
-			var __index = [__i];
-			__counter++;
-			var n = Std.random(30);
-			setTimeout((function(__index,path) {
-				return function() {
-					var image = new Image();
-					image.onload = (function(__index) {
-						return function() {
-							__results[__index[0]] = true;
-							__checkCounter();
-						};
-					})(__index);
-					image.src = path[0];
+			}(this));
+			this3.push("https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js");
+			this3;
+			var cb = function(__parameter_37) {
+				__parameter_37;
+				__return();
+			};
+			var paths = Array.prototype.concat.apply([],assets);
+			var __return1 = function() {
+				cb();
+			};
+			var __afterVar_15 = function(assets1) {
+				assets1;
+				__return1();
+			};
+			var __iterator = 0;
+			if(__iterator < paths.length) {
+				var __results = [];
+				var __counter = 1;
+				var __i = 0;
+				var __checkCounter = function() {
+					if(--__counter == 0) __afterVar_15(__results);
 				};
-			})(__index,path),n);
-			__i++;
-		} while(__iterator < paths.length);
-		__checkCounter();
-	}
+				do {
+					var path = [paths[__iterator++]];
+					var __index = [__i];
+					__counter++;
+					var n = Std.random(30);
+					setTimeout((function(__index,path) {
+						return function() {
+							var image = new Image();
+							image.onload = (function(__index) {
+								return function() {
+									__results[__index[0]] = true;
+									__checkCounter();
+								};
+							})(__index);
+							image.src = path[0];
+						};
+					})(__index,path),n);
+					__i++;
+				} while(__iterator < paths.length);
+				__checkCounter();
+			}
+		};
+		$r = __fn_tmp_16408303_0919545069_69ad9ccc4bdf97fef79de50f21140038;
+		return $r;
+	}(this)))(function() {
+	});
 	var image1 = new Image();
 	image1.src = "test.png";
 	var image2 = new Image();

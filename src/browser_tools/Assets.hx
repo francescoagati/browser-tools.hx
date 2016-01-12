@@ -14,7 +14,11 @@ typedef Manifest = Array<Group>;
   @:op(A++) public inline function add_group():AGroup return AssetsTools.createGroup(this);
   @:op(++A) public inline function add_group2():AGroup return AssetsTools.createGroup(this);
 
-  public inline function preload(cb) this.flatten().preload_list(cb);
+  public inline function preload(cb:Dynamic) {
+    this.flatten().preload_list(function() {
+      cb();
+    });
+  }
 
 
 }
@@ -27,7 +31,7 @@ typedef Manifest = Array<Group>;
     return new AGroup(this);
   }
 
-  public inline function preload(cb) this.preload_list(cb);
+  public inline function preload(cb):Void this.preload_list(cb);
 
 
 }

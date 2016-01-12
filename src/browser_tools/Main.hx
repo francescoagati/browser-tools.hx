@@ -66,13 +66,19 @@ class Main implements async_tools.Async {
   static function main() {
     //render(function() {});
 
-    var assets:AManifest = [];
-    assets++
-      << 'test.png'
-      << 'http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'
-      << Cdn.angular;
 
-    assets.preload(thx.Functions.noop);
+    cont_exec({
+
+      var assets:AManifest = [];
+      assets++
+        << 'test.png'
+        << 'http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'
+        << Cdn.angular;
+
+      @await assets.preload();
+
+    });
+
 
     'test.png'.preload();
     Cdn.angular.preload();
