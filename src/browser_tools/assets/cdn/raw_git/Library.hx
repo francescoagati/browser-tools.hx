@@ -1,4 +1,4 @@
-package browser_tools.assets.cdn.cdnjs;
+package browser_tools.assets.cdn.raw_git;
 
 @:enum
 @:forward
