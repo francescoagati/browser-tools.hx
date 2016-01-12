@@ -27,13 +27,35 @@ var browser_$tools_Main = function() { };
 browser_$tools_Main.__name__ = true;
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
+	var assets = [];
+	var this3 = (function($this) {
+		var $r;
+		var this2 = (function($this) {
+			var $r;
+			var this1 = (function($this) {
+				var $r;
+				var group = [];
+				assets.push(group);
+				$r = group;
+				return $r;
+			}($this));
+			this1.push("test.png");
+			$r = this1;
+			return $r;
+		}($this));
+		this2.push("http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js");
+		$r = this2;
+		return $r;
+	}(this));
+	this3.push("https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js");
+	this3;
 	var image = new Image();
 	image.src = "test.png";
 	var image1 = new Image();
 	image1.src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js";
 	var paths = ["https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js","test.png"];
-	var __afterVar_15 = function(assets) {
-		assets;
+	var __afterVar_15 = function(assets1) {
+		assets1;
 		thx_Functions.noop();
 	};
 	var __iterator = 0;

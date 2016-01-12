@@ -2,7 +2,7 @@ package browser_tools;
 import js.Browser;
 using browser_tools.Assets.AssetsTools;
 using browser_tools.Debug;
-
+using browser_tools.assets.CacheTools;
 typedef Group = Array<String>;
 typedef Manifest = Array<Group>;
 
@@ -11,6 +11,9 @@ typedef Manifest = Array<Group>;
   public inline function new(manifest:Manifest) this = manifest;
   @:op(A++) public inline function add_group():AGroup return AssetsTools.createGroup(this);
   @:op(++A) public inline function add_group2():AGroup return AssetsTools.createGroup(this);
+
+  public inline function preload
+  
 }
 
 
@@ -20,6 +23,10 @@ typedef Manifest = Array<Group>;
     this.push(s);
     return new AGroup(this);
   }
+
+  public inline function preload(cb) this.preload_list(cb); 
+
+
 }
 
 

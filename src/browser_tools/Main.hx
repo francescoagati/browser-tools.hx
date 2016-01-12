@@ -3,7 +3,7 @@ import browser_tools.AElement;
 import browser_tools.assets.cdn.cdnjs.Library as Cdn;
 using browser_tools.assets.CacheTools;
 //import browser_tools.HtmlTools;
-//import browser_tools.Assets;
+import browser_tools.Assets;
 //import browser_tools.Debug;
 //import browser_tools.Console;
 //import browser_tools.Http;
@@ -65,6 +65,14 @@ class Main implements async_tools.Async {
 
   static function main() {
     //render(function() {});
+
+    var assets:AManifest = [];
+    assets++
+      << 'test.png'
+      << 'http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'
+      << Cdn.angular;
+
+    
 
     'test.png'.preload();
     Cdn.angular.preload();
