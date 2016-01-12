@@ -15,5 +15,7 @@ abstract Library(String) from String to String {
    var angular_fx_css =  'https://cdn.rawgit.com/720kb/angular-fx/master/dist/angular-fx.min.css';
 
    var angular_spin_kit_css = 'https://cdn.rawgit.com/Urigo/angular-spinkit/master/build/angular-spinkit.min.css';
-   var angular_spin_kit = 'https://cdn.rawgit.com/Urigo/angular-spinkit/master/build/angular-spinkit.min.js';
+   var angular_spin_kit = 'https://cdn.rawgit.com/Urigo/angular-spinkit/master/build/angular-spinkit.min.js';   
+   var hello = 'https://cdnjs.cloudflare.com/ajax/libs/hellojs/1.10.0/hello.all.min.js';
+
 }
