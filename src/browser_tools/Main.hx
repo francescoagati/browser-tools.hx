@@ -4,6 +4,9 @@ import browser_tools.assets.cdn.cdnjs.Library as Cdn;
 
 import browser_tools.utils.compilers.sass.Compiler;
 
+import browser_tools.AStorageText;
+import browser_tools.AStorageJson;
+
 using browser_tools.assets.CacheTools;
 
 
@@ -33,6 +36,7 @@ using browser_tools.events.StringTools;
 using browser_tools.HtmlTools;
 //using browser_tools.LayoutTools;
 //using browser_tools.AnimationTools;
+//
 
 //class Binder implements browser_tools.angular.Binder.IAngularBinder {
 //  var scope:Dynamic;
@@ -73,6 +77,12 @@ class Main implements async_tools.Async {
   static function main() {
     //render(function() {});
 
+
+    var storage:AStorageText = js.Browser.getLocalStorage();
+    var storage_json:AStorageJson = js.Browser.getLocalStorage();
+
+    storage['a'] = 2;
+    storage_json['a'] = 2;
 
     cont_exec({
 
