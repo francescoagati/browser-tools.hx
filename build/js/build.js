@@ -17,7 +17,7 @@ browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
 	((function($this) {
 		var $r;
-		var __fn_tmp_40901387_9081469849_bf1ad2fafb67d6d408e515c4097003f5 = function(__return) {
+		var __fn_tmp_12524769_6073171198_536cd81fe59c6f92dc62278900005c57 = function(__return) {
 			var assets = [];
 			assets;
 			var this3 = (function($this) {
@@ -83,7 +83,7 @@ browser_$tools_Main.main = function() {
 				__checkCounter();
 			}
 		};
-		$r = __fn_tmp_40901387_9081469849_bf1ad2fafb67d6d408e515c4097003f5;
+		$r = __fn_tmp_12524769_6073171198_536cd81fe59c6f92dc62278900005c57;
 		return $r;
 	}(this)))(function() {
 	});

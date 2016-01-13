@@ -30,6 +30,6 @@ abstract Library(String) from String to String {
    var metric_raphics = 'https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.5.0/metricsgraphics.min.js';
    var angular_ui_bootstrap = 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js';
 
-
+   var mobile_detect = 'https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.1/mobile-detect.min.js';
 
 }
