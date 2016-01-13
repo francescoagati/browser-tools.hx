@@ -32,4 +32,6 @@ abstract Library(String) from String to String {
 
    var mobile_detect = 'https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.1/mobile-detect.min.js';
 
+   var sass_js = 'https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.9.4/sass.min.js';
+
 }
