@@ -1,7 +1,14 @@
 package browser_tools;
 import browser_tools.AElement;
 import browser_tools.assets.cdn.cdnjs.Library as Cdn;
+
+import browser_tools.utils.compilers.sass.Compiler;
+
 using browser_tools.assets.CacheTools;
+
+
+
+
 //import browser_tools.HtmlTools;
 import browser_tools.Assets;
 //import browser_tools.Debug;
@@ -69,17 +76,25 @@ class Main implements async_tools.Async {
 
     cont_exec({
 
-      var assets:AManifest = [];
-      assets++
-        << 'test.png'
-        << 'http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'
-        << Cdn.angular;
+      //var assets:AManifest = [];
 
-      @await assets.preload();
+      //assets++ << browser_tools.assets.cdn.cdnjs.Library.sass_js_sync;
+      //@await browser_tools.Assets.process(assets);
+
+      //var css = @await browser_tools.utils.compilers.sass.Compiler.compile("$someVar: 123px; .some-selector { width: $someVar; }");
+      //trace(css);
+
+      //var assets:AManifest = [];
+      //assets++
+      //  << 'test.png'
+      //  << 'http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'
+      //  << Cdn.angular;
+
+      //@await assets.preload();
 
     });
 
-
+/*
     'test.png'.preload();
     Cdn.angular.preload();
 
@@ -164,7 +179,7 @@ class Main implements async_tools.Async {
     'click doubleclick mouseover mouseout | #foo.bar'.to_event_query_all('pippa'.byId(),function(e) {
       trace(e);
     });
-
+*/
 
 /*
     'player'.byId().on.click + map_event_to_selectors({
