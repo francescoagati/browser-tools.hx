@@ -19,6 +19,8 @@ import browser_tools.Assets;
 //import browser_tools.Http;
 //import browser_tools.Loader;
 //import browser_tools.angular.Config;
+
+
 import js.html.*;
 //import browser_tools.Viewport;
 import browser_tools.events.Mapper.*;
@@ -28,6 +30,7 @@ import browser_tools.events.Mapper.SelectorType;
 
 //import browser_tools.HelperAnimationTools.frame;
 import async_tools.Cps.*;
+import browser_tools.Main.Binder;
 //using browser_tools.Assets.AssetsTools;
 //using browser_tools.Debug;
 //using browser_tools.AssetsToolsCompileTime;
@@ -38,9 +41,17 @@ using browser_tools.HtmlTools;
 //using browser_tools.AnimationTools;
 //
 
-//class Binder implements browser_tools.angular.Binder.IAngularBinder {
-//  var scope:Dynamic;
-//}
+@:keep
+@:route('/a/b/c/:param','templates/a.html')
+@:route('/a/b/d/:param','templates/b.html')
+@:route('/a/b/e/:param','templates/c.html')
+class Binder
+  implements browser_tools.angular.Binder.IAngularBinder
+  implements browser_tools.angular.Initializer.IInitializer {
+  var scope:Dynamic;
+}
+
+
 
 class Main implements async_tools.Async {
 

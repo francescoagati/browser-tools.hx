@@ -8,6 +8,15 @@ HxOverrides.iter = function(a) {
 	}};
 };
 var async_$tools_Async = function() { };
+var browser_$tools_angular_IInitializer = function() { };
+var browser_$tools_angular_IAngularBinder = function() { };
+var browser_$tools_Binder = function() { };
+browser_$tools_Binder.__interfaces__ = [browser_$tools_angular_IInitializer,browser_$tools_angular_IAngularBinder];
+browser_$tools_Binder.prototype = {
+	bind_methods: function() {
+		if(this.scope != null) this.scope = this.scope;
+	}
+};
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
@@ -16,10 +25,10 @@ browser_$tools_Main.main = function() {
 	storage.a = 2;
 	storage_json.a = JSON.stringify(2);
 	var tmp;
-	var __fn_tmp_995776_148388481233_c6cb2fc6286d798fe720a6e0e833f3ed = function(__return) {
+	var __fn_tmp_6871644_6185196247_4d321a22db3ea83b8ba123573331633d = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_995776_148388481233_c6cb2fc6286d798fe720a6e0e833f3ed;
+	tmp = __fn_tmp_6871644_6185196247_4d321a22db3ea83b8ba123573331633d;
 	tmp(function() {
 	});
 };
