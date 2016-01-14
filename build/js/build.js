@@ -16,10 +16,10 @@ browser_$tools_Main.main = function() {
 	storage.a = 2;
 	storage_json.a = JSON.stringify(2);
 	var tmp;
-	var __fn_tmp_48735638_5480727926_3ce85f9bbe5741bcbd5460e44aec5655 = function(__return) {
+	var __fn_tmp_2121515_62860743189_0cbbc0f2dafb131fe034104ed0f48673 = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_48735638_5480727926_3ce85f9bbe5741bcbd5460e44aec5655;
+	tmp = __fn_tmp_2121515_62860743189_0cbbc0f2dafb131fe034104ed0f48673;
 	tmp(function() {
 	});
 };
