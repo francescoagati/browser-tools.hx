@@ -128,9 +128,13 @@ class HtmlTools {
   }
 
 	public static inline function injectCss(css:String) {
-			var style = js.Browser.document.createStyleElement();
-			style.innerText = css;
-			js.Browser.document.body.appendChild(style);
+
+      var style_node = toNode(css,'style');
+      js.Browser.document.body.appendChild(style_node);
+
+			//var style = js.Browser.document.createStyleElement();
+			//style.innerText = css;
+			//js.Browser.document.body.appendChild(style);
 	}
 
 
