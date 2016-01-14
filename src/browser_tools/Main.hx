@@ -47,7 +47,7 @@ using browser_tools.HtmlTools;
 @:route('/a/b/e/:param','templates/c.html')
 class Binder
   implements browser_tools.angular.Binder.IAngularBinder
-  implements browser_tools.angular.Initializer.IInitializer {
+  implements browser_tools.angular.Routes.IRoutes {
   var scope:Dynamic;
 }
 
@@ -87,7 +87,7 @@ class Main implements async_tools.Async {
 
   static function main() {
     //render(function() {});
-
+    browser_tools.angular.Routes.print_routes();
 
     var storage:AStorageText = js.Browser.getLocalStorage();
     var storage_json:AStorageJson = js.Browser.getLocalStorage();

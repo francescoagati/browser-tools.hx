@@ -15,21 +15,28 @@ package browser_tools.angular;
 	using haxe.macro.TypedExprTools;
 #end
 
-class Initializer {
+class Routes {
+
+	public static var routes = new Map<String,Dynamic>();
 
 	static inline function get_routes(cls) return cls.get().meta.extract(':route');
-	
+
+	static public macro function print_routes() {
+		trace(routes);
+		return macro null;
+	}
 
 	macro static public function build():Array<Field> {
 			var cls = Context.getLocalClass();
-			var routes = get_routes(cls);
+
+			var routes_class = get_routes(cls);
 			var fields = Context.getBuildFields();
-			trace(routes);
+			routes[cls.toString()] = routes_class;
 
       return fields;
   }
 }
 
 
-@:autoBuild(browser_tools.angular.Initializer.build())
-interface IInitializer {}
+@:autoBuild(browser_tools.angular.Routes.build())
+interface IRoutes {}
