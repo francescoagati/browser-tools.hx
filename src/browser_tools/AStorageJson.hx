@@ -1,6 +1,6 @@
 package browser_tools;
 
-@:forward
+
 abstract AStorageJson(js.html.Storage) from js.html.Storage to js.html.Storage {
   public inline function new(storage:js.html.Storage) {
     this = storage;
