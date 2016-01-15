@@ -21,6 +21,8 @@ Std.__name__ = true;
 Std.string = function(s) {
 	return js_Boot.__string_rec(s,"");
 };
+var angular_internal_ModuleMacros = function() { };
+angular_internal_ModuleMacros.__name__ = true;
 var async_$tools_Async = function() { };
 async_$tools_Async.__name__ = true;
 var browser_$tools_angular_IRoutes = function() { };
@@ -30,6 +32,8 @@ browser_$tools_angular_IAngularBinder.__name__ = true;
 var browser_$tools_Binder = function() { };
 browser_$tools_Binder.__name__ = true;
 browser_$tools_Binder.__interfaces__ = [browser_$tools_angular_IRoutes,browser_$tools_angular_IAngularBinder];
+browser_$tools_Binder.factory = function() {
+};
 browser_$tools_Binder.prototype = {
 	bind_methods: function() {
 		if(this.scope != null) this.scope = this.scope;
@@ -40,15 +44,23 @@ var browser_$tools_Main = function() { };
 browser_$tools_Main.__name__ = true;
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
+	var app = window.angular.module("app",[]);
+	var controller = browser_$tools_Binder;
+	app.controller("browser_tools.Binder",[controller.factory]);
+	app.config(["$routeProvider",function(route) {
+		route.when("/a/b/c/:param",{ controller : "browser_tools.Binder", templateUrl : "templates/a.html"});
+		route.when("/a/b/d/:param",{ controller : "browser_tools.Binder", templateUrl : "templates/b.html"});
+		route.when("/a/b/e/:param",{ controller : "browser_tools.Binder", templateUrl : "templates/c.html"});
+	}]);
 	var storage = js_Browser.getLocalStorage();
 	var storage_json = js_Browser.getLocalStorage();
 	storage.a = 2;
 	storage_json.a = JSON.stringify(2);
 	var tmp;
-	var __fn_tmp_37940280_941369824_113ad51e7e9e0e61533da8b5e8ae7ef5 = function(__return) {
+	var __fn_tmp_6884801_4367252933_5ea0daaee6741bb5eed9a8011f493fd2 = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_37940280_941369824_113ad51e7e9e0e61533da8b5e8ae7ef5;
+	tmp = __fn_tmp_6884801_4367252933_5ea0daaee6741bb5eed9a8011f493fd2;
 	tmp(function() {
 	});
 };

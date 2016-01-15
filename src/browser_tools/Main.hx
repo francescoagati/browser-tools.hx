@@ -49,6 +49,9 @@ class Binder
   implements browser_tools.angular.Binder.IAngularBinder
   implements browser_tools.angular.Routes.IRoutes {
   var scope:Dynamic;
+
+  public static function factory() {};
+
 }
 
 
@@ -87,7 +90,9 @@ class Main implements async_tools.Async {
 
   static function main() {
     //render(function() {});
-    browser_tools.angular.Routes.print_routes();
+
+    var app = angular.Angular.module("app",[]);
+    browser_tools.angular.Routes.get_app_config()(app);
 
     var storage:AStorageText = js.Browser.getLocalStorage();
     var storage_json:AStorageJson = js.Browser.getLocalStorage();

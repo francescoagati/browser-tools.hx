@@ -17,13 +17,56 @@ package browser_tools.angular;
 
 class Routes {
 
-	public static var routes = new Map<String,Dynamic>();
+	public static var routes = new Map<String,{cls:Dynamic,meta:Dynamic}>();
 
-	static inline function get_routes(cls) return cls.get().meta.extract(':route');
+	static inline function get_routes(cls)
+		return cls.get().meta.extract(':route');
 
 	static public macro function print_routes() {
 		trace(routes);
 		return macro null;
+	}
+
+	public static macro function get_app_config() {
+
+		var exprs:Array<Expr> = [];
+		var controllers:Array<Expr> = [];
+
+		for (key in routes.keys()) {
+			var ref = routes.get(key);
+			var metadata:Array<haxe.macro.Expr.MetadataEntry> = ref.meta;
+			var cls = ref.cls.toString().split(".");
+
+			controllers.push(macro {
+				var controller = $p{cls};
+				app.controller($v{key},controller.factory);
+			});
+
+			for (meta in metadata) {
+				var path = meta.params[0].getValue();
+				var template = meta.params[1].getValue();
+				var expr = macro {
+					route.when($v{path},{
+						controller:$v{key},
+						templateUrl:$v{template}
+					});
+				};
+				exprs.push(expr);
+			}
+		};
+		return macro {
+
+			function(app:angular.Module) {
+				$b{controllers};
+				app.config(function(route:angular.route.RouteProvider) {
+					$b{exprs};
+				});
+				return app;
+			}
+
+		}
+
+
 	}
 
 	macro static public function build():Array<Field> {
@@ -31,7 +74,10 @@ class Routes {
 
 			var routes_class = get_routes(cls);
 			var fields = Context.getBuildFields();
-			routes[cls.toString()] = routes_class;
+			routes[cls.toString()] ={
+				cls:cls,
+				meta:routes_class
+			};
 
       return fields;
   }
