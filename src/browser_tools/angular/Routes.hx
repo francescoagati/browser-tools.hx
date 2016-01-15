@@ -27,7 +27,7 @@ class Routes {
 		return macro null;
 	}
 
-	public static macro function get_app_config() {
+	public static macro function set_app_config(app:ExprOf<angular.Module>) {
 
 		var exprs:Array<Expr> = [];
 		var controllers:Array<Expr> = [];
@@ -39,7 +39,7 @@ class Routes {
 
 			controllers.push(macro {
 				var controller = $p{cls};
-				app.controller($v{key},controller.factory);
+				context.controller($v{key},controller.factory);
 			});
 
 			for (meta in metadata) {
@@ -55,18 +55,12 @@ class Routes {
 			}
 		};
 		return macro {
-
-			function(app:angular.Module) {
+				var context  = $app;
 				$b{controllers};
-				app.config(function(route:angular.route.RouteProvider) {
+				context.config(function(route:angular.route.RouteProvider) {
 					$b{exprs};
 				});
-				return app;
-			}
-
-		}
-
-
+		};
 	}
 
 	macro static public function build():Array<Field> {

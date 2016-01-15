@@ -92,7 +92,7 @@ class Main implements async_tools.Async {
     //render(function() {});
 
     var app = angular.Angular.module("app",[]);
-    browser_tools.angular.Routes.get_app_config()(app);
+    browser_tools.angular.Routes.set_app_config(app);
 
     var storage:AStorageText = js.Browser.getLocalStorage();
     var storage_json:AStorageJson = js.Browser.getLocalStorage();
