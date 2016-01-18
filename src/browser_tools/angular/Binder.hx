@@ -92,7 +92,7 @@ class Binder {
 			return bind_fields;
     }
 
-		inline function methods_event(fields:Array<haxe.macro.Field>) {
+		inline function methods_event(fields:Array<haxe.macro.Field>,fields_inherited) {
       return fields
   		.filter(function(field) {
   			return field.meta.toMap().exists(':event');
@@ -107,7 +107,7 @@ class Binder {
     }
 
 
-    inline function methods_watch(fields:Array<haxe.macro.Field>) {
+    inline function methods_watch(fields:Array<haxe.macro.Field>,fields_inherited) {
       return fields
   		.filter(function(field) {
   			return field.meta.toMap().exists(':watch');
@@ -131,20 +131,29 @@ class Binder {
 		var fields_names = [for (field in fields) field.name];
 		var parent_fields = cls.get().fieldsInHierarchy();
 		var fields_inherited_bind = [];
-
+		var fields_inherited_watch = [];
+	  var fields_inherited_event = [];
 		for (parent_field in parent_fields) {
-			if (parent_field.meta.has(':bind') && fields_names.indexOf(parent_field.name) < 0) {
+			if (parent_field.meta.has(':bind') && fields_names.indexOf(parent_field.name) < 0)
 				fields_inherited_bind.push(parent_field.name);
-			}
+
+			if (parent_field.meta.has(':watch') && fields_names.indexOf(parent_field.name) < 0)
+				fields_inherited_watch.push({
+					name:parent_field.name,
+					meta:parent_field.meta.extract(':watch')
+				});
+
+				if (parent_field.meta.has(':event') && fields_names.indexOf(parent_field.name) < 0)
+					fields_inherited_event.push({
+						name:parent_field.name,
+						meta:parent_field.meta.extract(':event')
+					});
 		}
-
-		trace(fields_inherited_bind);
-
 
 		var expres_watch_streams = watch_stream_bind(fields);
 		var exprs_bind = methods_bind(fields,fields_inherited_bind);
-    var exprs_watch = methods_watch(fields);
-		var exprs_events = methods_event(fields);
+    var exprs_watch = methods_watch(fields,fields_inherited_watch);
+		var exprs_events = methods_event(fields,fields_inherited_event);
 		var method = (macro class Temp {
 		   inline function bind_methods() {
 			 		 if (scope != null) {
