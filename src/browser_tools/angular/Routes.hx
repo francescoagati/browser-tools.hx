@@ -65,6 +65,12 @@ class Routes {
 
 	macro static public function build():Array<Field> {
 			var cls = Context.getLocalClass();
+			var cls_name = cls.toString();
+
+			var property_class_path = (macro class {
+				static var class_path:String = $v{cls_name};
+			}).fields[0];
+
 
 			var routes_class = get_routes(cls);
 			var fields = Context.getBuildFields();
@@ -72,6 +78,8 @@ class Routes {
 				cls:cls,
 				meta:routes_class
 			};
+
+			fields.push(property_class_path);
 
       return fields;
   }

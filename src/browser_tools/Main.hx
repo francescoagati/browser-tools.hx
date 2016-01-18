@@ -50,7 +50,9 @@ class Binder
   implements browser_tools.angular.Routes.IRoutes {
   var scope:Dynamic;
 
-  public static function factory() {};
+  public static function factory() {
+    trace(class_path);
+  };
 
 }
 
