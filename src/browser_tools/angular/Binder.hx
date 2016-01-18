@@ -1,6 +1,6 @@
 package browser_tools.angular;
 
-#if (macro || neko)
+#if (macro)
 	import haxe.macro.Context;
 	import haxe.macro.Expr;
 	using tink.MacroApi;
@@ -21,9 +21,11 @@ package browser_tools.angular;
 interface IAngularBinder {}
 
 
+
 class Binder {
 
 	macro static public function build():Array<Field> {
+
 
 		inline function watch_stream_bind(fields:Array<haxe.macro.Field>) {
       return fields
@@ -66,40 +68,28 @@ class Binder {
 
 
 
-    inline function methods_bind(fields:Array<haxe.macro.Field>) {
+    inline function methods_bind(fields:Array<haxe.macro.Field>,inherited_fields:Array<String>) {
 
-      return fields
+      var bind_fields = fields
   		.filter(function(field) {
   			return field.meta.toMap().exists(':bind');
   		})
   		.map(function (field) {
   			var name:String = field.name;
-
-
 				var meta = try {
 				  field.meta.toMap().get(':bind')[0][0].getValue();
 				} catch(e:Dynamic) {null;}
 
-
-
-				var memoize = switch(meta) {
-				  case 'memoize0': {
-				    var fn_memoize = '${name}_memoized';
-				    macro untyped scope.$fn_memoize = thx.Functions0.memoize($i{name});
-				  }
-				  case  'memoize1': {
-				    var fn_memoize = '${name}_memoized';
-				    macro untyped scope.$fn_memoize = thx.Functions1.memoize($i{name});
-				  }
-				  case _ : macro null;
-				};
-
-
   			return macro {
   				untyped scope.$name = $i{name};
-					${memoize}
   			};
   		});
+
+			for (field in inherited_fields) {
+				bind_fields.push(macro untyped scope.$field = $i{field});
+			}
+
+			return bind_fields;
     }
 
 		inline function methods_event(fields:Array<haxe.macro.Field>) {
@@ -132,27 +122,27 @@ class Binder {
     }
 
 
+
 		var cls = Context.getLocalClass();
 		if (cls.get().meta.has(':base_class')) return null;
 
 		var fields = Context.getBuildFields();
 
-		/*
 		var fields_names = [for (field in fields) field.name];
 		var parent_fields = cls.get().fieldsInHierarchy();
-		var field_inherited = [];
+		var fields_inherited_bind = [];
 
 		for (parent_field in parent_fields) {
-			if (fields_names.indexOf(parent_field.name) < 0) {
-				field_inherited.push(parent_field.name);
+			if (parent_field.meta.has(':bind') && fields_names.indexOf(parent_field.name) < 0) {
+				fields_inherited_bind.push(parent_field.name);
 			}
 		}
-*/
 
+		trace(fields_inherited_bind);
 
 
 		var expres_watch_streams = watch_stream_bind(fields);
-		var exprs_bind = methods_bind(fields);
+		var exprs_bind = methods_bind(fields,fields_inherited_bind);
     var exprs_watch = methods_watch(fields);
 		var exprs_events = methods_event(fields);
 		var method = (macro class Temp {
