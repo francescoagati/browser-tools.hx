@@ -41,14 +41,29 @@ using browser_tools.HtmlTools;
 //using browser_tools.AnimationTools;
 //
 
+@:base_class
+class BinderBase
+  implements browser_tools.angular.Binder.IAngularBinder
+  implements browser_tools.angular.Routes.IRoutes {
+
+  @:bind function pippa() {}
+
+  var scope:Dynamic;
+
+
+}
+
+
 @:keep
 @:route('/a/b/c/:param','templates/a.html')
 @:route('/a/b/d/:param','templates/b.html')
 @:route('/a/b/e/:param','templates/c.html')
-class Binder
-  implements browser_tools.angular.Binder.IAngularBinder
-  implements browser_tools.angular.Routes.IRoutes {
-  var scope:Dynamic;
+
+class Binder extends browser_tools.Main.BinderBase {
+
+  public function new() {
+    bind_methods();
+  }
 
   public static function factory() {
     trace(class_path);

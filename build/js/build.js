@@ -1,4 +1,10 @@
 (function (console) { "use strict";
+function $extend(from, fields) {
+	function Inherit() {} Inherit.prototype = from; var proto = new Inherit();
+	for (var name in fields) proto[name] = fields[name];
+	if( fields.toString !== Object.prototype.toString ) proto.toString = fields.toString;
+	return proto;
+}
 var HxOverrides = function() { };
 HxOverrides.iter = function(a) {
 	return { cur : 0, arr : a, hasNext : function() {
@@ -11,16 +17,20 @@ var angular_internal_ModuleMacros = function() { };
 var async_$tools_Async = function() { };
 var browser_$tools_angular_IRoutes = function() { };
 var browser_$tools_angular_IAngularBinder = function() { };
-var browser_$tools_Binder = function() { };
-browser_$tools_Binder.__interfaces__ = [browser_$tools_angular_IRoutes,browser_$tools_angular_IAngularBinder];
+var browser_$tools_BinderBase = function() { };
+browser_$tools_BinderBase.__interfaces__ = [browser_$tools_angular_IRoutes,browser_$tools_angular_IAngularBinder];
+var browser_$tools_Binder = function() {
+	if(this.scope != null) this.scope = this.scope;
+};
 browser_$tools_Binder.factory = function() {
 	console.log(browser_$tools_Binder.class_path);
 };
-browser_$tools_Binder.prototype = {
+browser_$tools_Binder.__super__ = browser_$tools_BinderBase;
+browser_$tools_Binder.prototype = $extend(browser_$tools_BinderBase.prototype,{
 	bind_methods: function() {
 		if(this.scope != null) this.scope = this.scope;
 	}
-};
+});
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
@@ -37,10 +47,10 @@ browser_$tools_Main.main = function() {
 	storage.a = 2;
 	storage_json.a = JSON.stringify(2);
 	var tmp;
-	var __fn_tmp_88029118_854070887_461353e364fcf47c7badd982624cf1ec = function(__return) {
+	var __fn_tmp_85468579_447978273_bad665c4a019bedf63191d6d77cb833f = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_88029118_854070887_461353e364fcf47c7badd982624cf1ec;
+	tmp = __fn_tmp_85468579_447978273_bad665c4a019bedf63191d6d77cb833f;
 	tmp(function() {
 	});
 };

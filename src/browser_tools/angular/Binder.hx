@@ -1,13 +1,21 @@
 package browser_tools.angular;
 
-import haxe.macro.Context;
-import haxe.macro.Expr;
-using tink.macro.Metadatas;
-using Lambda;
-using haxe.macro.MacroStringTools;
-using haxe.macro.ExprTools;
-using haxe.macro.TypeTools;
-using haxe.macro.TypedExprTools;
+#if (macro || neko)
+	import haxe.macro.Context;
+	import haxe.macro.Expr;
+	using tink.MacroApi;
+	using thx.macro.MacroClassTypes;
+	using thx.macro.MacroExprs;
+	using thx.macro.MacroFields;
+	using thx.macro.MacroTypes;
+	using Lambda;
+	using thx.Arrays;
+	using thx.Functions;
+	using haxe.macro.MacroStringTools;
+	using haxe.macro.ExprTools;
+	using haxe.macro.TypeTools;
+	using haxe.macro.TypedExprTools;
+#end
 
 @:autoBuild(browser_tools.angular.Binder.build())
 interface IAngularBinder {}
@@ -59,6 +67,7 @@ class Binder {
 
 
     inline function methods_bind(fields:Array<haxe.macro.Field>) {
+
       return fields
   		.filter(function(field) {
   			return field.meta.toMap().exists(':bind');
@@ -123,8 +132,24 @@ class Binder {
     }
 
 
+		var cls = Context.getLocalClass();
+		if (cls.get().meta.has(':base_class')) return null;
 
 		var fields = Context.getBuildFields();
+
+		/*
+		var fields_names = [for (field in fields) field.name];
+		var parent_fields = cls.get().fieldsInHierarchy();
+		var field_inherited = [];
+
+		for (parent_field in parent_fields) {
+			if (fields_names.indexOf(parent_field.name) < 0) {
+				field_inherited.push(parent_field.name);
+			}
+		}
+*/
+
+
 
 		var expres_watch_streams = watch_stream_bind(fields);
 		var exprs_bind = methods_bind(fields);

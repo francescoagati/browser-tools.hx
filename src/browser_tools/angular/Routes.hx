@@ -37,6 +37,8 @@ class Routes {
 			var metadata:Array<haxe.macro.Expr.MetadataEntry> = ref.meta;
 			var cls = ref.cls.toString().split(".");
 
+
+
 			controllers.push(macro {
 				var controller = $p{cls};
 				context.controller($v{key},controller.factory);
@@ -66,6 +68,9 @@ class Routes {
 	macro static public function build():Array<Field> {
 			var cls = Context.getLocalClass();
 			var cls_name = cls.toString();
+			if (cls.get().meta.has(':base_class')) return null;
+
+
 
 			var property_class_path = (macro class {
 				static var class_path:String = $v{cls_name};
@@ -74,13 +79,15 @@ class Routes {
 
 			var routes_class = get_routes(cls);
 			var fields = Context.getBuildFields();
+
+
 			routes[cls.toString()] ={
 				cls:cls,
 				meta:routes_class
 			};
 
-			fields.push(property_class_path);
 
+			fields.push(property_class_path);
       return fields;
   }
 }
