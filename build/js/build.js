@@ -37,10 +37,10 @@ browser_$tools_Main.main = function() {
 	storage.a = 2;
 	storage_json.a = JSON.stringify(2);
 	var tmp;
-	var __fn_tmp_89297061_7343791127_02207d3c627de070e891162bbf9ce6e4 = function(__return) {
+	var __fn_tmp_23394722_0898201168_e0d3bc53ef438aaa5ec26124e6906c93 = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_89297061_7343791127_02207d3c627de070e891162bbf9ce6e4;
+	tmp = __fn_tmp_23394722_0898201168_e0d3bc53ef438aaa5ec26124e6906c93;
 	tmp(function() {
 	});
 };
