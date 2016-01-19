@@ -138,6 +138,22 @@ class Binder {
 
 		var fields = Context.getBuildFields();
 
+		if (haxe.macro.Context.getLocalClass().get().superClass != null ) {
+
+      var fields_inheritance = [];
+
+      var super_class = haxe.macro.Context.getLocalClass().get().superClass;
+      while(super_class != null) {
+        var fields = super_class.t.get().fields.get();
+        for (field in fields) fields_inheritance.push(field);
+        super_class = super_class.t.get().superClass;
+      }
+
+			trace(fields_inheritance);
+
+		}
+
+
 		var fields_names = [for (field in fields) field.name];
 		var parent_fields = cls.get().fieldsInHierarchy();
 		var fields_inherited_bind = [];
