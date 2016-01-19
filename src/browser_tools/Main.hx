@@ -23,7 +23,7 @@ import js.html.*;
 //import browser_tools.Viewport;
 import browser_tools.events.Mapper.*;
 import browser_tools.events.Mapper.SelectorType;
-//import browser_tools.BrowserDevice;
+import browser_tools.BrowserDevice;
 //import browser_tools.animations.DisplayObject;
 
 //import browser_tools.HelperAnimationTools.frame;

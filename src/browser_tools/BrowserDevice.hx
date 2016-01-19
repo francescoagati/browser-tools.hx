@@ -46,7 +46,7 @@ class BrowserDevice {
   public static var IE11_mobile(get,never):Bool;
   public static var IE11_desktop(get,never):Bool;
   public static var IE10_or_9(get,never):Bool;
-
+  public static var IEEDGE(get,never):Bool;
 
   public static var isIE(get,never):Int;
 
@@ -95,6 +95,10 @@ class BrowserDevice {
   static inline function get_gingerBread() return navigator().userAgent.match(~/Android 2\.3\.[3-7]/i);
 
 
+
+  static function get_IEEDGE() {
+    return (navigator().userAgent.match(~/Edge\/(.+)/i));
+  }
 
   static function get_isIE():Int {
     var myNav = js.Browser.navigator.userAgent.toLowerCase();
