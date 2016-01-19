@@ -102,7 +102,7 @@ class Binder {
         var meta = field.meta.toMap().get(':event')[0][0].getValue();
   			var name:String = field.name;
   			return macro {
-          scope.on($v{meta},$i{name});
+          scope.on($i{meta},$i{name});
   			};
   		});
     }
@@ -123,8 +123,9 @@ class Binder {
   		});
 
 			for (field in (fields_inherited:Array<Dynamic>)) {
+				var meta = field.meta.toExpr().getValue();
 				return_fields.push(macro {
-					scope.watch($v{field.meta},$i{field.name},true);
+					scope.watch($v{meta},$i{field.name},true);
 				});
 			}
 
@@ -134,16 +135,10 @@ class Binder {
 
 
 		var cls = Context.getLocalClass();
-		trace(cls.toString());
-		trace(cls.get().meta.has(':base_class') == true);
 		if (cls.get().meta.has(':base_class') == true) return null;
 
 
-
 		var fields = Context.getBuildFields();
-
-		//trace(cls.toString());
-		//trace(haxe.macro.Context.getLocalClass().get().superClass);
 
 
 
