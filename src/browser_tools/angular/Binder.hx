@@ -28,7 +28,6 @@ class Binder {
 
 	macro static public function build():Array<Field> {
 
-
 		inline function watch_stream_bind(fields:Array<haxe.macro.Field>) {
       return fields
   		.filter(function(field) {

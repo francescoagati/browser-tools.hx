@@ -92,7 +92,11 @@ class Assets {
 			script.src = url;
 			script.type = 'text/javascript';
 
-			untyped script.onreadystatechange = callback;
+			untyped script.onreadystatechange = function() {
+        untyped __js__('
+          if (this.readyState == "complete") {0}();
+        ',callback);
+      };
     	script.onload = callback;
 			Browser.document.body.appendChild(script);
 		}
