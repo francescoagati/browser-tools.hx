@@ -29,7 +29,7 @@ browser_$tools_BinderBase.prototype = {
 var browser_$tools_Binder = function() {
 	if(this.scope != null) this.scope = this.scope;
 	this.scope.pippa = $bind(this,this.pippa);
-	this.scope.watch("\"\\\"a.b.c\\\"\"",$bind(this,this.changed),true);
+	this.scope.watch("\"a.b.c\"",$bind(this,this.changed),true);
 };
 browser_$tools_Binder.factory = function() {
 	console.log(browser_$tools_Binder.class_path);
@@ -39,7 +39,7 @@ browser_$tools_Binder.prototype = $extend(browser_$tools_BinderBase.prototype,{
 	bind_methods: function() {
 		if(this.scope != null) this.scope = this.scope;
 		this.scope.pippa = $bind(this,this.pippa);
-		this.scope.watch("\"\\\"a.b.c\\\"\"",$bind(this,this.changed),true);
+		this.scope.watch("\"a.b.c\"",$bind(this,this.changed),true);
 	}
 });
 var browser_$tools_Main = function() { };
@@ -58,10 +58,10 @@ browser_$tools_Main.main = function() {
 	storage.a = 2;
 	storage_json.a = JSON.stringify(2);
 	var tmp;
-	var __fn_tmp_55874235_4450932369_a0209f9cdafad5961968410e3476e8e8 = function(__return) {
+	var __fn_tmp_77623200_5376914442_dc432ecc47c8f72adeed8a33a35a7312 = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_55874235_4450932369_a0209f9cdafad5961968410e3476e8e8;
+	tmp = __fn_tmp_77623200_5376914442_dc432ecc47c8f72adeed8a33a35a7312;
 	tmp(function() {
 	});
 };

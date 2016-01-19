@@ -16,6 +16,7 @@ package browser_tools.angular;
 	using haxe.macro.ExprTools;
 	using haxe.macro.TypeTools;
 	using haxe.macro.TypedExprTools;
+	using StringTools;
 #end
 
 @:autoBuild(browser_tools.angular.Binder.build())
@@ -123,7 +124,7 @@ class Binder {
   		});
 
 			for (field in (fields_inherited:Array<Dynamic>)) {
-				var meta = field.meta.toExpr().toString();
+				var meta:String = (field.meta.toExpr().getValue():String).replace("\'","");
 				return_fields.push(macro {
 					scope.watch($v{meta},$i{field.name},true);
 				});
