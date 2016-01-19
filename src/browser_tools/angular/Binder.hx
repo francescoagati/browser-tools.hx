@@ -134,6 +134,7 @@ class Binder {
 
 
 		var cls = Context.getLocalClass();
+		trace(cls.toString());
 		trace(cls.get().meta.has(':base_class') == true);
 		if (cls.get().meta.has(':base_class') == true) return null;
 
