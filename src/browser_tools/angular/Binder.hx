@@ -134,8 +134,6 @@ class Binder {
 
 
 		var cls = Context.getLocalClass();
-		trace(cls.toString());
-		trace(cls.get().meta.has(':base_class'));
 		if (cls.get().meta.has(':base_class')) return null;
 
 		var fields = Context.getBuildFields();
@@ -166,6 +164,10 @@ class Binder {
 		var exprs_bind = methods_bind(fields,fields_inherited_bind);
     var exprs_watch = methods_watch(fields,fields_inherited_watch);
 		var exprs_events = methods_event(fields,fields_inherited_event);
+
+
+		trace(fields_inherited_bind);
+
 		var method = (macro class Temp {
 		   inline function bind_methods() {
 			 		 if (scope != null) {
