@@ -123,7 +123,7 @@ class Binder {
   		});
 
 			for (field in (fields_inherited:Array<Dynamic>)) {
-				var meta = field.meta.toExpr().getValue();
+				var meta = field.meta.toExpr().toString();
 				return_fields.push(macro {
 					scope.watch($v{meta},$i{field.name},true);
 				});
