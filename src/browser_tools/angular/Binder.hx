@@ -166,7 +166,7 @@ class Binder {
 		var exprs_events = methods_event(fields,fields_inherited_event);
 
 
-		trace(fields_inherited_bind);
+		trace(parent_fields);
 
 		var method = (macro class Temp {
 		   inline function bind_methods() {
