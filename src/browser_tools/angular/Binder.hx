@@ -138,6 +138,8 @@ class Binder {
 
 		var fields = Context.getBuildFields();
 
+		trace(haxe.macro.Context.getLocalClass().get().superClass);
+
 		if (haxe.macro.Context.getLocalClass().get().superClass != null ) {
 
       var fields_inheritance = [];
@@ -149,7 +151,6 @@ class Binder {
         super_class = super_class.t.get().superClass;
       }
 
-			trace(fields_inheritance);
 
 		}
 
@@ -181,8 +182,6 @@ class Binder {
     var exprs_watch = methods_watch(fields,fields_inherited_watch);
 		var exprs_events = methods_event(fields,fields_inherited_event);
 
-
-		trace(parent_fields);
 
 		var method = (macro class Temp {
 		   inline function bind_methods() {
