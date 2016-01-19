@@ -3,6 +3,7 @@ package browser_tools.angular;
 #if (macro)
 	import haxe.macro.Context;
 	import haxe.macro.Expr;
+
 	using tink.MacroApi;
 	using thx.macro.MacroClassTypes;
 	using thx.macro.MacroExprs;
@@ -108,7 +109,8 @@ class Binder {
 
 
     inline function methods_watch(fields:Array<haxe.macro.Field>,fields_inherited) {
-      return fields
+
+      var return_fields = fields
   		.filter(function(field) {
   			return field.meta.toMap().exists(':watch');
   		})
@@ -119,6 +121,14 @@ class Binder {
           scope.watch($v{meta},$i{name},true);
   			};
   		});
+
+			for (field in (fields_inherited:Array<Dynamic>)) {
+				return_fields.push(macro {
+					scope.watch($v{field.meta},$i{field.name},true);
+				});
+			}
+
+			return return_fields;
     }
 
 
@@ -140,7 +150,7 @@ class Binder {
 			if (parent_field.meta.has(':watch') && fields_names.indexOf(parent_field.name) < 0)
 				fields_inherited_watch.push({
 					name:parent_field.name,
-					meta:parent_field.meta.extract(':watch')
+					meta:parent_field.meta.extract(':watch')[0].params[0].toString()
 				});
 
 				if (parent_field.meta.has(':event') && fields_names.indexOf(parent_field.name) < 0)

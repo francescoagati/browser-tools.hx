@@ -43,7 +43,7 @@ using browser_tools.HtmlTools;
 class BinderBase
   implements browser_tools.angular.Binder.IAngularBinder
   implements browser_tools.angular.Routes.IRoutes {
-
+  @:watch('a.b.c') function changed(n,o) trace(n);
   @:bind function pippa() {}
 
   var scope:Dynamic;

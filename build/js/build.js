@@ -33,13 +33,17 @@ var browser_$tools_BinderBase = function() { };
 browser_$tools_BinderBase.__name__ = true;
 browser_$tools_BinderBase.__interfaces__ = [browser_$tools_angular_IRoutes,browser_$tools_angular_IAngularBinder];
 browser_$tools_BinderBase.prototype = {
-	pippa: function() {
+	changed: function(n,o) {
+		console.log(n);
+	}
+	,pippa: function() {
 	}
 	,__class__: browser_$tools_BinderBase
 };
 var browser_$tools_Binder = function() {
 	if(this.scope != null) this.scope = this.scope;
 	this.scope.pippa = $bind(this,this.pippa);
+	this.scope.watch("'a.b.c'",$bind(this,this.changed),true);
 };
 browser_$tools_Binder.__name__ = true;
 browser_$tools_Binder.factory = function() {
@@ -50,6 +54,7 @@ browser_$tools_Binder.prototype = $extend(browser_$tools_BinderBase.prototype,{
 	bind_methods: function() {
 		if(this.scope != null) this.scope = this.scope;
 		this.scope.pippa = $bind(this,this.pippa);
+		this.scope.watch("'a.b.c'",$bind(this,this.changed),true);
 	}
 	,__class__: browser_$tools_Binder
 });
@@ -70,10 +75,10 @@ browser_$tools_Main.main = function() {
 	storage.a = 2;
 	storage_json.a = JSON.stringify(2);
 	var tmp;
-	var __fn_tmp_34209059_242486119_0ad04bb71ae09f4546e52f00e81d038e = function(__return) {
+	var __fn_tmp_64518589_7828909_bd112b6f79a9114cd86d8fd31c0715e2 = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_34209059_242486119_0ad04bb71ae09f4546e52f00e81d038e;
+	tmp = __fn_tmp_64518589_7828909_bd112b6f79a9114cd86d8fd31c0715e2;
 	tmp(function() {
 	});
 };
