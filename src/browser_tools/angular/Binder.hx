@@ -138,6 +138,7 @@ class Binder {
 
 		var fields = Context.getBuildFields();
 
+		trace(cls.toString());
 		trace(haxe.macro.Context.getLocalClass().get().superClass);
 
 		if (haxe.macro.Context.getLocalClass().get().superClass != null ) {
