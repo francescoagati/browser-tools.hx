@@ -13,7 +13,6 @@ HxOverrides.iter = function(a) {
 		return this.arr[this.cur++];
 	}};
 };
-var angular_internal_ModuleMacros = function() { };
 var async_$tools_Async = function() { };
 var browser_$tools_angular_IRoutes = function() { };
 var browser_$tools_angular_IAngularBinder = function() { };
@@ -45,35 +44,55 @@ browser_$tools_Binder.prototype = $extend(browser_$tools_BinderBase.prototype,{
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
-	var app = window.angular.module("app",[]);
-	var controller = browser_$tools_Binder;
-	app.controller("browser_tools.Binder",[controller.factory]);
-	app.config(["$routeProvider",function(route) {
-		route.when("/a/b/c/:param",{ controller : "browser_tools.Binder", templateUrl : "templates/a.html"});
-		route.when("/a/b/d/:param",{ controller : "browser_tools.Binder", templateUrl : "templates/b.html"});
-		route.when("/a/b/e/:param",{ controller : "browser_tools.Binder", templateUrl : "templates/c.html"});
-	}]);
-	var storage = js_Browser.getLocalStorage();
-	var storage_json = js_Browser.getLocalStorage();
-	storage.a = 2;
-	storage_json.a = JSON.stringify(2);
+	var __afterVar_36 = function(position) {
+		position;
+		var location = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+		location;
+		var map = new google.maps.Map(window.document.getElementById("canvas"),{ mapTypeId : "roadmap", center : location, zoom : 15});
+		map;
+		var places = new google.maps.places.PlacesService(map);
+		places;
+		var request = { location : location, radius : 15000, types : ["university"]};
+		request;
+		var __afterVar_42 = function(results,status) {
+			results;
+			status;
+			var __iterator = 0;
+			var __doCount = 0;
+			var tmp1;
+			var __continue_451 = null;
+			__continue_451 = function() {
+				if(__iterator < results.length) {
+					if(__doCount++ == 0) while(true) {
+						var result = results[__iterator++];
+						result;
+						console.log([result.name,result.vicinity]);
+						__continue_451();
+						if(!(--__doCount != 0)) break;
+					}
+				} else thx_Functions.noop();
+			};
+			tmp1 = __continue_451;
+			var __continue_45 = tmp1;
+			__continue_45();
+		};
+		places.nearbySearch(request,function(__parameter_43,__parameter_44) {
+			__afterVar_42(__parameter_43,__parameter_44);
+		});
+	};
+	window.navigator.geolocation.getCurrentPosition(function(__parameter_37) {
+		__afterVar_36(__parameter_37);
+	});
 	var tmp;
-	var __fn_tmp_84400519_5683079809_ddb77db97834bfd204f00aa2a3b911ed = function(__return) {
+	var __fn_tmp_56770501_5575362295_f507ce53bb2fedef73a444fc7d61a86e = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_84400519_5683079809_ddb77db97834bfd204f00aa2a3b911ed;
+	tmp = __fn_tmp_56770501_5575362295_f507ce53bb2fedef73a444fc7d61a86e;
 	tmp(function() {
 	});
 };
-var js_Browser = function() { };
-js_Browser.getLocalStorage = function() {
-	try {
-		var s = window.localStorage;
-		s.getItem("");
-		return s;
-	} catch( e ) {
-		return null;
-	}
+var thx_Functions = function() { };
+thx_Functions.noop = function() {
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;

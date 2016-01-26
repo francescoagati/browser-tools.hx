@@ -39,6 +39,8 @@ using browser_tools.HtmlTools;
 //using browser_tools.AnimationTools;
 //
 
+import browser_tools.api.google.maps.Places;
+
 @:base_class
 class BinderBase
   implements browser_tools.angular.Binder.IAngularBinder
@@ -103,9 +105,42 @@ class Main implements async_tools.Async {
     //'animation'.byId().classes + 'end_animation';
   }
 
+
+  @:async static inline function get_places() {
+
+
+    var position = @await js.Browser.navigator.geolocation.getCurrentPosition();
+
+    var location = new browser_tools.api.google.maps.Places.Location(position.coords.latitude,position.coords.longitude);
+
+    var map = new browser_tools.api.google.maps.Places.Map('canvas'.byId(), {
+        mapTypeId: 'roadmap',
+        center: location,
+        zoom: 15
+    });
+
+
+    var places = new Places(map);
+
+    var request = {
+      location: location,
+      radius: 15000,
+      types: ['university']
+    };
+
+    var results,status = @await places.nearbySearch(request);
+
+    for (result in results) trace([result.name,result.vicinity]);
+
+  }
+
+
   static function main() {
     //render(function() {});
 
+    get_places(thx.Functions.noop);
+
+/*
     var app = angular.Angular.module("app",[]);
     browser_tools.angular.Routes.set_app_config(app);
 
@@ -114,7 +149,7 @@ class Main implements async_tools.Async {
 
     storage['a'] = 2;
     storage_json['a'] = 2;
-
+*/
     cont_exec({
 
       //var assets:AManifest = [];

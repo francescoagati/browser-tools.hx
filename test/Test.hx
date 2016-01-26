@@ -15,10 +15,10 @@ class Test {
     //new Printer();
     //var container:browser_tools.animations.DisplayObject = 'animation'.byId();
 
-    var container = 'animation'.byId();
+    //var container = 'animation'.byId();
 
-    container.classes + 'a1' + 'a2' + 'a3' - 'b1' - 'b2';
-    container.classes == 'a1';
+    //container.classes + 'a1' + 'a2' + 'a3' - 'b1' - 'b2';
+    /container.classes == 'a1';
     //js.Browser.window.document.onerror = function(e) js.Browser.alert(e);
 
 /*

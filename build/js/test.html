@@ -44,142 +44,14 @@
 <body>
 
 
-  <style>
-
-      @-webkit-keyframes slide-down {
-        0% {
-          -moz-transform: translateX(0px);
-          -o-transform: translateX(0px);
-          -ms-transform: translateX(0px);
-          -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-        }
-        50% {
-          -moz-transform: translateX(80px);
-          -o-transform: translateX(80px);
-          -ms-transform: translateX(80px);
-          -webkit-transform: translateX(80px);
-          transform: translateX(80px);
-        }
-      }
-      @-moz-keyframes slide-down {
-        0% {
-          -moz-transform: translateX(0px);
-          -o-transform: translateX(0px);
-          -ms-transform: translateX(0px);
-          -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-        }
-        50% {
-          -moz-transform: translateX(80px);
-          -o-transform: translateX(80px);
-          -ms-transform: translateX(80px);
-          -webkit-transform: translateX(80px);
-          transform: translateX(80px);
-        }
-      }
-      @-ms-keyframes slide-down {
-        0% {
-          -moz-transform: translateX(0px);
-          -o-transform: translateX(0px);
-          -ms-transform: translateX(0px);
-          -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-        }
-        50% {
-          -moz-transform: translateX(80px);
-          -o-transform: translateX(80px);
-          -ms-transform: translateX(80px);
-          -webkit-transform: translateX(80px);
-          transform: translateX(80px);
-        }
-      }
-      @-o-keyframes slide-down {
-        0% {
-          -moz-transform: translateX(0px);
-          -o-transform: translateX(0px);
-          -ms-transform: translateX(0px);
-          -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-        }
-        50% {
-          -moz-transform: translateX(80px);
-          -o-transform: translateX(80px);
-          -ms-transform: translateX(80px);
-          -webkit-transform: translateX(80px);
-          transform: translateX(80px);
-        }
-      }
-      @keyframes slide-down {
-        0% {
-          -moz-transform: translateX(0px);
-          -o-transform: translateX(0px);
-          -ms-transform: translateX(0px);
-          -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-        }
-        50% {
-          -moz-transform: translateX(80px);
-          -o-transform: translateX(80px);
-          -ms-transform: translateX(80px);
-          -webkit-transform: translateX(80px);
-          transform: translateX(80px);
-        }
-      }
-      .move {
-        -webkit-animation: slide-down 1s;
-        -moz-animation: slide-down 1s;
-        -ms-animation: slide-down 1s;
-        -o-animation: slide-down 1s;
-        animation: slide-down 1s;
-        background: green !important;
-      }
+  <div id="canvas" style="width:10px;height:10px;"></div>
 
 
-
-
-
-  #xanimation {
-      width: 100px;
-      height: 100px;
-      background: red;
-      position: relative;
-      -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
-      animation: mymove 5s infinite;
-  }
-
-
-  .end_animation {
-    background:yellow !important;
-  }
-
-
-  /* Chrome, Safari, Opera */
-  @-webkit-keyframes mymove {
-      from {left: 0px;}
-      to {left: 200px;}
-  }
-
-  @keyframes mymove {
-      from {left: 0px;}
-      to {left: 200px;}
-  }
-  </style>
-
-
-  <div id="animation" class="animated" style="background:red;width:500px;height:300px;"></div>
-
-
-  <div id="log">null</div>
+  <script
+      src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places,visualization&v=3.exp"></script>
 
   <script src="build.js"></script>
 
-  <script>
-    //window.enable_transactions = false;
-    //transaction_check.check_for_animations(null,function(b) {
-    //  window.enable_transactions = b;
-    //});
-  </script>
 
 </body>
 </html>
