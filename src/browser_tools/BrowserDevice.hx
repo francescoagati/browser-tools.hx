@@ -54,7 +54,7 @@ class BrowserDevice {
   public static var isIE(get,never):Int;
 
   static inline function get_is_mobile() return browser.type == 'mobile';
-  static inline function get_is_desktop() return browser.type == 'mobile';
+  static inline function get_is_desktop() return browser.type == 'desktop';
 
   static inline function get_browser():BrowserType {
     var navigator = js.Browser.navigator;
