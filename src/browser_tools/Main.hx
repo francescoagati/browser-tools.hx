@@ -39,7 +39,7 @@ using browser_tools.HtmlTools;
 //using browser_tools.AnimationTools;
 //
 
-import browser_tools.api.google.maps.Places;
+import browser_tools.api.google.maps.externs.Places;
 
 @:base_class
 class BinderBase
@@ -111,9 +111,9 @@ class Main implements async_tools.Async {
 
     var position = @await js.Browser.navigator.geolocation.getCurrentPosition();
 
-    var location = new browser_tools.api.google.maps.Places.Location(position.coords.latitude,position.coords.longitude);
+    var location = new browser_tools.api.google.maps.externs.Places.Location(position.coords.latitude,position.coords.longitude);
 
-    var map = new browser_tools.api.google.maps.Places.Map('canvas'.byId(), {
+    var map = new browser_tools.api.google.maps.externs.Places.Map('canvas'.byId(), {
         mapTypeId: 'roadmap',
         center: location,
         zoom: 15
