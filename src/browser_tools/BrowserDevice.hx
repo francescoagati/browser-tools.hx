@@ -29,6 +29,9 @@ class BrowserDevice {
   })();
 
 
+  public static var is_mobile(get,never):Bool;
+  public static var is_desktop(get,never):Bool;
+
   public static var isOnlyWebkit(get,never):Bool;
   public static var safariiOS(get,never):Bool;
   public static var chromeiOS(get,never):Bool;
@@ -49,6 +52,9 @@ class BrowserDevice {
   public static var IEEDGE(get,never):Bool;
 
   public static var isIE(get,never):Int;
+
+  static inline function get_is_mobile() return browser.type == 'mobile';
+  static inline function get_is_desktop() return browser.type == 'mobile';
 
   static inline function get_browser():BrowserType {
     var navigator = js.Browser.navigator;

@@ -84,10 +84,10 @@ browser_$tools_Main.main = function() {
 		__afterVar_36(__parameter_37);
 	});
 	var tmp;
-	var __fn_tmp_56770501_5575362295_f507ce53bb2fedef73a444fc7d61a86e = function(__return) {
+	var __fn_tmp_78516547_2905273736_f5ef8c3033016772e093799367e4bc3f = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_56770501_5575362295_f507ce53bb2fedef73a444fc7d61a86e;
+	tmp = __fn_tmp_78516547_2905273736_f5ef8c3033016772e093799367e4bc3f;
 	tmp(function() {
 	});
 };
