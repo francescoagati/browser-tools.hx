@@ -251,7 +251,36 @@ class HtmlTools {
 		return element;
 	}
 
+  @:noUsing
+  public static inline function is_dom_node(v:Dynamic):Bool {
 
+    inline function typeof(object:Dynamic):String return untyped __js__('typeof {0}',object);
+
+    var e:Dynamic, nn:Dynamic;
+    if (v == null) {
+      return false;
+    }
+    if (typeof(v) == "object") {
+      return false;
+    }
+    if (Reflect.hasField(v,'nodeName') == false) {
+      return false;
+    }
+
+    nn = v.nodeName;
+    try {
+      v.nodeName = "is readonly?";
+    } catch (_error:Dynamic) {
+      e = _error;
+      return true;
+    }
+    if (v.nodeName == nn) {
+      return true;
+    }
+    v.nodeName = nn;
+    return false;
+g
+  }
 
 
 }
