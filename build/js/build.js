@@ -14,6 +14,24 @@ HxOverrides.iter = function(a) {
 	}};
 };
 var async_$tools_Async = function() { };
+var browser_$tools_HtmlTools = function() { };
+browser_$tools_HtmlTools.is_dom_node = function(v) {
+	var e;
+	var nn;
+	if(v == null) return false;
+	if(typeof v == "object") return false;
+	if(Object.prototype.hasOwnProperty.call(v,"nodeName") == false) return false;
+	nn = v.nodeName;
+	try {
+		v.nodeName = "is readonly?";
+	} catch( _error ) {
+		e = _error;
+		return true;
+	}
+	if(v.nodeName == nn) return true;
+	v.nodeName = nn;
+	return false;
+};
 var browser_$tools_angular_IRoutes = function() { };
 var browser_$tools_angular_IAngularBinder = function() { };
 var browser_$tools_BinderBase = function() { };
@@ -44,6 +62,7 @@ browser_$tools_Binder.prototype = $extend(browser_$tools_BinderBase.prototype,{
 var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
+	browser_$tools_HtmlTools.is_dom_node(test);
 	var __afterVar_36 = function(position) {
 		position;
 		var location = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
@@ -59,22 +78,23 @@ browser_$tools_Main.main = function() {
 			status;
 			var __iterator = 0;
 			var __doCount = 0;
-			var tmp1;
-			var __continue_451 = null;
-			__continue_451 = function() {
-				if(__iterator < results.length) {
-					if(__doCount++ == 0) while(true) {
-						var result = results[__iterator++];
-						result;
-						console.log([result.name,result.vicinity]);
-						__continue_451();
-						if(!(--__doCount != 0)) break;
-					}
-				} else thx_Functions.noop();
-			};
-			tmp1 = __continue_451;
-			var __continue_45 = tmp1;
-			__continue_45();
+			var __continue_451 = (function($this) {
+				var $r;
+				var __continue_45 = null;
+				__continue_45 = function() {
+					if(__iterator < results.length) {
+						if(__doCount++ == 0) do {
+							var result = results[__iterator++];
+							result;
+							console.log([result.name,result.vicinity]);
+							__continue_45();
+						} while(--__doCount != 0);
+					} else thx_Functions.noop();
+				};
+				$r = __continue_45;
+				return $r;
+			}(this));
+			__continue_451();
 		};
 		places.nearbySearch(request,function(__parameter_43,__parameter_44) {
 			__afterVar_42(__parameter_43,__parameter_44);
@@ -83,12 +103,14 @@ browser_$tools_Main.main = function() {
 	window.navigator.geolocation.getCurrentPosition(function(__parameter_37) {
 		__afterVar_36(__parameter_37);
 	});
-	var tmp;
-	var __fn_tmp_22844512_1275218055_89b91a319c608097cd44126707ebe16b = function(__return) {
-		__return();
-	};
-	tmp = __fn_tmp_22844512_1275218055_89b91a319c608097cd44126707ebe16b;
-	tmp(function() {
+	((function($this) {
+		var $r;
+		var __fn_tmp_89239453_0653826296_97c8a5204221a1e659f1948f13ba2a3f = function(__return) {
+			__return();
+		};
+		$r = __fn_tmp_89239453_0653826296_97c8a5204221a1e659f1948f13ba2a3f;
+		return $r;
+	}(this)))(function() {
 	});
 };
 var thx_Functions = function() { };

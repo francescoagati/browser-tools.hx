@@ -6,7 +6,7 @@ import browser_tools.utils.compilers.sass.Compiler;
 import browser_tools.AStorageText;
 import browser_tools.AStorageJson;
 using browser_tools.assets.CacheTools;
-
+import browser_tools.HtmlTools;
 
 
 
@@ -76,6 +76,7 @@ class Binder extends browser_tools.Main.BinderBase {
 class Main implements async_tools.Async {
 
 
+
 /*
   @:async static function animate() {
     var el = 'animation'.byId();
@@ -136,6 +137,9 @@ class Main implements async_tools.Async {
 
 
   static function main() {
+
+    HtmlTools.is_dom_node(untyped test);
+
     //render(function() {});
 
     get_places(thx.Functions.noop);

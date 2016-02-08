@@ -252,7 +252,7 @@ class HtmlTools {
 	}
 
   @:noUsing
-  public static inline function is_dom_node(v:Dynamic):Bool {
+  public static function is_dom_node(v:Dynamic):Bool {
 
     inline function typeof(object:Dynamic):String return untyped __js__('typeof {0}',object);
 
@@ -279,7 +279,7 @@ class HtmlTools {
     }
     v.nodeName = nn;
     return false;
-g
+
   }
 
 
