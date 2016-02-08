@@ -105,10 +105,10 @@ browser_$tools_Main.main = function() {
 	});
 	((function($this) {
 		var $r;
-		var __fn_tmp_89239453_0653826296_97c8a5204221a1e659f1948f13ba2a3f = function(__return) {
+		var __fn_tmp_72943003_7633155286_bd442e87928e636870108e858c3b0da0 = function(__return) {
 			__return();
 		};
-		$r = __fn_tmp_89239453_0653826296_97c8a5204221a1e659f1948f13ba2a3f;
+		$r = __fn_tmp_72943003_7633155286_bd442e87928e636870108e858c3b0da0;
 		return $r;
 	}(this)))(function() {
 	});

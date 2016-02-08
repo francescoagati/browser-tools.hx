@@ -51,6 +51,7 @@ class BrowserDevice {
   public static var IE10_or_9(get,never):Bool;
   public static var IE9(get,never):Bool;
   public static var IEEDGE(get,never):Bool;
+  public static var Safari7(get,never):Bool;
 
   public static var isIE(get,never):Int;
 
@@ -183,5 +184,9 @@ class BrowserDevice {
     return browser.browser == 'MSIE' && (browser.version == 9 || browser.version == 9);
   }
 
+
+  static inline function get_Safari7() {
+    return (navigator().userAgent.match(~/7.0 Safari/i)) && is_mobile_explorer == false;
+  }
 
 }
