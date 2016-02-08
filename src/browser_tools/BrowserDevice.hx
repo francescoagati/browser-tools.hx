@@ -49,6 +49,7 @@ class BrowserDevice {
   public static var IE11_mobile(get,never):Bool;
   public static var IE11_desktop(get,never):Bool;
   public static var IE10_or_9(get,never):Bool;
+  public static var IE9(get,never):Bool;
   public static var IEEDGE(get,never):Bool;
 
   public static var isIE(get,never):Int;
@@ -175,6 +176,11 @@ class BrowserDevice {
 
   static inline function get_IE10_or_9() {
     return browser.browser == 'MSIE' && (browser.version == 9 || browser.version == 10);
+  }
+
+
+  static inline function get_IE9() {
+    return browser.browser == 'MSIE' && (browser.version == 9 || browser.version == 9);
   }
 
 
