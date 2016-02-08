@@ -1,5 +1,9 @@
 package browser_tools.signals.scrolls;
 
+import tink.core.Signal;
+import tink.core.Signal.SignalTrigger;
+
+
 @:forward
 abstract WindowScroll(Signal<Int>) {
   public inline function new(?time:Int = 1000) {
