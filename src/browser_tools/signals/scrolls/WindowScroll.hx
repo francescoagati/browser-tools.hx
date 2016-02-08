@@ -2,7 +2,7 @@ package browser_tools.signals.scrolls;
 
 import tink.core.Signal;
 import tink.core.Signal.SignalTrigger;
-
+import async_tools.Cps.*;
 
 @:forward
 abstract WindowScroll(Signal<Int>) {
@@ -11,7 +11,9 @@ abstract WindowScroll(Signal<Int>) {
     this = trigger;
     var timer = new haxe.Timer(time);
     timer.run = function() {
-      trigger.trigger(js.Browser.document.body.scrollTop);
+      next_frame({
+        trigger.trigger(js.Browser.document.body.scrollTop);
+      });
     };
   }
 
