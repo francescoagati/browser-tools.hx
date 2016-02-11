@@ -24,6 +24,9 @@ import js.html.*;
 import browser_tools.events.Mapper.*;
 import browser_tools.events.Mapper.SelectorType;
 import browser_tools.BrowserDevice;
+
+import browser_tools.utils.features.Storage;
+
 //import browser_tools.animations.DisplayObject;
 
 //import browser_tools.HelperAnimationTools.frame;
@@ -107,6 +110,9 @@ class Main implements async_tools.Async {
   }
 
 
+
+
+
   @:async static inline function get_places() {
 
 
@@ -138,6 +144,9 @@ class Main implements async_tools.Async {
 
   static function main() {
 
+
+    js.Browser.alert(Storage.check_for_local_storage());
+    return;
     HtmlTools.is_dom_node(untyped test);
 
     //render(function() {});
