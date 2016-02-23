@@ -52,8 +52,8 @@ class BrowserDevice {
   public static var IE9(get,never):Bool;
   public static var IEEDGE(get,never):Bool;
   public static var Safari7(get,never):Bool;
-
   public static var isIE(get,never):Int;
+  public static var is3d(get,never):Bool;
 
   static inline function get_is_mobile() return get_browser().type == 'mobile';
   static inline function get_is_desktop() return get_browser().type == 'desktop';
@@ -188,5 +188,17 @@ class BrowserDevice {
   static inline function get_Safari7() {
     return (navigator().userAgent.match(~/7.0 Safari/i)) && is_mobile_explorer == false;
   }
+
+  static inline function get_is3d() {git a
+        //based on https://github.com/Leaflet/Leaflet/blob/master/src/core/Browser.js
+        var ie3d = (isIE != null) && untyped __js__("'transition' in doc.style");
+        var webkit3d = untyped __js__("('WebKitCSSMatrix' in window) && ('m11' in new window.WebKitCSSMatrix()) ");
+  	    var gecko3d = untyped __js__("'MozPerspective' in document.style");
+  	    var opera12 = untyped __js__("'OTransition' in doc.style");
+
+        return ie3d || webkit3d || gecko3d || opera12;
+  }
+
+
 
 }

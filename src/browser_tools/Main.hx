@@ -44,6 +44,12 @@ using browser_tools.HtmlTools;
 
 import browser_tools.api.google.maps.externs.Places;
 
+/*
+import browser_tools.storage.LocalStorage;
+import browser_tools.storage.SessionStorage;
+import browser_tools.storage.MemoryStorage;
+import browser_tools.storage.Factory;
+*/
 @:base_class
 class BinderBase
   implements browser_tools.angular.Binder.IAngularBinder
@@ -143,6 +149,25 @@ class Main implements async_tools.Async {
 
 
   static function main() {
+/*
+
+    var storage = new LocalStorage<Int>();
+
+    storage['x'] = 2;
+    storage.exists("x");
+    storage.remove("x");
+
+    var storage2 = new SessionStorage<Int>();
+
+    storage2['x'] = 2;
+    storage2.exists("x");
+    storage.remove("x");
+
+    var storage2 = new MemoryStorage<Int>();
+
+    storage2['x'] = 2;
+    storage2.exists("x");
+    storage.remove("x");
 
 
     js.Browser.alert(Storage.check_for_local_storage());
