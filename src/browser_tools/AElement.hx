@@ -5,13 +5,17 @@ import js.Browser;
 import browser_tools.abstracts.Events.EventAccessor;
 import browser_tools.abstracts.AttrAccessor;
 import browser_tools.abstracts.ClassesAccessor;
-
+import browser_tools.abstracts.DisplayAccessor;
 
 @:forward abstract AElement(Element) from Element to Element {
 
     public inline function new(el:Element) {
         this = el;
-    }  
+    }
+
+    public var display(get, never):DisplayAccessor;
+    inline function get_display() return new DisplayAccessor(this);
+
 
     public var on(get, never):EventAccessor;
     inline function get_on() return new EventAccessor(this);

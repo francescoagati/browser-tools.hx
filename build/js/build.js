@@ -45,10 +45,10 @@ var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
 	var tmp;
-	var __fn_tmp_72623102_9448301345_c5720c418c344ba7cf5b03995d863e55 = function(__return) {
+	var __fn_tmp_35050316_7514314502_a1d65e2de81e5645359f8e9f0f9b0647 = function(__return) {
 		__return();
 	};
-	tmp = __fn_tmp_72623102_9448301345_c5720c418c344ba7cf5b03995d863e55;
+	tmp = __fn_tmp_35050316_7514314502_a1d65e2de81e5645359f8e9f0f9b0647;
 	tmp(function() {
 	});
 };

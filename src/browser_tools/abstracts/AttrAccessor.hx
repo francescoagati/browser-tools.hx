@@ -15,5 +15,4 @@ abstract AttrAccessor(Element) {
     public inline function get(name:String) {
         this.getAttribute(name);
     }
-
 }
