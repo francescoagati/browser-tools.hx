@@ -149,6 +149,11 @@ class Main implements async_tools.Async {
 
 
   static function main() {
+
+    var el:AElement = 'x'.byId();
+    el.display.wait_for_animation_end(300,'top',function(x) {
+
+    });
 /*
 
     var storage = new LocalStorage<Int>();

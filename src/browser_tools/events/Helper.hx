@@ -52,7 +52,7 @@ class Helper {
 
 
   public static inline function get_event(event_name:String)
-    return if (prefix == not_prefixed) event_name.toLowerCase(); else '${prefix}AnimationEnd';
+    return if (prefix == not_prefixed) event_name.toLowerCase(); else '${prefix}${event_name}';
 
 
 
