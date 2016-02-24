@@ -5,7 +5,7 @@ import js.html.Element;
 import browser_tools.AElement;
 import browser_tools.events.Helper;
 import browser_tools.animations.fps.Transaction;
-git a
+
 abstract DisplayAccessor(Element) {
     public inline function new(el:Element) this = el;
 
