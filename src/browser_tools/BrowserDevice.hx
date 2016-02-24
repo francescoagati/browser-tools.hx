@@ -189,7 +189,7 @@ class BrowserDevice {
     return (navigator().userAgent.match(~/7.0 Safari/i)) && is_mobile_explorer == false;
   }
 
-  static inline function get_is3d() {git a
+  static inline function get_is3d() {
         //based on https://github.com/Leaflet/Leaflet/blob/master/src/core/Browser.js
         var ie3d = (isIE != null) && untyped __js__("'transition' in doc.style");
         var webkit3d = untyped __js__("('WebKitCSSMatrix' in window) && ('m11' in new window.WebKitCSSMatrix()) ");
