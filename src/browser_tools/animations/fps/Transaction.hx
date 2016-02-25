@@ -22,19 +22,17 @@ class Transaction implements async_tools.Async {
       js.Browser.window.requestAnimationFrame(function(i) {
         try {
           rect= element.getBoundingClientRect();
+          var prop = switch(prop) {
+            case left:rect.left;
+            case right:rect.right;
+            case top:rect.top;
+            case bottom:rect.bottom;
+            case _:null;
+          };
+          cb(prop);
         } catch(e:Dynamic) {
           cb(null);
         }
-
-
-        var prop = switch(prop) {
-          case left:rect.left;
-          case right:rect.right;
-          case top:rect.top;
-          case bottom:rect.bottom;
-          case _:null;
-        };
-        cb(prop);
       });
 
     }

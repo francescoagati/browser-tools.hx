@@ -117,31 +117,31 @@ browser_$tools_Main.main = function() {
 			window.requestAnimationFrame(function(i) {
 				try {
 					rect = element1.getBoundingClientRect();
+					var prop2 = (function($this) {
+						var $r;
+						switch(prop1) {
+						case "left":
+							$r = rect.left;
+							break;
+						case "right":
+							$r = rect.right;
+							break;
+						case "top":
+							$r = rect.top;
+							break;
+						case "bottom":
+							$r = rect.bottom;
+							break;
+						default:
+							$r = null;
+						}
+						return $r;
+					}(this));
+					cb(prop2);
 				} catch( e1 ) {
 					if (e1 instanceof js__$Boot_HaxeError) e1 = e1.val;
 					cb(null);
 				}
-				var prop2 = (function($this) {
-					var $r;
-					switch(prop1) {
-					case "left":
-						$r = rect.left;
-						break;
-					case "right":
-						$r = rect.right;
-						break;
-					case "top":
-						$r = rect.top;
-						break;
-					case "bottom":
-						$r = rect.bottom;
-						break;
-					default:
-						$r = null;
-					}
-					return $r;
-				}(this));
-				cb(prop2);
 			});
 		},300);
 	};
@@ -154,35 +154,35 @@ browser_$tools_Main.main = function() {
 	window.requestAnimationFrame(function(i1) {
 		try {
 			rect1 = element2.getBoundingClientRect();
+			var tmp1;
+			switch(prop3) {
+			case "left":
+				tmp1 = rect1.left;
+				break;
+			case "right":
+				tmp1 = rect1.right;
+				break;
+			case "top":
+				tmp1 = rect1.top;
+				break;
+			case "bottom":
+				tmp1 = rect1.bottom;
+				break;
+			default:
+				tmp1 = null;
+			}
+			var prop4 = tmp1;
+			cb1(prop4);
 		} catch( e2 ) {
 			if (e2 instanceof js__$Boot_HaxeError) e2 = e2.val;
 			cb1(null);
 		}
-		var tmp1;
-		switch(prop3) {
-		case "left":
-			tmp1 = rect1.left;
-			break;
-		case "right":
-			tmp1 = rect1.right;
-			break;
-		case "top":
-			tmp1 = rect1.top;
-			break;
-		case "bottom":
-			tmp1 = rect1.bottom;
-			break;
-		default:
-			tmp1 = null;
-		}
-		var prop4 = tmp1;
-		cb1(prop4);
 	});
 	var tmp;
-	var __fn_tmp_69187601_3245311081_a0dad34424f406b59c4a99c87a91937b = function(__return1) {
+	var __fn_tmp_70453469_5398207754_42da86891c46cbd8a148e97db41b8af2 = function(__return1) {
 		__return1();
 	};
-	tmp = __fn_tmp_69187601_3245311081_a0dad34424f406b59c4a99c87a91937b;
+	tmp = __fn_tmp_70453469_5398207754_42da86891c46cbd8a148e97db41b8af2;
 	tmp(function() {
 	});
 };
