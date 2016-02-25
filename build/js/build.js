@@ -87,7 +87,25 @@ browser_$tools_Main.main = function() {
 			var __afterVar_13 = function(now) {
 				now;
 				setTimeout(function() {
-					__return(last - now != 0);
+					if(last == null) {
+						var __endIf_1 = function() {
+							__return(last - now != 0);
+							return;
+						};
+						__return(false);
+					} else if(now == null) {
+						var __endIf_11 = function() {
+							__return(last - now != 0);
+							return;
+						};
+						__return(false);
+					} else {
+						var __endIf_12 = function() {
+							__return(last - now != 0);
+							return;
+						};
+						__endIf_12();
+					}
 				},20);
 			};
 			var element1 = element;
@@ -95,8 +113,14 @@ browser_$tools_Main.main = function() {
 			var cb = function(__parameter_14) {
 				__afterVar_13(__parameter_14);
 			};
+			var rect;
 			window.requestAnimationFrame(function(i) {
-				var rect = element1.getBoundingClientRect();
+				try {
+					rect = element1.getBoundingClientRect();
+				} catch( e1 ) {
+					if (e1 instanceof js__$Boot_HaxeError) e1 = e1.val;
+					cb(null);
+				}
 				var prop2 = (function($this) {
 					var $r;
 					switch(prop1) {
@@ -126,45 +150,39 @@ browser_$tools_Main.main = function() {
 	var cb1 = function(__parameter_12) {
 		__afterVar_11(__parameter_12);
 	};
+	var rect1;
 	window.requestAnimationFrame(function(i1) {
-		var rect1 = element2.getBoundingClientRect();
-		var tmp2;
+		try {
+			rect1 = element2.getBoundingClientRect();
+		} catch( e2 ) {
+			if (e2 instanceof js__$Boot_HaxeError) e2 = e2.val;
+			cb1(null);
+		}
+		var tmp1;
 		switch(prop3) {
 		case "left":
-			tmp2 = rect1.left;
+			tmp1 = rect1.left;
 			break;
 		case "right":
-			tmp2 = rect1.right;
+			tmp1 = rect1.right;
 			break;
 		case "top":
-			tmp2 = rect1.top;
+			tmp1 = rect1.top;
 			break;
 		case "bottom":
-			tmp2 = rect1.bottom;
+			tmp1 = rect1.bottom;
 			break;
 		default:
-			tmp2 = null;
+			tmp1 = null;
 		}
-		var prop4 = tmp2;
+		var prop4 = tmp1;
 		cb1(prop4);
 	});
-	var tmp1;
-	var fn_animation_ended1 = null;
-	fn_animation_ended1 = function(e1) {
-		animation_ended = true;
-		el1.removeEventListener(event_animation,fn_animation_ended1);
-		el1.removeEventListener(event_transition,fn_animation_ended1);
-		fn(e1);
-	};
-	tmp1 = fn_animation_ended1;
-	var fn_animation_ended = tmp1;
-	el1.addEventListener(event_animation,fn_animation_ended);
-	el1.addEventListener(event_transition,fn_animation_ended);
 	var tmp;
-	var __fn_tmp_92961549_7647788525_02b76a3669ad3f4b5484cd00fc3569ec = function(__return1) {
+	var __fn_tmp_69187601_3245311081_a0dad34424f406b59c4a99c87a91937b = function(__return1) {
 		__return1();
 	};
-	tmp = __fn_tmp_92961549_7647788525_02b76a3669ad3f4b5484cd00fc3569ec;
+	tmp = __fn_tmp_69187601_3245311081_a0dad34424f406b59c4a99c87a91937b;
 	tmp(function() {
 	});
 };

@@ -18,9 +18,14 @@ class Transaction implements async_tools.Async {
 
     inline function get_property(element:browser_tools.AElement,prop:RectProperty,cb) {
 
+      var rect;
       js.Browser.window.requestAnimationFrame(function(i) {
+        try {
+          rect= element.getBoundingClientRect();
+        } catch(e:Dynamic) {
+          cb(null);
+        }
 
-        var rect= element.getBoundingClientRect();
 
         var prop = switch(prop) {
           case left:rect.left;
@@ -38,6 +43,7 @@ class Transaction implements async_tools.Async {
     @await wait(tm);
     var now = @await get_property(element,prop);
     @await wait(20);
+    if (last == null || now == null) return false;
     return  last-now != 0;
   }
 
