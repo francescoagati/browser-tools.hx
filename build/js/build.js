@@ -96,20 +96,21 @@ browser_$tools_Main.main = function() {
 				__afterVar_13(__parameter_14);
 			};
 			window.requestAnimationFrame(function(i) {
+				var rect = element1.getBoundingClientRect();
 				var prop2 = (function($this) {
 					var $r;
 					switch(prop1) {
 					case "left":
-						$r = element1.getBoundingClientRect().left;
+						$r = rect.left;
 						break;
 					case "right":
-						$r = element1.getBoundingClientRect().right;
+						$r = rect.right;
 						break;
 					case "top":
-						$r = element1.getBoundingClientRect().top;
+						$r = rect.top;
 						break;
 					case "bottom":
-						$r = element1.getBoundingClientRect().bottom;
+						$r = rect.bottom;
 						break;
 					default:
 						$r = null;
@@ -126,19 +127,20 @@ browser_$tools_Main.main = function() {
 		__afterVar_11(__parameter_12);
 	};
 	window.requestAnimationFrame(function(i1) {
+		var rect1 = element2.getBoundingClientRect();
 		var tmp2;
 		switch(prop3) {
 		case "left":
-			tmp2 = element2.getBoundingClientRect().left;
+			tmp2 = rect1.left;
 			break;
 		case "right":
-			tmp2 = element2.getBoundingClientRect().right;
+			tmp2 = rect1.right;
 			break;
 		case "top":
-			tmp2 = element2.getBoundingClientRect().top;
+			tmp2 = rect1.top;
 			break;
 		case "bottom":
-			tmp2 = element2.getBoundingClientRect().bottom;
+			tmp2 = rect1.bottom;
 			break;
 		default:
 			tmp2 = null;
@@ -159,10 +161,10 @@ browser_$tools_Main.main = function() {
 	el1.addEventListener(event_animation,fn_animation_ended);
 	el1.addEventListener(event_transition,fn_animation_ended);
 	var tmp;
-	var __fn_tmp_31316471_9732974_136ef470d02a1bd51c8afeadebe0f5b2 = function(__return1) {
+	var __fn_tmp_92961549_7647788525_02b76a3669ad3f4b5484cd00fc3569ec = function(__return1) {
 		__return1();
 	};
-	tmp = __fn_tmp_31316471_9732974_136ef470d02a1bd51c8afeadebe0f5b2;
+	tmp = __fn_tmp_92961549_7647788525_02b76a3669ad3f4b5484cd00fc3569ec;
 	tmp(function() {
 	});
 };
