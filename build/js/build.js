@@ -5,6 +5,23 @@ function $extend(from, fields) {
 	if( fields.toString !== Object.prototype.toString ) proto.toString = fields.toString;
 	return proto;
 }
+var EReg = function(r,opt) {
+	opt = opt.split("u").join("");
+	this.r = new RegExp(r,opt);
+};
+EReg.prototype = {
+	match: function(s) {
+		if(this.r.global) this.r.lastIndex = 0;
+		this.r.m = this.r.exec(s);
+		this.r.s = s;
+		return this.r.m != null;
+	}
+	,matched: function(n) {
+		var tmp;
+		if(this.r.m != null && n >= 0 && n < this.r.m.length) tmp = this.r.m[n]; else throw new js__$Boot_HaxeError("EReg::matched");
+		return tmp;
+	}
+};
 var HxOverrides = function() { };
 HxOverrides.iter = function(a) {
 	return { cur : 0, arr : a, hasNext : function() {
@@ -14,6 +31,7 @@ HxOverrides.iter = function(a) {
 	}};
 };
 var async_$tools_Async = function() { };
+var browser_$tools_BrowserDevice = function() { };
 var browser_$tools_angular_IRoutes = function() { };
 var browser_$tools_angular_IAngularBinder = function() { };
 var browser_$tools_BinderBase = function() { };
@@ -45,6 +63,7 @@ var browser_$tools_Main = function() { };
 browser_$tools_Main.__interfaces__ = [async_$tools_Async];
 browser_$tools_Main.main = function() {
 	var el = window.document.getElementById("x");
+	if(browser_$tools_BrowserDevice.browser.browser == "MSIE" && (browser_$tools_BrowserDevice.browser.version == 9 || browser_$tools_BrowserDevice.browser.version == 9)) null;
 	var el1 = el;
 	var animation_ended = null;
 	var event_animation = browser_$tools_events_Helper.get_prefix() == ""?"AnimationEnd".toLowerCase():"" + browser_$tools_events_Helper.get_prefix() + "AnimationEnd";
@@ -107,39 +126,43 @@ browser_$tools_Main.main = function() {
 		__afterVar_11(__parameter_12);
 	};
 	window.requestAnimationFrame(function(i1) {
-		var tmp1;
+		var tmp2;
 		switch(prop3) {
 		case "left":
-			tmp1 = element2.getBoundingClientRect().left;
+			tmp2 = element2.getBoundingClientRect().left;
 			break;
 		case "right":
-			tmp1 = element2.getBoundingClientRect().right;
+			tmp2 = element2.getBoundingClientRect().right;
 			break;
 		case "top":
-			tmp1 = element2.getBoundingClientRect().top;
+			tmp2 = element2.getBoundingClientRect().top;
 			break;
 		case "bottom":
-			tmp1 = element2.getBoundingClientRect().bottom;
+			tmp2 = element2.getBoundingClientRect().bottom;
 			break;
 		default:
-			tmp1 = null;
+			tmp2 = null;
 		}
-		var prop4 = tmp1;
+		var prop4 = tmp2;
 		cb1(prop4);
 	});
-	var fn_animation_ended = function(e1) {
+	var tmp1;
+	var fn_animation_ended1 = null;
+	fn_animation_ended1 = function(e1) {
 		animation_ended = true;
-		el1.removeEventListener(event_animation,fn);
-		el1.removeEventListener(event_transition,fn);
+		el1.removeEventListener(event_animation,fn_animation_ended1);
+		el1.removeEventListener(event_transition,fn_animation_ended1);
 		fn(e1);
 	};
+	tmp1 = fn_animation_ended1;
+	var fn_animation_ended = tmp1;
 	el1.addEventListener(event_animation,fn_animation_ended);
 	el1.addEventListener(event_transition,fn_animation_ended);
 	var tmp;
-	var __fn_tmp_50311672_3530597538_bbae7958f09073afc387d7255bf20c8e = function(__return1) {
+	var __fn_tmp_31316471_9732974_136ef470d02a1bd51c8afeadebe0f5b2 = function(__return1) {
 		__return1();
 	};
-	tmp = __fn_tmp_50311672_3530597538_bbae7958f09073afc387d7255bf20c8e;
+	tmp = __fn_tmp_31316471_9732974_136ef470d02a1bd51c8afeadebe0f5b2;
 	tmp(function() {
 	});
 };
@@ -159,12 +182,39 @@ browser_$tools_events_Helper.get_prefix = function() {
    ;
 	return browser_$tools_events_Helper._prefix;
 };
+var js__$Boot_HaxeError = function(val) {
+	Error.call(this);
+	this.val = val;
+	this.message = String(val);
+	if(Error.captureStackTrace) Error.captureStackTrace(this,js__$Boot_HaxeError);
+};
+js__$Boot_HaxeError.__super__ = Error;
+js__$Boot_HaxeError.prototype = $extend(Error.prototype,{
+});
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
 var q = window.jQuery;
 var js = js || {}
 js.JQuery = q;
+browser_$tools_BrowserDevice.browser = (function($this) {
+	var $r;
+	var navigator = window.navigator;
+	var navigatorObj = navigator.appName;
+	var userAgentObj = navigator.userAgent;
+	var matchVersion;
+	var browser = null;
+	var version = null;
+	var rg_browser = new EReg("(opera|chrome|safari|firefox|msie|trident)/?\\s*(\\.?\\d+(\\.\\d+)*)","i");
+	var rg_system_mobile = new EReg("iPhone|Android|webOS|iPad","i");
+	var rg_version = new EReg("version/([\\.\\d]+)","i");
+	var match_browser = rg_browser.match(userAgentObj);
+	var match_version = rg_version.match(userAgentObj);
+	var browser1 = match_browser?rg_browser.matched(1):navigatorObj;
+	version = match_version?rg_version.matched(1):rg_browser.matched(2);
+	$r = rg_system_mobile.match(navigator.userAgent)?{ browser : browser1, version : parseFloat(version), type : "mobile"}:{ browser : browser1, version : parseFloat(version), type : "desktop"};
+	return $r;
+}(this));
 browser_$tools_Binder.class_path = "browser_tools.Binder";
 browser_$tools_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});

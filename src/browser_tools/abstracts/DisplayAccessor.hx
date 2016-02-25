@@ -11,6 +11,10 @@ abstract DisplayAccessor(Element) {
 
     public inline function wait_for_animation_end(?timeout:Int = 300,?property_detect:String = null,cb:Bool->Void) {
 
+      if (browser_tools.BrowserDevice.IE9) {
+        cb(true);
+      }
+
       var el = new AElement(this);
 
       var animation_ended = null;
