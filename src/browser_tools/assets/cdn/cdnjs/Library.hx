@@ -13,7 +13,7 @@ abstract Library(String) from String to String {
    var angular_ui_select_css = 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.12.0/select.min.css';
    var metrics_graphics_css =  'https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.5.0/metricsgraphics.min.css';
    
-   var bootstrap_css = 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css';
+   var bootstrap_css = 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css';
    var bootstrap_material_design = 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.min.css';
    var nd_d3_css = 'https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.1/nv.d3.min.css';
 
